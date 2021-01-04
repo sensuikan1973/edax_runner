@@ -1,0 +1,17 @@
+on:
+  pull_request:
+    types: [opened, synchronize]
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image:  google/dart:latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: install dependencies
+      run: pub get
+    - name: analyzer
+      run: dartanalyzer ./
