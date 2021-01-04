@@ -1,3 +1,7 @@
+.dart_tool
+.packages
+.pub/
+
 .vscode/
 
 .DS_Store
