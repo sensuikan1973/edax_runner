@@ -1,31 +1,65 @@
+# TODO: edax-reversi の build も毎度実行してるけど、理想としては edax-reversi 側に GitHub Actions 置きたい。そうは言ってもメッチャ時間かかるとかではないので一旦気にせず。
+
 on:
   push:
     branches: [ main ]
 
 jobs:
   build:
+    env: # See: https://docs.github.com/ja/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#jobsjob_idenv
+      BUILD_DIR: build
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macOS-latest]
-        include:
+        include: # See: https://docs.github.com/ja/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#using-environment-variables-in-a-matrix
           - os: ubuntu-latest
-            output-name: edax_runner-linux
+            edax-runner_bin_name: edax_runner-linux
+            edax_build_command: make build ARCH=x64 COMP=gcc OS=linux
           - os: macOS-latest
-            output-name: edax_runner-mac
+            edax-runner_bin_name: edax_runner-mac
+            edax_build_command: make build ARCH=x64 COMP=gcc OS=osx
           - os: windows-latest
-            output-name: edax_runner-windows.exe
+            edax-runner_bin_name: edax_runner-windows.exe
+            edax_build_command: make build ARCH=x64 COMP=gcc OS=windows
 
     steps:
       - uses: actions/checkout@v2
+      - name: mkdir env.BUILD_DIR
+        run: mkdir ${{ env.BUILD_DIR }}
+
+      - name: clone edax-reversi
+        run: git clone --depth 1 https://github.com/abulmo/edax-reversi.git
+      - name: fetch eval.dat
+        if: runner.os == 'Linux' # eval.dat のダウンロードはどれか一つで実行できればオッケー
+        working-directory: edax-reversi
+        run: |
+          mkdir data
+          curl -OL https://github.com/abulmo/edax-reversi/releases/download/v4.4/eval.7z
+          7z x eval.7z # 7z は最初から入ってる。See: https://github.com/actions/virtual-environments/search?q=7z
+      - name: build edax
+        working-directory: edax-reversi
+        run: mkdir bin && cd src && ${{ matrix.edax_build_command }}
+
+      - name: copy edax-reversi binary to edax-runner build directory
+        run: |
+           mkdir -p ${{ env.BUILD_DIR }}/edax-reversi-releases
+           mv edax-reversi/bin/ ${{ env.BUILD_DIR }}/edax-reversi-releases
+      - name: copy edax-reversi data to edax-runner build directory
+        if: runner.os == 'Linux' # eval.dat のコピーはどれか一つで実行すればオッケー
+        run: |
+           mkdir -p ${{ env.BUILD_DIR }}/edax-reversi-releases
+           mv edax-reversi/data/ ${{ env.BUILD_DIR }}/edax-reversi-releases
+
       # https://dart.dev/tools/dart2native
       # https://blog.dantup.com/2019/11/easily-compiling-dart-to-native-executables-for-windows-linux-macos-with-github-actions/
       - uses: DanTup/gh-actions/setup-dart@master
       - name: install dependencies
         run: pub get
-      - run: mkdir build
-      - run: dart2native bin/edax_runner.dart -v -o build/${{ matrix.output-name }}
+      - name: dart2native
+        run: dart2native bin/edax_runner.dart -v -o ${{ env.BUILD_DIR }}/${{ matrix.edax-runner_bin_name }}
+
       - uses: actions/upload-artifact@v2
         with:
-          name: native-executables
-          path: build
+          name: edax_runner-releases
+          path: ${{ env.BUILD_DIR }}

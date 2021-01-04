@@ -1,6 +1,6 @@
 name: edax_runner
 version: 0.0.1
-description: edax_runner # TODO: specify
+description: edax_runner # TODO: describe
 author: Naoki Shimizu
 
 environment:
