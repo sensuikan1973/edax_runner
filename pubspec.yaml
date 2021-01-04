@@ -1,7 +1,11 @@
 name: edax_runner
+version: 0.0.1
+description: edax_runner # TODO: specify
 author: Naoki Shimizu
+
 environment:
   sdk: '>2.10.0 <3.0.0'
+
 dev_dependencies:
   analyzer: ^0.41.1
   pedantic_sensuikan1973: any
