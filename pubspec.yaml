@@ -3,6 +3,6 @@ author: Naoki Shimizu
 environment:
   sdk: '>2.10.0 <3.0.0'
 dev_dependencies:
+  analyzer: ^0.41.1
   pedantic_sensuikan1973: any
   test: ^1.15.7
-  analyzer: ^0.41.1
