@@ -52,7 +52,7 @@ jobs:
         if: runner.os == 'Linux' # eval.dat のコピーはどれか一つで実行すればオッケー
         run: mv edax-reversi/data/ ${{ env.BUILD_DIR }}/edax-reversi-releases
       - name: copy edax.ini to edax-runner build directory
-        if: runner.os == 'Linux' # eval.dat のコピーはどれか一つで実行すればオッケー
+        if: runner.os == 'Linux' # eval.ini のコピーはどれか一つで実行すればオッケー
         run: mv edax.ini ${{ env.BUILD_DIR }}/edax-reversi-releases/bin
 
       # https://dart.dev/tools/dart2native

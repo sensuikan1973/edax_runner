@@ -1,5 +1,5 @@
 # edax_runner
-**simple cli tool for [edax-reversi](https://github.com/abulmo/edax-reversi)**.
+**simple cli tool for [edax-reversi](https://github.com/abulmo/edax-reversi)** auto learning.
 
 - you only write _learning_list_ txt.
 - support Linux, Mac, Windows.
