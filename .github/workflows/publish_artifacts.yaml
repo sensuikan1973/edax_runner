@@ -65,10 +65,12 @@ jobs:
       - name: dart2native # https://dart.dev/tools/dart2native
         run: dart2native bin/edax_runner.dart -v -o ${{ env.BUILD_DIR }}/${{ matrix.edax-runner_bin_name }}
 
-      - name: Tar files to maintain file permissions # https://github.com/actions/upload-artifact#maintaining-file-permissions-and-case-sensitive-files
-        run: tar -cvf ${{ env.BUILD_DIR }}.tar ${{ env.BUILD_DIR }}
+      # See: https://github.com/actions/upload-artifact/issues/38
+      # Workaround: https://github.com/actions/upload-artifact#maintaining-file-permissions-and-case-sensitive-files
+      - name: Tar files to maintain file permissions
+        run: mkdir -p dst && tar -cvf dst/${{ matrix.os }}.tar ${{ env.BUILD_DIR }}
 
       - uses: actions/upload-artifact@v2
         with:
           name: edax_runner-releases
-          path: ${{ env.BUILD_DIR }}.tar
+          path: dst
