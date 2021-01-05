@@ -50,7 +50,7 @@ There are only 4 syntaxes.
 dartfmt ./ -w -l 120
 ```
 
-### build edax (Mac)
+### local build (Mac)
 ```sh
 ./scripts/build_on_mac.sh # TODO: Docker
 cd build

@@ -12,9 +12,10 @@ cd ..
 chmod +x bin/mEdax
 
 cd ../
+rm -rf build
+mkdir -p build
+
 cp edax.ini build/edax.ini
 cp -r edax-reversi/bin build/bin
 cp -r edax-reversi/data build/data
-
-mkdir -p build
 dart2native bin/edax_runner.dart -v -o build/edax_runner-mac
