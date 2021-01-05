@@ -28,6 +28,7 @@ easy
 ```
 
 #### rules
+There are only 4 syntaxes.
 
 - `book deviate`: `[1st_arg 2nd_arg] move`
 - learn one game by randomness mode 2: `randomness, move`
