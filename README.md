@@ -1,4 +1,9 @@
 # edax_runner
+
+<p align="center">
+<img src="https://github.com/rrousselGit/river_pod/blob/master/resources/logo.png?raw=true" alt="Riverpod" />
+</p>
+
 **simple cli tool for [edax-reversi](https://github.com/abulmo/edax-reversi)** auto learning.
 
 - you only write _learning_list_ txt.
