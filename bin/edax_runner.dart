@@ -1,12 +1,11 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:edax_runner/foo.dart' as foo;
 
 Future<void> main(List<String> arguments) async {
-  print('edax binary path: ${foo.edaxBinPath}'); // ignore: avoid_print
+  print('edax binary path: $_edaxBinPath'); // ignore: avoid_print
 
   final sampleCommandList = await Process.start('echo', ['hint 1\n version\n hint 2\n version\n']);
-  final edax = await Process.start('./${foo.edaxBinPath}', []);
+  final edax = await Process.start('./$_edaxBinPath', []);
 
   // wait edax loading data
   await Future<void>.delayed(const Duration(seconds: 20));
@@ -21,6 +20,13 @@ Future<void> main(List<String> arguments) async {
 
   await edax.stdout.pipe(stdout);
   await edax.stderr.pipe(stderr);
+}
+
+String get _edaxBinPath {
+  if (Platform.isLinux) return 'bin/lEdax-x64-modern';
+  if (Platform.isMacOS) return 'bin/mEdax';
+  if (Platform.isWindows) return 'bin/wEdax-x64-modern.exe';
+  throw Exception('${Platform.operatingSystem} is not supported');
 }
 
 // TODO: 実装イメージ
