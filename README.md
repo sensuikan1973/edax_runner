@@ -17,16 +17,7 @@
 
 ### How to write learning_list.txt
 #### example
-```learning_list.txt
-// 「deviate 2 4」
-[2 4] F5F6E6F4G5E7E3F3C5C4G3C6D6D7C3C2B5D3B4E2F2H3F1D1D2G4G6C1E1B6C7D8F7H4F8G7
-// learn one game by 「book-randomness 4 & mode 2」
-4,F5F6E6D6E7
-// learn one game by 「book-randomness 2 & mode 2」
-2,F5F6E6D6E7
-// 「deviate 1 1」
-[1 1] F5F6E6F4G5E7E3F3
-```
+See: [`learning_list.txt`](https://github.com/sensuikan1973/edax_runner/blob/main/learning_list.txt)
 
 #### rules
 There are only 4 syntaxes.
