@@ -50,9 +50,10 @@ jobs:
            mv edax-reversi/bin/ ${{ env.BUILD_DIR }}/edax-reversi-releases
       - name: copy edax-reversi data to edax-runner build directory
         if: runner.os == 'Linux' # eval.dat のコピーはどれか一つで実行すればオッケー
-        run: |
-           mkdir -p ${{ env.BUILD_DIR }}/edax-reversi-releases
-           mv edax-reversi/data/ ${{ env.BUILD_DIR }}/edax-reversi-releases
+        run: mv edax-reversi/data/ ${{ env.BUILD_DIR }}/edax-reversi-releases
+      - name: copy edax.ini to edax-runner build directory
+        if: runner.os == 'Linux' # eval.dat のコピーはどれか一つで実行すればオッケー
+        run: mv edax.ini ${{ env.BUILD_DIR }}/edax-reversi-releases/bin
 
       # https://dart.dev/tools/dart2native
       # https://blog.dantup.com/2019/11/easily-compiling-dart-to-native-executables-for-windows-linux-macos-with-github-actions/
