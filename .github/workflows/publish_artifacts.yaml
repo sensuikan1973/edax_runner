@@ -1,4 +1,4 @@
-# TODO: edax-reversi の build も毎度実行してるけど、理想としては edax-reversi 側に GitHub Actions 置きたい。そうは言ってもメッチャ時間かかるとかではないので一旦気にせず。
+# TODO: move edax-reversi build job to edax-reversi repository
 
 name: publish_artifacts
 
@@ -42,7 +42,7 @@ jobs:
         run: |
           mkdir data
           curl -OL https://github.com/abulmo/edax-reversi/releases/download/v4.4/eval.7z
-          7z x eval.7z # 7z は最初から入ってる。See: https://github.com/actions/virtual-environments/search?q=7z
+          7z x eval.7z # 7z is pre-installed。See: https://github.com/actions/virtual-environments/search?q=7z
       - name: build edax
         working-directory: edax-reversi
         run: mkdir bin && cd src && ${{ matrix.edax_build_command }} && chmod +x ../bin/${{ matrix.edax_bin_name }}
