@@ -1,3 +1,5 @@
+name: unit_test
+
 on:
   pull_request:
     types: [opened, synchronize]

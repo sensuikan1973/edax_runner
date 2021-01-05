@@ -1,3 +1,5 @@
+name: dartfmt
+
 on:
   pull_request:
     types: [opened, synchronize]

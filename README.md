@@ -45,10 +45,10 @@ There are only 4 syntaxes.
 - [Choirokoitia | Edax](https://choi.lavox.net/edax/start)
 
 ## Development
-![.github/workflows/dartfmt.yaml](https://github.com/sensuikan1973/edax_runner/workflows/.github/workflows/dartfmt.yaml/badge.svg?event=push)
-![.github/workflows/dartanalyzer.yaml](https://github.com/sensuikan1973/edax_runner/workflows/.github/workflows/dartanalyzer.yaml/badge.svg?event=push)
-![.github/workflows/unit_test.yaml](https://github.com/sensuikan1973/edax_runner/workflows/.github/workflows/unit_test.yaml/badge.svg?event=push)
-![.github/workflows/dart2native.yaml](https://github.com/sensuikan1973/edax_runner/workflows/.github/workflows/dart2native.yaml/badge.svg?event=push)
+![dartfmt](https://github.com/sensuikan1973/edax_runner/workflows/dartfmt/badge.svg?event=push)
+![dartanalyzer](https://github.com/sensuikan1973/edax_runner/workflows/dartanalyzer/badge.svg?event=push)
+![unit_test](https://github.com/sensuikan1973/edax_runner/workflows/unit_test/badge.svg?event=push)
+![publish_artifacts](https://github.com/sensuikan1973/edax_runner/workflows/publish_artifacts/badge.svg?event=push)
 
 ### format
 ```sh

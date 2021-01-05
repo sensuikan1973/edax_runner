@@ -1,9 +1,11 @@
 # TODO: edax-reversi の build も毎度実行してるけど、理想としては edax-reversi 側に GitHub Actions 置きたい。そうは言ってもメッチャ時間かかるとかではないので一旦気にせず。
 
+name: publish_artifacts
+
 on:
   push:
     branches: [ main ]
-    paths: ['bin/**', 'lib/**', '.github/workflows/dart2native.yaml', 'pubspec.*']
+    paths: ['bin/**', 'lib/**', '.github/workflows/publish_artifacts.yaml', 'pubspec.*']
 
 jobs:
   build:
