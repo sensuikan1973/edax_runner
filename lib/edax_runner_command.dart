@@ -1,3 +1,4 @@
+import 'package:meta/meta.dart';
 import 'edax_command.dart' as edax;
 
 class EdaxRunnerCommandBuilder {
@@ -6,26 +7,24 @@ ${edax.playMove(move)}
 ${edax.bookDeviate(errLowerBound, errUpperBound)}
 ${edax.bookSave(bookFile)}
 ${bookFix()}
-$_eocCommand
+$eocCommand
 ''';
 
-  String playGameEdaxVsEdax(String move, int bookRandomness) => '''
+  String playGameEdaxVsEdax(String move, [int bookRandomness = 0]) => '''
 ${edax.setBookRandomness(bookRandomness)}
 ${edax.playMove(move)}
 ${edax.playGameEdaxVsEdax()}
 ${edax.bookStore()}
-$_eocCommand
+$eocCommand
 ''';
 
-  String bookFix() => '''
-${edax.bookFix()}
-$_eocCommand
-''';
+  String bookFix() => edax.bookFix();
 
   String quit() => edax.quit();
 
   // command list separation.
   // "version" output is stderr.
   // See: https://github.com/abulmo/edax-reversi/blob/01899aecce8bc780517149c80f178fb478a17a0b/src/main.c#L29
-  String get _eocCommand => 'version';
+  @visibleForTesting
+  String get eocCommand => 'version';
 }
