@@ -55,12 +55,11 @@ jobs:
         if: runner.os == 'Linux' # eval.ini のコピーはどれか一つで実行すればオッケー
         run: mv edax.ini ${{ env.BUILD_DIR }}/edax-reversi-releases
 
-      # https://dart.dev/tools/dart2native
       # https://blog.dantup.com/2019/11/easily-compiling-dart-to-native-executables-for-windows-linux-macos-with-github-actions/
-      - uses: DanTup/gh-actions/setup-dart@master
+      - uses: cedx/setup-dart@v2
       - name: install dependencies
         run: pub get
-      - name: dart2native
+      - name: dart2native # https://dart.dev/tools/dart2native
         run: dart2native bin/edax_runner.dart -v -o ${{ env.BUILD_DIR }}/${{ matrix.edax-runner_bin_name }}
 
       - uses: actions/upload-artifact@v2
