@@ -1,8 +1,7 @@
 # edax_runner
 
-![.github/workflows/dartfmt.yaml](https://github.com/sensuikan1973/edax_runner/workflows/.github/workflows/dartfmt.yaml/badge.svg?event=push)
-![.github/workflows/dartanalyzer.yaml](https://github.com/sensuikan1973/edax_runner/workflows/.github/workflows/dartanalyzer.yaml/badge.svg?event=push)
-![.github/workflows/unit_test.yaml](https://github.com/sensuikan1973/edax_runner/workflows/.github/workflows/unit_test.yaml/badge.svg?event=push)
+**Simple tool for auto learning by [edax-reversi](https://github.com/abulmo/edax-reversi)**.  
+This tool only passes command list to edax process and catch the logs.
 
 ## Usage
 easy
@@ -20,6 +19,9 @@ easy
 - [Choirokoitia | Edax](https://choi.lavox.net/edax/start)
 
 ## Development
+![.github/workflows/dartfmt.yaml](https://github.com/sensuikan1973/edax_runner/workflows/.github/workflows/dartfmt.yaml/badge.svg?event=push)
+![.github/workflows/dartanalyzer.yaml](https://github.com/sensuikan1973/edax_runner/workflows/.github/workflows/dartanalyzer.yaml/badge.svg?event=push)
+![.github/workflows/unit_test.yaml](https://github.com/sensuikan1973/edax_runner/workflows/.github/workflows/unit_test.yaml/badge.svg?event=push)
 
 ### format
 ```sh

@@ -1,6 +1,6 @@
 name: edax_runner
 version: 0.0.1
-description: edax_runner # TODO: describe
+description: simple tool for auto learning by edax-reversi(https://github.com/abulmo/edax-reversi)
 author: Naoki Shimizu
 
 environment:
