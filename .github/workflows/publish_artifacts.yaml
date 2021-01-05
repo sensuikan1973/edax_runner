@@ -19,12 +19,15 @@ jobs:
           - os: ubuntu-latest
             edax-runner_bin_name: edax_runner-linux
             edax_build_command: make build ARCH=x64 COMP=gcc OS=linux
+            edax_bin_name: lEdax-x64
           - os: macOS-latest
             edax-runner_bin_name: edax_runner-mac
             edax_build_command: make build ARCH=x64 COMP=gcc OS=osx
+            edax_bin_name: mEdax
           - os: windows-latest
             edax-runner_bin_name: edax_runner-windows.exe
             edax_build_command: make build ARCH=x64 COMP=gcc OS=windows
+            edax_bin_name: wEdax-x64.exe
 
     steps:
       - uses: actions/checkout@v2
@@ -42,7 +45,7 @@ jobs:
           7z x eval.7z # 7z は最初から入ってる。See: https://github.com/actions/virtual-environments/search?q=7z
       - name: build edax
         working-directory: edax-reversi
-        run: mkdir bin && cd src && ${{ matrix.edax_build_command }}
+        run: mkdir bin && cd src && ${{ matrix.edax_build_command }} && chmod +x ../bin/${{ matrix.edax_bin_name }}
 
       - name: copy edax-reversi binary to edax-runner build directory
         run: |
