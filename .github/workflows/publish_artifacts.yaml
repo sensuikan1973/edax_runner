@@ -63,7 +63,9 @@ jobs:
 
       - name: launch edax-runner test
         working-directory: ${{ env.OUTPUT_DIR }}
-        run: ./bin/${{ matrix.edax_bin_name }} && sleep 30 && rm *.log
+        run: |
+          ./${{ matrix.edax-runner_bin_name }} & sleep 30
+          rm *.log
 
       # See: https://github.com/actions/upload-artifact/issues/38
       # Workaround: https://github.com/actions/upload-artifact#maintaining-file-permissions-and-case-sensitive-files

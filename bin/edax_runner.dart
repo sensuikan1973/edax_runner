@@ -11,6 +11,7 @@ Future<void> main(List<String> arguments) async {
   // wait edax loading data
   await Future<void>.delayed(const Duration(seconds: 20));
 
+  // ref: https://stackoverflow.com/questions/59746768/dart-how-to-pass-data-from-one-process-to-another-via-streams
   await sampleCommandList.stdout
       .transform(utf8.decoder)
       .transform(const LineSplitter())
