@@ -10,7 +10,8 @@ easy
 
 1. dowonload edax-runner Release (TODO: add link)
 2. edit `learning_list.txt` which you want to let edax learn
-3. `./edax_runner`
+3. (option) edit `edax.ini`
+4. `./edax_runner`
 
 ### How to write learning_list.txt
 
