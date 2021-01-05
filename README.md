@@ -1,20 +1,16 @@
 # edax_runner
-
-**simple tool for auto learning by [edax-reversi](https://github.com/abulmo/edax-reversi)**.
+**simple cli tool for [edax-reversi](https://github.com/abulmo/edax-reversi)**.
 
 - you only write _learning_list_ txt.
 - support Linux, Mac, Windows.
 
 ## Usage
-easy
-
 1. dowonload edax-runner Release (TODO: add link)
 2. edit `learning_list.txt` which you want to let edax learn
 3. (option) edit `edax.ini`
 4. `./edax_runner`
 
 ### How to write learning_list.txt
-
 #### example
 ```learning_list.txt
 // 「deviate 2 4」
@@ -37,7 +33,6 @@ There are only 4 syntaxes.
 - comment: `// comment`
 
 ## Reference
-
 - **[edax-reversi](https://github.com/abulmo/edax-reversi)**
   - [code/releases archive](https://code.google.com/archive/p/edax-reversi/downloads)
   - [website archive](https://archive.is/KshiN)
