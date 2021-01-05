@@ -1,14 +1,16 @@
 import 'dart:convert';
 import 'dart:io';
 
+const int _waitEdaxLoadingData = 20;
+
 Future<void> main(List<String> arguments) async {
-  print('edax binary path: $_edaxBinPath'); // ignore: avoid_print
+  stdout.writeln('edax binary path: $_edaxBinPath');
+
+  final edax = await Process.start('./$_edaxBinPath', []);
+  stdout.writeln('wait edax loading data: $_waitEdaxLoadingData sec');
+  await Future<void>.delayed(const Duration(seconds: _waitEdaxLoadingData));
 
   final sampleCommandList = await Process.start('echo', ['hint 1\n version\n hint 2\n version\n']);
-  final edax = await Process.start('./$_edaxBinPath', []);
-
-  // wait edax loading data
-  await Future<void>.delayed(const Duration(seconds: 20));
 
   // ref: https://stackoverflow.com/questions/59746768/dart-how-to-pass-data-from-one-process-to-another-via-streams
   await sampleCommandList.stdout
