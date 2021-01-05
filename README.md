@@ -1,13 +1,12 @@
 # edax_runner
-
 <p align="center">
 <img src="https://github.com/sensuikan1973/edax_runner/blob/main/resources/logo.png?raw=true" alt="edax-runner" />
 </p>
 
-**simple cli tool for [edax-reversi](https://github.com/abulmo/edax-reversi)** auto learning.
+**simple cli tool for [edax-reversi](https://github.com/abulmo/edax-reversi) auto learning**.
 
-- you only write _learning_list_ txt.
 - support Linux, Mac, Windows.
+- you only write _learning_list_ txt.
 
 ## Usage
 1. dowonload edax-runner Release (TODO: add link)
