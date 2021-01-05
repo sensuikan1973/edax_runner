@@ -18,16 +18,16 @@ jobs:
         include: # See: https://docs.github.com/ja/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#using-environment-variables-in-a-matrix
           - os: ubuntu-latest
             edax-runner_bin_name: edax_runner-linux
-            edax_build_command: make build ARCH=x64 COMP=gcc OS=linux
-            edax_bin_name: lEdax-x64
+            edax_build_command: make build ARCH=x64-modern COMP=gcc OS=linux
+            edax_bin_name: lEdax-x64-modern
           - os: macOS-latest
             edax-runner_bin_name: edax_runner-mac
-            edax_build_command: make build ARCH=x64 COMP=gcc OS=osx
+            edax_build_command: make build ARCH=x64-modern COMP=gcc OS=osx
             edax_bin_name: mEdax
           - os: windows-latest
             edax-runner_bin_name: edax_runner-windows.exe
-            edax_build_command: make build ARCH=x64 COMP=gcc OS=windows
-            edax_bin_name: wEdax-x64.exe
+            edax_build_command: make build ARCH=x64-modern COMP=gcc OS=windows
+            edax_bin_name: wEdax-x64-modern.exe
 
     steps:
       - uses: actions/checkout@v2
