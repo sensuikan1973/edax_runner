@@ -53,6 +53,8 @@ jobs:
         run: mv edax-reversi/data/ ${{ env.OUTPUT_DIR }}
       - name: copy edax.ini to edax-runner build directory
         run: mv edax.ini ${{ env.OUTPUT_DIR }}
+      - name: copy learning_list.txt to edax-runner build directory
+        run: mv learning_list.txt ${{ env.OUTPUT_DIR }}
 
       # https://blog.dantup.com/2019/11/easily-compiling-dart-to-native-executables-for-windows-linux-macos-with-github-actions/
       - uses: cedx/setup-dart@v2
