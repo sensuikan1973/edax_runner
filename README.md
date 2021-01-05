@@ -8,7 +8,7 @@
 easy
 
 1. dowonload Releases (TODO: link)
-2. edit `move_list.txt` which you want to let edax learn
+2. edit `learn_list.txt` which you want to let edax learn
 3. `./edax_runner`
 
 ## Reference
