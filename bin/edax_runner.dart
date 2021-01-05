@@ -37,3 +37,4 @@ Future<void> main(List<String> arguments) async {
 // # dev
 // 1. learning_list.txt みたいなファイルを edax command として解釈する
 // 2. それを echo して pipe して ./bin/mEdax みたいに実行する
+// 3. version (stderr) を listen してログを残していく感じ
