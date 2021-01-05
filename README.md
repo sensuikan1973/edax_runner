@@ -20,13 +20,14 @@
 See: [`learning_list.txt`](https://github.com/sensuikan1973/edax_runner/blob/main/learning_list.txt)
 
 #### rules
-There are only 4 syntaxes.
+There are only 4 rules.
 
-- `book deviate`: `[1st_arg 2nd_arg] move`
-- learn one game by randomness mode 2: `randomness, move`
-  - default randomenss is `0`
-- `book fix`: `fix`
-- comment: `// comment`
+| rule | how to write | example | note |
+| :---: | :---: | :---: | :---: |
+| learn one game by edax vs edax game | `{book-randomness},{move}` | `2,F5F6F7F8` | [the default value of `book-randomness` is `0`](https://github.com/abulmo/edax-reversi/blob/01899aecce8bc780517149c80f178fb478a17a0b/src/edax.c#L643-L645) |
+| run `book deviate arg1 arg2` | `[arg1 arg2] {move}` | `[1 1] F5F6F7F8` | [what's "book deviate" ?](https://github.com/abulmo/edax-reversi/blob/01899aecce8bc780517149c80f178fb478a17a0b/src/book.c#L934-L949) |
+| run `book fix` | `fix` | `fix` | |
+| comment | `// foo bar` | `// my favorite Brightwell variations` | |
 
 ## Reference
 - **[edax-reversi](https://github.com/abulmo/edax-reversi)**
