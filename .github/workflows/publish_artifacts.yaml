@@ -59,14 +59,13 @@ jobs:
       - uses: cedx/setup-dart@v2
       - name: install dependencies
         run: pub get
-      - name: dart2native # https://dart.dev/tools/dart2native
+      - name: build edax-runner # https://dart.dev/tools/dart2native
         run: dart2native bin/edax_runner.dart -v -o ${{ env.OUTPUT_DIR }}/${{ matrix.edax-runner_bin_name }}
 
       # See: https://github.com/actions/upload-artifact/issues/38
       # Workaround: https://github.com/actions/upload-artifact#maintaining-file-permissions-and-case-sensitive-files
       - name: Tar files to maintain file permissions
         run: mkdir -p dst && tar -cvf dst/${{ runner.os }}.tar ${{ env.OUTPUT_DIR }}
-
       - uses: actions/upload-artifact@v2
         with:
           name: edax_runner-releases
