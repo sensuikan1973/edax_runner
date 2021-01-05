@@ -1,12 +1,24 @@
+import 'dart:convert';
 import 'dart:io';
-
 import 'package:edax_runner/foo.dart' as foo;
-
-void main(List<String> arguments) {
+Future<void> main(List<String> arguments) async {
   print('edax binary path: ${foo.edaxBinPath}'); // ignore: avoid_print
-  Process.run('./${foo.edaxBinPath}', []).then((results) {
-    print(results.stdout);
-  });
+
+  final sampleCommandList = await Process.start('echo', ['hint 1\n version\n hint 2\n version\n']);
+  final edax = await Process.start('./${foo.edaxBinPath}', []);
+
+  // wait edax loading data
+  await Future<void>.delayed(const Duration(seconds: 20));
+
+  await sampleCommandList.stdout
+      .transform(utf8.decoder)
+      .transform(const LineSplitter())
+      .map((cmd) => '$cmd\n')
+      .transform(utf8.encoder)
+      .pipe(edax.stdin);
+
+  await edax.stdout.pipe(stdout);
+  await edax.stderr.pipe(stderr); // See: https://github.com/abulmo/edax-reversi/blob/01899aecce8bc780517149c80f178fb478a17a0b/src/main.c#L29
 }
 
 // TODO: 実装イメージ
