@@ -5,7 +5,7 @@ name: publish_artifacts
 on:
   push:
     branches: [ main ]
-    paths: ['bin/**', 'lib/**', '.github/workflows/publish_artifacts.yaml', 'pubspec.*', 'edax.ini']
+    paths: ['bin/**', 'lib/**', '.github/workflows/publish_artifacts.yaml', 'pubspec.*', 'edax.ini', 'learning_list.txt']
 
 jobs:
   build:
