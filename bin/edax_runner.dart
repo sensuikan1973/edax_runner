@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:edax_runner/foo.dart' as foo;
+
 Future<void> main(List<String> arguments) async {
   print('edax binary path: ${foo.edaxBinPath}'); // ignore: avoid_print
 
@@ -18,7 +19,8 @@ Future<void> main(List<String> arguments) async {
       .pipe(edax.stdin);
 
   await edax.stdout.pipe(stdout);
-  await edax.stderr.pipe(stderr); // See: https://github.com/abulmo/edax-reversi/blob/01899aecce8bc780517149c80f178fb478a17a0b/src/main.c#L29
+  await edax.stderr.pipe(
+      stderr); // See: https://github.com/abulmo/edax-reversi/blob/01899aecce8bc780517149c80f178fb478a17a0b/src/main.c#L29
 }
 
 // TODO: 実装イメージ
