@@ -10,7 +10,7 @@ on:
 jobs:
   build:
     env: # See: https://docs.github.com/ja/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#jobsjob_idenv
-      BUILD_DIR: build
+      OUTPUT_DIR: edax_runner-bin
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -31,13 +31,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: mkdir env.BUILD_DIR
-        run: mkdir ${{ env.BUILD_DIR }}
+      - name: mkdir env.OUTPUT_DIR
+        run: mkdir ${{ env.OUTPUT_DIR }}
 
       - name: clone edax-reversi
         run: git clone --depth 1 https://github.com/abulmo/edax-reversi.git
       - name: fetch eval.dat
-        if: runner.os == 'Linux' # eval.dat のダウンロードはどれか一つで実行できればオッケー
         working-directory: edax-reversi
         run: |
           mkdir data
@@ -49,26 +48,24 @@ jobs:
 
       - name: copy edax-reversi binary to edax-runner build directory
         run: |
-           mkdir -p ${{ env.BUILD_DIR }}/edax-reversi-releases
-           mv edax-reversi/bin/ ${{ env.BUILD_DIR }}/edax-reversi-releases
+           mkdir -p ${{ env.OUTPUT_DIR }}/edax
+           mv edax-reversi/bin/ ${{ env.OUTPUT_DIR }}/edax
       - name: copy edax-reversi data to edax-runner build directory
-        if: runner.os == 'Linux' # eval.dat のコピーはどれか一つで実行すればオッケー
-        run: mv edax-reversi/data/ ${{ env.BUILD_DIR }}/edax-reversi-releases
+        run: mv edax-reversi/data/ ${{ env.OUTPUT_DIR }}/edax
       - name: copy edax.ini to edax-runner build directory
-        if: runner.os == 'Linux' # eval.ini のコピーはどれか一つで実行すればオッケー
-        run: mv edax.ini ${{ env.BUILD_DIR }}/edax-reversi-releases
+        run: mv edax.ini ${{ env.OUTPUT_DIR }}/edax
 
       # https://blog.dantup.com/2019/11/easily-compiling-dart-to-native-executables-for-windows-linux-macos-with-github-actions/
       - uses: cedx/setup-dart@v2
       - name: install dependencies
         run: pub get
       - name: dart2native # https://dart.dev/tools/dart2native
-        run: dart2native bin/edax_runner.dart -v -o ${{ env.BUILD_DIR }}/${{ matrix.edax-runner_bin_name }}
+        run: dart2native bin/edax_runner.dart -v -o ${{ env.OUTPUT_DIR }}/${{ matrix.edax-runner_bin_name }}
 
       # See: https://github.com/actions/upload-artifact/issues/38
       # Workaround: https://github.com/actions/upload-artifact#maintaining-file-permissions-and-case-sensitive-files
       - name: Tar files to maintain file permissions
-        run: mkdir -p dst && tar -cvf dst/${{ matrix.os }}.tar ${{ env.BUILD_DIR }}
+        run: mkdir -p dst && tar -cvf dst/${{ runner.os }}.tar ${{ env.OUTPUT_DIR }}
 
       - uses: actions/upload-artifact@v2
         with:
