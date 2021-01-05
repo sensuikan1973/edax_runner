@@ -1,7 +1,12 @@
+import 'dart:io';
+
 import 'package:edax_runner/foo.dart' as foo;
 
 void main(List<String> arguments) {
   print('edax binary path: ${foo.edaxBinPath}'); // ignore: avoid_print
+  Process.run('./${foo.edaxBinPath}', []).then((results) {
+    print(results.stdout);
+  });
 }
 
 // TODO: 実装イメージ

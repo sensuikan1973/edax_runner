@@ -49,3 +49,9 @@ There are only 4 syntaxes.
 ```sh
 dartfmt ./ -w -l 120
 ```
+
+### build edax (Mac)
+```sh
+./scripts/build_on_mac.sh
+# TODO: Docker
+```

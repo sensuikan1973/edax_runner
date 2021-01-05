@@ -1,4 +1,6 @@
 *.log
+*.7z
+edax-reversi/
 
 # Files and directories created by pub
 .dart_tool/

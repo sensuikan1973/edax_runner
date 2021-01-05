@@ -47,13 +47,11 @@ jobs:
         run: mkdir bin && cd src && ${{ matrix.edax_build_command }} && chmod +x ../bin/${{ matrix.edax_bin_name }}
 
       - name: copy edax-reversi binary to edax-runner build directory
-        run: |
-           mkdir -p ${{ env.OUTPUT_DIR }}/edax
-           mv edax-reversi/bin/ ${{ env.OUTPUT_DIR }}/edax
+        run: mv edax-reversi/bin/ ${{ env.OUTPUT_DIR }}
       - name: copy edax-reversi data to edax-runner build directory
-        run: mv edax-reversi/data/ ${{ env.OUTPUT_DIR }}/edax
+        run: mv edax-reversi/data/ ${{ env.OUTPUT_DIR }}
       - name: copy edax.ini to edax-runner build directory
-        run: mv edax.ini ${{ env.OUTPUT_DIR }}/edax
+        run: mv edax.ini ${{ env.OUTPUT_DIR }}
 
       # https://blog.dantup.com/2019/11/easily-compiling-dart-to-native-executables-for-windows-linux-macos-with-github-actions/
       - uses: cedx/setup-dart@v2
