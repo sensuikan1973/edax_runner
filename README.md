@@ -4,6 +4,13 @@
 ![.github/workflows/dartanalyzer.yaml](https://github.com/sensuikan1973/edax_runner/workflows/.github/workflows/dartanalyzer.yaml/badge.svg?event=push)
 ![.github/workflows/unit_test.yaml](https://github.com/sensuikan1973/edax_runner/workflows/.github/workflows/unit_test.yaml/badge.svg?event=push)
 
+## Usage
+easy
+
+1. dowonload Releases (TODO: link)
+2. edit `move_list.txt` which you want to let edax learn
+3. `./edax_runner`
+
 ## Reference
 
 - **[edax-reversi](https://github.com/abulmo/edax-reversi)**
