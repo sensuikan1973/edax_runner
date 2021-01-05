@@ -12,6 +12,7 @@ jobs:
     env: # See: https://docs.github.com/ja/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#jobsjob_idenv
       OUTPUT_DIR: edax_runner-bin
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macOS-latest]
@@ -60,9 +61,13 @@ jobs:
       - name: build edax-runner # https://dart.dev/tools/dart2native
         run: dart2native bin/edax_runner.dart -v -o ${{ env.OUTPUT_DIR }}/${{ matrix.edax-runner_bin_name }}
 
+      - name: launch edax-runner test
+        working-directory: ${{ env.OUTPUT_DIR }}
+        run: ./bin/${{ matrix.edax_bin_name }} && sleep 30 && rm *.log
+
       # See: https://github.com/actions/upload-artifact/issues/38
       # Workaround: https://github.com/actions/upload-artifact#maintaining-file-permissions-and-case-sensitive-files
-      - name: Tar files to maintain file permissions
+      - name: tar files to maintain file permissions
         run: mkdir -p dst && tar -cvf dst/${{ runner.os }}.tar ${{ env.OUTPUT_DIR }}
       - uses: actions/upload-artifact@v2
         with:
