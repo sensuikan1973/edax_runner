@@ -20,8 +20,7 @@ Future<void> main(List<String> arguments) async {
       .pipe(edax.stdin);
 
   await edax.stdout.pipe(stdout);
-  await edax.stderr.pipe(
-      stderr); // See: https://github.com/abulmo/edax-reversi/blob/01899aecce8bc780517149c80f178fb478a17a0b/src/main.c#L29
+  await edax.stderr.pipe(stderr);
 }
 
 // TODO: 実装イメージ
