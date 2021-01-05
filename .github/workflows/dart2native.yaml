@@ -3,6 +3,7 @@
 on:
   push:
     branches: [ main ]
+    paths: ['bin/**', 'lib/**', '.github/workflows/dart2native.yaml', 'pubspec.*']
 
 jobs:
   build:

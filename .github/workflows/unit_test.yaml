@@ -1,8 +1,10 @@
 on:
   pull_request:
     types: [opened, synchronize]
+    paths: ['**.dart', 'pubspec.*', '.github/workflows/unit_test.yaml']
   push:
     branches: [ main ]
+    paths: ['**.dart', 'pubspec.*', '.github/workflows/unit_test.yaml']
 
 jobs:
   build:
