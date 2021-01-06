@@ -33,7 +33,7 @@ There are only 4 rules.
 - **[edax-reversi](https://github.com/abulmo/edax-reversi)**
   - [code/releases archive](https://code.google.com/archive/p/edax-reversi/downloads)
   - [website archive](https://archive.is/KshiN)
-- [Edax_AutoLearning_Tool](https://github.com/sensuikan1973/Edax_AutoLearning_Tool): My original tool. This has many issues such as low performance, low maintainability, only Windows etc. edax_runner replace/enhance the tool.
+- [Edax_AutoLearning_Tool](https://github.com/sensuikan1973/Edax_AutoLearning_Tool)
 - [Choirokoitia | Edax](https://choi.lavox.net/edax/start)
 
 ## Development
