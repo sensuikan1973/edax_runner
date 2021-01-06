@@ -18,4 +18,4 @@ jobs:
     - name: install dependencies
       run: pub get
     - name: analyzer
-      run: dartanalyzer ./
+      run: dartanalyzer --fatal-infos --fatal-warnings .
