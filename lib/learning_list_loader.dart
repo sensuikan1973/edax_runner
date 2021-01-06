@@ -1,0 +1,3 @@
+class LearningListLoader {
+  LearningListLoader() {}
+}
