@@ -1,11 +1,11 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:edax_runner/edax_runner_command.dart';
 import 'package:edax_runner/learner.dart';
 
 const int _waitEdaxLoadingData = 10;
 const String _learningListFile = 'learning_list.txt';
+const String _bookFile = 'data/book.dat';
 
 Future<void> main(List<String> arguments) async {
   stdout.writeln('edax binary path: $_edaxBinPath');
@@ -14,17 +14,14 @@ Future<void> main(List<String> arguments) async {
   stdout.writeln('wait edax loading data: $_waitEdaxLoadingData sec');
   await Future<void>.delayed(const Duration(seconds: _waitEdaxLoadingData));
 
-  final learner = Learner(_learningListFile);
+  final learner = Learner(_bookFile, _learningListFile);
 
-  final text = 'hint 1\n hint 2'; //learner.getNextLearningCommand();
-  edax.stdin.writeln('hint 1\n hint 2\n version \n hint 1');
-
-  edax.stderr.listen((event) {
+  edax.stdin.writeln(await learner.getNextLearningCommand());
+  edax.stderr.listen((event) async {
     stderr.writeln(utf8.decode(event));
-    edax.stdin.writeln('hint 3\n exit');
-    stdout.writeln('main exit');
+    await learner.removeLearnedText();
+    edax.stdin.writeln(await learner.getNextLearningCommand());
   });
-  learner.removeLearnedText();
   edax.stdout.listen((event) {
     stdout.writeln(utf8.decode(event));
   });
