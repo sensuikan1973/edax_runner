@@ -1,5 +1,5 @@
 class Learner {
-  Learner(this._learningTargetFile);
+  Learner(this._learningListFile);
 
-  String _learningTargetFile;
+  String _learningListFile;
 }

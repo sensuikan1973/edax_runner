@@ -13,14 +13,14 @@ String convertTextToCommand(String line, String bookFile) {
   final str = line.trim();
   if (str.contains('/')) throw Exception('$str is comment');
   if (str == 'fix' || str == 'quit') return str;
-  if (_bookDeviateRegexp.hasMatch(str)){
+  if (_bookDeviateRegexp.hasMatch(str)) {
     final match = _bookDeviateRegexp.firstMatch(str);
     return bookDeviate(bookFile, match.group(7), int.parse(match.group(2)), int.parse(match.group(4)));
   }
-  if (_edaxVsEdaxRegexp.hasMatch(str)){
+  if (_edaxVsEdaxRegexp.hasMatch(str)) {
     return playGameEdaxVsEdax(str);
   }
-  if (_edaxVsEdaxWithRandomnessRegexp.hasMatch(str)){
+  if (_edaxVsEdaxWithRandomnessRegexp.hasMatch(str)) {
     final match = _edaxVsEdaxWithRandomnessRegexp.firstMatch(str);
     return playGameEdaxVsEdax(match.group(3), int.parse(match.group(1)));
   }
