@@ -22,10 +22,10 @@ ${edax.bookFix()}
 $eocCommand
 ''';
 
-String quit() => edax.quit();
+String exit() => edax.exit();
 
 // command list separation.
 // "version" output is stderr.
 // See: https://github.com/abulmo/edax-reversi/blob/01899aecce8bc780517149c80f178fb478a17a0b/src/main.c#L29
 @visibleForTesting
-String get eocCommand => 'version';
+String get eocCommand => edax.version();

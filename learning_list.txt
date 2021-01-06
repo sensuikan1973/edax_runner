@@ -7,3 +7,4 @@ F5F6E6D6E7
 // 「deviate 1 1」
 [1 1] F5F6E6F4G5E7E3F3
 fix
+exit

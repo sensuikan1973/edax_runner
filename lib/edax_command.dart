@@ -9,4 +9,6 @@ String bookFix() => 'book fix';
 
 String bookSave(String file) => 'book save $file';
 
-String quit() => 'quit';
+String exit() => 'exit';
+
+String version() => 'version';
