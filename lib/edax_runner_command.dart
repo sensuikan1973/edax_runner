@@ -6,7 +6,7 @@ class EdaxRunnerCommandBuilder {
 ${edax.playMove(move)}
 ${edax.bookDeviate(errLowerBound, errUpperBound)}
 ${edax.bookSave(bookFile)}
-${bookFix()}
+${edax.bookFix()}
 $eocCommand
 ''';
 
@@ -18,7 +18,10 @@ ${edax.bookStore()}
 $eocCommand
 ''';
 
-  String bookFix() => edax.bookFix();
+  String bookFix() => '''
+${edax.bookFix()}
+$eocCommand
+''';
 
   String quit() => edax.quit();
 
