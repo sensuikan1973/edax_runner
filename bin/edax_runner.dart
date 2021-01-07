@@ -4,7 +4,6 @@ import 'dart:io';
 import 'package:edax_runner/learner.dart';
 
 const int _waitEdaxLoadingData = 10;
-const String _learningListFile = 'learning_list.txt';
 const String _bookFile = 'data/book.dat';
 
 Future<void> main(List<String> arguments) async {
@@ -14,7 +13,7 @@ Future<void> main(List<String> arguments) async {
   stdout.writeln('wait edax loading data: $_waitEdaxLoadingData sec');
   await Future<void>.delayed(const Duration(seconds: _waitEdaxLoadingData));
 
-  final learner = Learner(_bookFile, _learningListFile);
+  final learner = Learner(_bookFile);
 
   edax.stdin.writeln(await learner.getNextLearningCommand());
   edax.stderr.listen((event) async {

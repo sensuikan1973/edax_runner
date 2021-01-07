@@ -4,8 +4,8 @@ import 'converter_text_to_command.dart';
 import 'edax_runner_command.dart';
 
 class Learner {
-  Learner(this._bookFile, this._learningListFile, [String learnedLogFile = 'learned_log.txt'])
-      : _learnedLogFile = learnedLogFile;
+  Learner(this._bookFile, [String learningListFile = 'learning_list.txt', String learnedLogFile = 'learned_log.txt'])
+      : _learningListFile = learningListFile, _learnedLogFile = learnedLogFile;
 
   final String _bookFile;
   final String _learningListFile;
