@@ -1,11 +1,13 @@
 import 'dart:io';
+import 'dart:math';
 
 import 'converter_text_to_command.dart';
 import 'edax_runner_command.dart';
 
 class Learner {
   Learner(this._bookFile, [String learningListFile = 'learning_list.txt', String learnedLogFile = 'learned_log.txt'])
-      : _learningListFile = learningListFile, _learnedLogFile = learnedLogFile;
+      : _learningListFile = learningListFile,
+        _learnedLogFile = learnedLogFile;
 
   final String _bookFile;
   final String _learningListFile;
@@ -14,7 +16,8 @@ class Learner {
   Future<String> getNextLearningCommand() async {
     final file = File(_learningListFile);
     final lines = await file.readAsLines();
-    final nextLearningText = lines.firstWhere((line) => !line.contains(commentHead));
+    final nextLearningText = lines.firstWhere((line) => !line.contains(commentHead), orElse: () => '');
+    if (nextLearningText.isEmpty) return nextLearningText;
     return convertTextToCommand(nextLearningText, _bookFile);
   }
 
@@ -22,13 +25,14 @@ class Learner {
     final srcFile = File(_learningListFile);
     final logFile = File(_learnedLogFile);
     final lines = await srcFile.readAsLines();
-    var commandTextCount = 0;
+    var cnt = 0;
     for (final line in lines) {
       await logFile.writeAsString('$line\n', mode: FileMode.append);
-      if (!line.contains(commentHead)) commandTextCount += 1;
-      if (commandTextCount > 1) break;
+      cnt++;
+      if (!line.contains(commentHead)) break;
     }
-    lines.removeRange(0, commandTextCount + 1);
+    lines.removeRange(0, min(cnt, lines.length));
+    stdout.writeln(lines);
     await srcFile.writeAsString(lines.join('\n'));
   }
 }
