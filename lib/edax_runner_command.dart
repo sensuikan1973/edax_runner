@@ -4,8 +4,8 @@ import 'edax_command.dart' as edax;
 String bookDeviate(String bookFile, String move, int errLowerBound, int errUpperBound) => '''
 ${edax.playMove(move)}
 ${edax.bookDeviate(errLowerBound, errUpperBound)}
-${edax.bookSave(bookFile)}
 ${edax.bookFix()}
+${edax.bookSave(bookFile)}
 $eocCommand
 ''';
 
