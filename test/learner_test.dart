@@ -11,8 +11,8 @@ Future<void> main() async {
 
   final srcFile = File(learningListFile);
   final logFile = File(learnedLogFile);
-  if(srcFile.existsSync()) srcFile.deleteSync();
-  if(logFile.existsSync()) logFile.deleteSync();
+  if (srcFile.existsSync()) srcFile.deleteSync();
+  if (logFile.existsSync()) logFile.deleteSync();
 
   const firstLine = '// comment';
   const secondLine = 'F5F6E6F4G5E7E3F3C5C4G3C6D6D7C3C2B5D3B4E2F2H3F1D1D2G4G6C1E1B6C7D8F7H4F8G7';
