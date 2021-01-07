@@ -11,8 +11,8 @@ void main() {
     expect(output, '''
 play $move
 book deviate $errLowerBound $errUpperBound
-book save $bookFile
 book fix
+book save $bookFile
 $eocCommand
 ''');
   });
