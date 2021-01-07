@@ -15,11 +15,24 @@ Future<void> main(List<String> arguments) async {
 
   final learner = Learner(_bookFile);
 
-  edax.stdin.writeln(await learner.getNextLearningCommand());
+  final line = await learner.getNextLearningCommand();
+  if (line.isEmpty) {
+    stdout.writeln('No learning list');
+    edax.kill();
+    return;
+  }
+
+  edax.stdin.writeln(line);
   edax.stderr.listen((event) async {
     stderr.writeln(utf8.decode(event));
     await learner.removeLearnedText();
-    edax.stdin.writeln(await learner.getNextLearningCommand());
+    final line = await learner.getNextLearningCommand();
+    if (line.isEmpty) {
+      stdout.writeln('No learning list');
+      edax.kill();
+      return;
+    }
+    edax.stdin.writeln(line);
   });
   edax.stdout.listen((event) {
     stdout.writeln(utf8.decode(event));
