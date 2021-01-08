@@ -15,8 +15,8 @@ cd ../
 rm -rf build
 mkdir -p build
 
-cp edax.ini build/edax.ini
-cp learning_list.txt build/learning_list.txt
+cp resources/edax.ini build/edax.ini
+cp resources/learning_list.txt build/learning_list.txt
 cp -r edax-reversi/bin build/bin
 cp -r edax-reversi/data build/data
 dart2native bin/edax_runner.dart -v -o build/edax_runner-mac
