@@ -9,9 +9,7 @@
 - you only write _learning_list_ txt.
 
 ## Usage
-<p align="center">
-<img src="https://github.com/sensuikan1973/edax_runner/blob/main/resources/use_image.png?raw=true" alt="use_image" />
-</p>
+![demo](https://github.com/sensuikan1973/edax_runner/blob/main/resources/use_image.gif)
 
 1. dowonload edax-runner Release, and choose your platform.
 2. edit `learning_list.txt` which you want to let edax learn
