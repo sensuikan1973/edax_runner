@@ -49,9 +49,17 @@ There are only 4 rules.
 dartfmt ./ -w -l 120
 ```
 
-### local build (Mac)
+### local build
 ```sh
-./scripts/build_on_mac.sh # TODO: Docker
-cd build
-./edax_runner-mac
+# e.g. Mac
+export dst='build'
+export bin_name="edax_runner-mac"
+export edax_build_command="make build ARCH=x64-modern COMP=gcc OS=osx"
+export edax_bin_name="mEdax"
+
+./scripts/build_edax.sh
+dart2native bin/edax_runner.dart -v -o $dst/$bin_name
+
+cd $dst
+./$edax_bin_name
 ```
