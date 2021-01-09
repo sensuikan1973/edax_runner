@@ -1,20 +1,19 @@
-name: publish_artifacts
+name: publish_release
 
 on:
   push:
-    branches: [ main ]
-    paths: ['bin/**', 'lib/**', '.github/workflows/publish_artifacts.yaml', 'pubspec.*', 'resources/edax.ini', 'resources/learning_list.txt', 'scripts/build.sh']
+    tags: ['*']
 
 jobs:
   build:
-    env: # See: https://docs.github.com/ja/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#jobsjob_idenv
+    env:
       OUTPUT_DIR: edax_runner-bin
-    runs-on: ${{ matrix.os }}
-    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macOS-latest]
-        include: # See: https://docs.github.com/ja/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#using-environment-variables-in-a-matrix
+        include:
           - os: ubuntu-latest
             edax-runner_bin_name: edax_runner-linux
             edax_build_command: make build ARCH=x64-modern COMP=gcc OS=linux
@@ -31,7 +30,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      # https://blog.dantup.com/2019/11/easily-compiling-dart-to-native-executables-for-windows-linux-macos-with-github-actions/
       - uses: cedx/setup-dart@v2
       - name: install dependencies
         run: pub get
@@ -46,11 +44,28 @@ jobs:
           sh scripts/build_edax.sh
           dart2native bin/edax_runner.dart -v -o ${{ env.dst }}/${{ env.bin_name }}
 
-      # See: https://github.com/actions/upload-artifact/issues/38
-      # Workaround: https://github.com/actions/upload-artifact#maintaining-file-permissions-and-case-sensitive-files
       - name: tar files
         run: mkdir -p dst && tar -cvf dst/${{ runner.os }}.tar ${{ env.OUTPUT_DIR }}
-      - uses: actions/upload-artifact@v2
+
+      # ref: https://github.community/t/simpler-way-to-run-steps-only-for-a-single-platform/16298
+      - name: create release
+        if: runner.os == 'Linux'
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          name: edax_runner-releases
-          path: dst
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+
+      - name: upload release asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: dst/${{ runner.os }}.tar
+          asset_name: edax_runner_${{ runner.os }}.tar
+          asset_content_type: application/x-tar

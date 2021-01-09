@@ -1,6 +1,6 @@
 name: edax_runner
 version: 0.0.1
-description: simple tool for auto learning by edax-reversi(https://github.com/abulmo/edax-reversi)
+description: simple cli tool for auto learning by edax-reversi
 author: Naoki Shimizu
 homepage: https://github.com/sensuikan1973/edax_runner
 
