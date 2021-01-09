@@ -5,8 +5,9 @@
 
 **tiny tool for [edax-reversi](https://github.com/abulmo/edax-reversi) auto learning**.
 
-- support Linux, Mac, Windows.
-- you can write _learning_list_ as simple format txt.
+- support **Linux, Mac, Windows**.
+- **you can write learning list as simple format txt**.
+  - you can also check the logs with `learned_log.txt` and `edax_ui.log`.
 
 ![demo](https://github.com/sensuikan1973/edax_runner/blob/main/resources/demo.gif)
 
@@ -14,7 +15,6 @@
 1. dowonload the Asset from [Release](https://github.com/sensuikan1973/edax_runner/releases) depending on your machine OS.
 2. edit `learning_list.txt` which you want to let edax learn.
 3. run `edax_runner-{OS}` (e.g. in Mac, `./edax_runner-mac`)
-4. you can also check logs in `learned_log.txt` and `edax_ui.log`.
 
 ### option
 - you can edit `edax.ini` depending on your machine.
