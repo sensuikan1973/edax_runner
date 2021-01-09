@@ -8,7 +8,7 @@
 - support Linux, Mac, Windows.
 - you can write _learning_list_ as simple format txt.
 
-![demo](https://github.com/sensuikan1973/edax_runner/blob/main/resources/use_image.gif)
+![demo](https://github.com/sensuikan1973/edax_runner/blob/main/resources/demo.gif)
 
 ## Usage
 1. dowonload the Asset from [Release](https://github.com/sensuikan1973/edax_runner/releases) depending on your machine OS.
