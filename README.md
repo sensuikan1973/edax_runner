@@ -11,7 +11,7 @@
 ## Usage
 ![demo](https://github.com/sensuikan1973/edax_runner/blob/main/resources/use_image.gif)
 
-1. dowonload edax-runner Release, and choose your platform.
+1. dowonload [Release](https://github.com/sensuikan1973/edax_runner/releases).
 2. edit `learning_list.txt` which you want to let edax learn
 3. (option) edit `edax.ini`
 4. (option) add your `book.dat` to `data/book.dat`
