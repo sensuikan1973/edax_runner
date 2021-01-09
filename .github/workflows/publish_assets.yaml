@@ -44,7 +44,11 @@ jobs:
           sh scripts/build_edax.sh
           dart2native bin/edax_runner.dart -v -o ${{ env.dst }}/${{ env.bin_name }}
 
-      - name: zip files
+      - name: zip files (Windows)
+        if: runner.os == 'Windows'
+        run: mkdir -p dst && powershell Compress-Archive -Path ${{ env.OUTPUT_DIR }} -DestinationPath dst/${{ runner.os }}.zip
+      - name: zip files (Linux, MacOS)
+        if: runner.os == 'macOS' || runner.os == 'Linux'
         run: mkdir -p dst && zip -r dst/${{ runner.os }}.zip ${{ env.OUTPUT_DIR }}
 
       - uses: actions/upload-release-asset@v1
