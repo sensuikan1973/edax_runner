@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:edax_runner/edax_runner_command.dart';
 import 'package:edax_runner/learner.dart';
 
 const int _waitEdaxLoadingData = 20;
@@ -19,19 +18,16 @@ Future<void> main(List<String> arguments) async {
   final line = await learner.getNextLearningCommand();
   edax.stdin.writeln(line);
 
-  edax.stderr.listen((event) async {
-    stderr.writeln(utf8.decode(event));
-  });
   edax.stdout.listen((event) async {
     final output = utf8.decode(event);
     stdout.writeln(output);
-    if (!output.contains(eocText)) return;
+    if (!output.contains(learner.eocText)) return;
 
     await learner.removeLearnedText();
-
     final line = await learner.getNextLearningCommand();
     edax.stdin.writeln(line);
   });
+  edax.stderr.listen((event) async => stderr.writeln(utf8.decode(event)));
 }
 
 String get _edaxBinPath {

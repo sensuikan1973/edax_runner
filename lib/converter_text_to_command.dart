@@ -1,5 +1,4 @@
 import 'edax_runner_command.dart';
-import 'learner.dart';
 
 // [1 3] f5f6f7
 final _bookDeviateRegexp = RegExp(r'^(\[)(\d+)(\s+)(\d+)(\])(\s+)(([a-hA-H]{1}[1-8]{1})+)$');
@@ -9,6 +8,8 @@ final _edaxVsEdaxWithRandomnessRegexp = RegExp(r'^(\d+)(,)(([a-hA-H]{1}[1-8]{1})
 
 // f5f6f7
 final _edaxVsEdaxRegexp = RegExp(r'^([a-hA-H]{1}[1-8]{1})+$');
+
+const commentHead = '//';
 
 String convertTextToCommand(String line, String bookFile) {
   final str = line.trim();

@@ -3,8 +3,6 @@ import 'dart:math';
 
 import 'converter_text_to_command.dart';
 
-const commentHead = '//';
-
 class Learner {
   Learner(this._bookFile, [String learningListFile = 'learning_list.txt', String learnedLogFile = 'learned_log.txt'])
       : _learningListFile = learningListFile,
@@ -34,4 +32,7 @@ class Learner {
     lines.removeRange(0, min(cnt, lines.length));
     await srcFile.writeAsString(lines.join('\n'));
   }
+
+  String get eocText =>
+      'Hash balance:'; // See: https://github.com/abulmo/edax-reversi/blob/01899aecce8bc780517149c80f178fb478a17a0b/src/book.c#L2106
 }
