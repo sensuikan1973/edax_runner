@@ -18,7 +18,6 @@ class Learner {
     final file = File(_learningListFile);
     final lines = await file.readAsLines();
     final nextLearningText = lines.firstWhere((line) => !line.contains(commentHead), orElse: () => '');
-    if (nextLearningText.isEmpty) return nextLearningText;
     return convertTextToCommand(nextLearningText, _bookFile);
   }
 
@@ -33,7 +32,6 @@ class Learner {
       if (!line.contains(commentHead)) break;
     }
     lines.removeRange(0, min(cnt, lines.length));
-    stdout.writeln(lines);
     await srcFile.writeAsString(lines.join('\n'));
   }
 }

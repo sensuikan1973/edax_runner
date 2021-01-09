@@ -13,7 +13,7 @@ final _edaxVsEdaxRegexp = RegExp(r'^([a-hA-H]{1}[1-8]{1})+$');
 String convertTextToCommand(String line, String bookFile) {
   final str = line.trim();
   if (str.contains(commentHead)) throw Exception('$str is comment');
-  if (str == 'exit') return str;
+  if (str == 'exit' || str.isEmpty) return 'exit';
   if (str == 'fix') return bookFix();
   if (_edaxVsEdaxRegexp.hasMatch(str)) return playGameEdaxVsEdax(bookFile, str);
   if (_edaxVsEdaxWithRandomnessRegexp.hasMatch(str)) {
