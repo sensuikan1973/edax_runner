@@ -17,7 +17,7 @@
 
 ### How to write learning_list.txt
 #### example
-See: [`learning_list.txt`](https://github.com/sensuikan1973/edax_runner/blob/main/learning_list.txt)
+See: [`learning_list.txt`](https://github.com/sensuikan1973/edax_runner/blob/main/resources/learning_list.txt)
 
 #### rules
 There are only 4 rules.
