@@ -34,5 +34,5 @@ class Learner {
   }
 
   String get eocText =>
-      'Best Score Distribution:'; // See: https://github.com/abulmo/edax-reversi/blob/01899aecce8bc780517149c80f178fb478a17a0b/src/book.c#L2106
+      'Best Score Distribution:'; // See: edax-reversi "book_stats"
 }
