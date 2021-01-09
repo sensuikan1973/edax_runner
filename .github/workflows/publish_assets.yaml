@@ -1,14 +1,14 @@
-name: publish_release
+name: publish_assets
 
 on:
-  push:
-    tags: ['*']
+  release:
+    types: [created]
 
 jobs:
   build:
     env:
       OUTPUT_DIR: edax_runner-bin
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     timeout-minutes: 15
     strategy:
       matrix:
@@ -18,14 +18,14 @@ jobs:
             edax-runner_bin_name: edax_runner-linux
             edax_build_command: make build ARCH=x64-modern COMP=gcc OS=linux
             edax_bin_name: lEdax-x64-modern
-          - os: macOS-latest
-            edax-runner_bin_name: edax_runner-mac
-            edax_build_command: make build ARCH=x64-modern COMP=gcc OS=osx
-            edax_bin_name: mEdax
           - os: windows-latest
             edax-runner_bin_name: edax_runner-windows.exe
             edax_build_command: make build ARCH=x64-modern COMP=gcc OS=windows
             edax_bin_name: wEdax-x64-modern.exe
+          - os: macOS-latest
+            edax-runner_bin_name: edax_runner-mac
+            edax_build_command: make build ARCH=x64-modern COMP=gcc OS=osx
+            edax_bin_name: mEdax
 
     steps:
       - uses: actions/checkout@v2
@@ -47,25 +47,11 @@ jobs:
       - name: tar files
         run: mkdir -p dst && tar -cvf dst/${{ runner.os }}.tar ${{ env.OUTPUT_DIR }}
 
-      # ref: https://github.community/t/simpler-way-to-run-steps-only-for-a-single-platform/16298
-      - name: create release
-        if: runner.os == 'Linux'
-        id: create_release
-        uses: actions/create-release@v1
+      - uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          draft: false
-          prerelease: false
-
-      - name: upload release asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          upload_url: ${{ github.event.release.upload_url }}
           asset_path: dst/${{ runner.os }}.tar
           asset_name: edax_runner_${{ runner.os }}.tar
           asset_content_type: application/x-tar

@@ -19,14 +19,14 @@ jobs:
             edax-runner_bin_name: edax_runner-linux
             edax_build_command: make build ARCH=x64-modern COMP=gcc OS=linux
             edax_bin_name: lEdax-x64-modern
-          - os: macOS-latest
-            edax-runner_bin_name: edax_runner-mac
-            edax_build_command: make build ARCH=x64-modern COMP=gcc OS=osx
-            edax_bin_name: mEdax
           - os: windows-latest
             edax-runner_bin_name: edax_runner-windows.exe
             edax_build_command: make build ARCH=x64-modern COMP=gcc OS=windows
             edax_bin_name: wEdax-x64-modern.exe
+          - os: macOS-latest
+            edax-runner_bin_name: edax_runner-mac
+            edax_build_command: make build ARCH=x64-modern COMP=gcc OS=osx
+            edax_bin_name: mEdax
 
     steps:
       - uses: actions/checkout@v2
@@ -50,6 +50,7 @@ jobs:
       # Workaround: https://github.com/actions/upload-artifact#maintaining-file-permissions-and-case-sensitive-files
       - name: tar files
         run: mkdir -p dst && tar -cvf dst/${{ runner.os }}.tar ${{ env.OUTPUT_DIR }}
+
       - uses: actions/upload-artifact@v2
         with:
           name: edax_runner-releases

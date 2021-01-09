@@ -43,7 +43,7 @@ There are only 4 rules.
 ![dartanalyzer](https://github.com/sensuikan1973/edax_runner/workflows/dartanalyzer/badge.svg?event=push)
 ![unit_test](https://github.com/sensuikan1973/edax_runner/workflows/unit_test/badge.svg?event=push)
 ![publish_artifacts](https://github.com/sensuikan1973/edax_runner/workflows/publish_artifacts/badge.svg?event=push)
-![publish_release](https://github.com/sensuikan1973/edax_runner/workflows/publish_release/badge.svg?event=push)
+![publish_assets](![publish_assets](https://github.com/sensuikan1973/edax_runner/workflows/publish_assets/badge.svg?event=release))
 
 ### format
 ```sh
