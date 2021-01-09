@@ -44,14 +44,14 @@ jobs:
           sh scripts/build_edax.sh
           dart2native bin/edax_runner.dart -v -o ${{ env.dst }}/${{ env.bin_name }}
 
-      - name: tar files
-        run: mkdir -p dst && tar -cvf dst/${{ runner.os }}.tar ${{ env.OUTPUT_DIR }}
+      - name: zip files
+        run: mkdir -p dst && zip -r dst/${{ runner.os }}.zip ${{ env.OUTPUT_DIR }}
 
       - uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: dst/${{ runner.os }}.tar
-          asset_name: edax_runner_${{ runner.os }}.tar
-          asset_content_type: application/x-tar
+          asset_path: dst/${{ runner.os }}.zip
+          asset_name: edax_runner_${{ runner.os }}.zip
+          asset_content_type: application/zip
