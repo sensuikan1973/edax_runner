@@ -61,11 +61,9 @@ jobs:
       - name: build edax-runner # https://dart.dev/tools/dart2native
         run: dart2native bin/edax_runner.dart -v -o ${{ env.OUTPUT_DIR }}/${{ matrix.edax-runner_bin_name }}
 
-      - name: launch edax-runner test
-        working-directory: ${{ env.OUTPUT_DIR }}
-        run: |
-          ./${{ matrix.edax-runner_bin_name }} & sleep 30
-          rm *.log
+      # - name: launch edax-runner test
+      #   working-directory: ${{ env.OUTPUT_DIR }}
+      #   run: ./${{ matrix.edax-runner_bin_name }} && rm *.log
 
       # See: https://github.com/actions/upload-artifact/issues/38
       # Workaround: https://github.com/actions/upload-artifact#maintaining-file-permissions-and-case-sensitive-files
