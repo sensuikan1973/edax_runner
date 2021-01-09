@@ -31,7 +31,7 @@ There are only 3 rules.
 | :---: | :---: | :---: |
 | learn one game of edax vs edax | `{book-randomness},{move}` | `2,F5F6F7F8` |
 | book deviate | `[arg1 arg2] {move}` | `[1 1] F5F6F7F8` |
-| comment | `// {your comment}` | `// my favorite Brightwell variations` |
+| comment | `// {your comment}` | `// I want to be a Brightwell mania` |
 
 - NOTE
   - The default value of `book-randomness` is `0`
@@ -43,8 +43,8 @@ There are only 3 rules.
 - **[edax-reversi](https://github.com/abulmo/edax-reversi)**
   - [code/releases archive](https://code.google.com/archive/p/edax-reversi/downloads)
   - [website archive](https://archive.is/KshiN)
-- [Edax_AutoLearning_Tool](https://github.com/sensuikan1973/Edax_AutoLearning_Tool)
-- [Choirokoitia | Edax](https://choi.lavox.net/edax/start)
+- [Edax_AutoLearning_Tool](https://github.com/sensuikan1973/Edax_AutoLearning_Tool): original tool. only Windows, low performance, low maintenability...
+- [Choirokoitia | Edax](https://choi.lavox.net/edax/start): great edax documents (Japanese)
 
 ## Development
 ![dartfmt](https://github.com/sensuikan1973/edax_runner/workflows/dartfmt/badge.svg?event=push)
