@@ -8,3 +8,6 @@ pre release
 
 # 0.2.1
 first release
+
+# 0.2.2
+- minor improve command performance
