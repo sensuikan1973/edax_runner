@@ -17,14 +17,14 @@
 
 ### How to write learning_list.txt
 #### example
-See: [`learning_list.txt`](https://github.com/sensuikan1973/edax_runner/blob/main/learning_list.txt)
+See: [`learning_list.txt`](https://github.com/sensuikan1973/edax_runner/blob/main/resources/learning_list.txt)
 
 #### rules
 There are only 4 rules.
 
 | rule | how to write | example | note |
 | :---: | :---: | :---: | :---: |
-| learn one game by edax vs edax game | `{book-randomness},{move}` | `2,F5F6F7F8` | [the default value of `book-randomness` is `0`](https://github.com/abulmo/edax-reversi/blob/01899aecce8bc780517149c80f178fb478a17a0b/src/edax.c#L643-L645) |
+| learn one game by edax vs edax game | `{book-randomness},{move}` | `2,F5F6F7F8` | the default value of `book-randomness` is `0` |
 | run `book deviate arg1 arg2` | `[arg1 arg2] {move}` | `[1 1] F5F6F7F8` | [what's "book deviate" ?](https://github.com/abulmo/edax-reversi/blob/01899aecce8bc780517149c80f178fb478a17a0b/src/book.c#L934-L949) |
 | run `book fix` | `fix` | `fix` | |
 | comment | `// foo bar` | `// my favorite Brightwell variations` | |
@@ -33,7 +33,7 @@ There are only 4 rules.
 - **[edax-reversi](https://github.com/abulmo/edax-reversi)**
   - [code/releases archive](https://code.google.com/archive/p/edax-reversi/downloads)
   - [website archive](https://archive.is/KshiN)
-- [Edax_AutoLearning_Tool](https://github.com/sensuikan1973/Edax_AutoLearning_Tool): My original tool. This has many issues such as low performance, low maintainability, only Windows etc. edax_runner replace/enhance the tool.
+- [Edax_AutoLearning_Tool](https://github.com/sensuikan1973/Edax_AutoLearning_Tool)
 - [Choirokoitia | Edax](https://choi.lavox.net/edax/start)
 
 ## Development
