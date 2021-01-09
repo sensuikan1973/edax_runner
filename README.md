@@ -3,7 +3,7 @@
 <img src="https://github.com/sensuikan1973/edax_runner/blob/main/resources/logo.png?raw=true" alt="edax-runner" />
 </p>
 
-**simple tool for [edax-reversi](https://github.com/abulmo/edax-reversi) auto learning**.
+**tiny tool for [edax-reversi](https://github.com/abulmo/edax-reversi) auto learning**.
 
 - support Linux, Mac, Windows.
 - you can write _learning_list_ as simple format txt.
@@ -27,7 +27,7 @@ See: [`learning_list.txt`](https://github.com/sensuikan1973/edax_runner/blob/mai
 #### rules
 There are only 3 rules.
 
-| rule | format | example |
+| purpose | format | example |
 | :---: | :---: | :---: |
 | learn one game of edax vs edax | `{book-randomness},{move}` | `2,F5F6F7F8` |
 | book deviate | `[arg1 arg2] {move}` | `[1 1] F5F6F7F8` |
@@ -70,5 +70,5 @@ export edax_bin_name="mEdax"
 dart2native bin/edax_runner.dart -v -o $dst/$bin_name
 
 cd $dst
-./$edax_bin_name
+./$bin_name
 ```
