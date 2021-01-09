@@ -3,7 +3,7 @@
 <img src="https://github.com/sensuikan1973/edax_runner/blob/main/resources/logo.png?raw=true" alt="edax-runner" />
 </p>
 
-**simple cli tool for [edax-reversi](https://github.com/abulmo/edax-reversi) auto learning**.
+**simple tool for [edax-reversi](https://github.com/abulmo/edax-reversi) auto learning**.
 
 - support Linux, Mac, Windows.
 - you can write _learning_list_ as simple format txt.
