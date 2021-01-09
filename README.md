@@ -6,30 +6,38 @@
 **simple cli tool for [edax-reversi](https://github.com/abulmo/edax-reversi) auto learning**.
 
 - support Linux, Mac, Windows.
-- you only write _learning_list_ txt.
+- you can write _learning_list_ as simple format txt.
 
 ## Usage
 ![demo](https://github.com/sensuikan1973/edax_runner/blob/main/resources/use_image.gif)
 
-1. dowonload [Release](https://github.com/sensuikan1973/edax_runner/releases).
-2. edit `learning_list.txt` which you want to let edax learn
-3. (option) edit `edax.ini`
-4. (option) add your `book.dat` to `data/book.dat`
-5. `./edax_runner`
+1. dowonload the Asset from [Release](https://github.com/sensuikan1973/edax_runner/releases) depending on your machine OS.
+2. edit `learning_list.txt` which you want to let edax learn.
+3. run `edax_runner-{OS}` (e.g. in Mac, `./edax_runner-mac`)
+4. you can also check logs in `learned_log.txt` and `edax_ui.log`.
 
-### How to write learning_list.txt
+### option
+- you can edit `edax.ini` depending on your machine.
+- you can add your `book.dat` to `data/book.dat`.
+
+### how to write learning_list.txt ?
 #### example
 See: [`learning_list.txt`](https://github.com/sensuikan1973/edax_runner/blob/main/resources/learning_list.txt)
 
 #### rules
-There are only 4 rules.
+There are only 3 rules.
 
-| rule | how to write | example | note |
-| :---: | :---: | :---: | :---: |
-| learn one game by edax vs edax game | `{book-randomness},{move}` | `2,F5F6F7F8` | the default value of `book-randomness` is `0` |
-| run `book deviate arg1 arg2` | `[arg1 arg2] {move}` | `[1 1] F5F6F7F8` | [what's "book deviate" ?](https://github.com/abulmo/edax-reversi/blob/01899aecce8bc780517149c80f178fb478a17a0b/src/book.c#L934-L949) |
-| run `book fix` | `fix` | `fix` | |
-| comment | `// {your comment}` | `// my favorite Brightwell variations` | |
+| rule | format | example |
+| :---: | :---: | :---: |
+| learn one game of edax vs edax | `{book-randomness},{move}` | `2,F5F6F7F8` |
+| book deviate | `[arg1 arg2] {move}` | `[1 1] F5F6F7F8` |
+| comment | `// {your comment}` | `// my favorite Brightwell variations` |
+
+- NOTE
+  - the default value of `book-randomness` is `0`
+  - [what's "book deviate" ?](https://github.com/abulmo/edax-reversi/blob/01899aecce8bc780517149c80f178fb478a17a0b/src/book.c#L934-L949)
+  - Although `book fix` is ran internaly, you can run `book fix` expressly.
+    If you want, write `fix` in `learning_list.txt`.
 
 ## Reference
 - **[edax-reversi](https://github.com/abulmo/edax-reversi)**
