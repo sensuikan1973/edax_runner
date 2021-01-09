@@ -1,4 +1,5 @@
 import 'edax_runner_command.dart';
+import 'learner.dart';
 
 // [1 3] f5f6f7
 final _bookDeviateRegexp = RegExp(r'^(\[)(\d+)(\s+)(\d+)(\])(\s+)(([a-hA-H]{1}[1-8]{1})+)$');
@@ -14,10 +15,10 @@ String convertTextToCommand(String line, String bookFile) {
   if (str.contains(commentHead)) throw Exception('$str is comment');
   if (str == 'exit') return str;
   if (str == 'fix') return bookFix();
-  if (_edaxVsEdaxRegexp.hasMatch(str)) return playGameEdaxVsEdax(str);
+  if (_edaxVsEdaxRegexp.hasMatch(str)) return playGameEdaxVsEdax(bookFile, str);
   if (_edaxVsEdaxWithRandomnessRegexp.hasMatch(str)) {
     final match = _edaxVsEdaxWithRandomnessRegexp.firstMatch(str);
-    return playGameEdaxVsEdax(match.group(3), int.parse(match.group(1)));
+    return playGameEdaxVsEdax(bookFile, match.group(3), int.parse(match.group(1)));
   }
   if (_bookDeviateRegexp.hasMatch(str)) {
     final match = _bookDeviateRegexp.firstMatch(str);

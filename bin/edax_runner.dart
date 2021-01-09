@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:edax_runner/edax_runner_command.dart';
 import 'package:edax_runner/learner.dart';
 
 const int _waitEdaxLoadingData = 10;
@@ -21,11 +22,18 @@ Future<void> main(List<String> arguments) async {
     edax.kill();
     return;
   }
-
   edax.stdin.writeln(line);
+
   edax.stderr.listen((event) async {
     stderr.writeln(utf8.decode(event));
+  });
+  edax.stdout.listen((event) async {
+    final output = utf8.decode(event);
+    stdout.writeln(output);
+    if (!output.contains(eocText)) return;
+
     await learner.removeLearnedText();
+
     final line = await learner.getNextLearningCommand();
     if (line.isEmpty) {
       stdout.writeln('No learning list');
@@ -33,9 +41,6 @@ Future<void> main(List<String> arguments) async {
       return;
     }
     edax.stdin.writeln(line);
-  });
-  edax.stdout.listen((event) {
-    stdout.writeln(utf8.decode(event));
   });
 }
 

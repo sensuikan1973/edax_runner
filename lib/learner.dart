@@ -2,7 +2,8 @@ import 'dart:io';
 import 'dart:math';
 
 import 'converter_text_to_command.dart';
-import 'edax_runner_command.dart';
+
+const commentHead = '//';
 
 class Learner {
   Learner(this._bookFile, [String learningListFile = 'learning_list.txt', String learnedLogFile = 'learned_log.txt'])

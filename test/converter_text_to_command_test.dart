@@ -18,7 +18,7 @@ void main() {
     const move = 'f5F6F7g7';
     const line = move;
     final output = convertTextToCommand(line, bookFile);
-    expect(output, playGameEdaxVsEdax(move));
+    expect(output, playGameEdaxVsEdax(bookFile, move));
   });
 
   test('edax vs edax with randomness', () {
@@ -26,6 +26,6 @@ void main() {
     const randomness = 3;
     const line = '$randomness,$move';
     final output = convertTextToCommand(line, bookFile);
-    expect(output, playGameEdaxVsEdax(move, randomness));
+    expect(output, playGameEdaxVsEdax(bookFile, move, randomness));
   });
 }
