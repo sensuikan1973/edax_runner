@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:edax_runner/edax_runner_command.dart';
 import 'package:edax_runner/learner.dart';
 
-const int _waitEdaxLoadingData = 10;
+const int _waitEdaxLoadingData = 20;
 const String _bookFile = 'data/book.dat';
 
 Future<void> main(List<String> arguments) async {
