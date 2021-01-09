@@ -9,10 +9,10 @@
 - you only write _learning_list_ txt.
 
 ## Usage
-1. dowonload edax-runner Release (TODO: add link)
+1. dowonload edax-runner Release, and choose your platform.
 2. edit `learning_list.txt` which you want to let edax learn
 3. (option) edit `edax.ini`
-4. (option) replace `data/book.dat` with your `book.dat`
+4. (option) add your `book.dat` to `data/book.dat`
 5. `./edax_runner`
 
 ### How to write learning_list.txt
