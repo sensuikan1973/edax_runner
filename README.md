@@ -12,7 +12,7 @@
 ![demo](https://github.com/sensuikan1973/edax_runner/blob/main/resources/demo.gif)
 
 ## Usage
-1. dowonload the Asset from [Release](https://github.com/sensuikan1973/edax_runner/releases) depending on your machine OS.
+1. dowonload the Asset from [latest Release](https://github.com/sensuikan1973/edax_runner/releases/latest) depending on your machine OS.
 2. edit `learning_list.txt` which you want to let edax learn.
 3. run `edax_runner-{OS}` (e.g. in Mac, `./edax_runner-mac`)
 
