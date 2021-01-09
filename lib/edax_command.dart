@@ -14,4 +14,4 @@ String bookSave(String file) => 'book save $file';
 
 String exit() => 'exit';
 
-String bookInfo() => 'book info';
+String bookStats() => 'book stats';

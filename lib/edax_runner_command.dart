@@ -29,4 +29,4 @@ String exit() => edax.exit();
 
 // command list separation.
 @visibleForTesting
-String get eocCommand => edax.bookInfo();
+String get eocCommand => edax.bookStats();
