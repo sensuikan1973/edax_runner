@@ -5,3 +5,6 @@ pre release
 pre release
 
 - change the way to compress releases
+
+# 0.2.1
+first release
