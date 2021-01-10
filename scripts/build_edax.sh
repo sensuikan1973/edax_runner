@@ -4,7 +4,7 @@
 # edax_bin_name (e.g. mEdax)
 # dst: (e.g. build)
 
-git clone --depth 1 https://github.com/abulmo/edax-reversi.git
+git clone --depth 1 https://github.com/sensuikan1973/edax-reversi.git
 
 cd edax-reversi
 mkdir -p data
