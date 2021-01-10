@@ -12,13 +12,13 @@
 ![demo](https://github.com/sensuikan1973/edax_runner/blob/main/resources/demo.gif)
 
 ## Usage
-1. download the Asset from [latest Release](https://github.com/sensuikan1973/edax_runner/releases/latest) depending on your machine OS.
+1. download the Asset from [latest Release](https://github.com/sensuikan1973/edax_runner/releases/latest).
 2. edit `learning_list.txt` which you want to let edax learn.
 3. run `edax_runner-{OS}` (e.g. in Mac, `./edax_runner-mac`)
 
 ### option
-- you can edit `edax.ini` depending on your machine.
-- you can add your `book.dat` to `data/book.dat`.
+- edit `edax.ini` depending on your machine.
+- add your `book.dat` to `data/book.dat`.
 
 ### how to write learning_list.txt ?
 #### example
