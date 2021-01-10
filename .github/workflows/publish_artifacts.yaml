@@ -33,6 +33,9 @@ jobs:
 
       # https://blog.dantup.com/2019/11/easily-compiling-dart-to-native-executables-for-windows-linux-macos-with-github-actions/
       - uses: cedx/setup-dart@v2
+        with:
+            architecture: x64
+            release-channel: beta
       - name: install dependencies
         run: pub get
 
