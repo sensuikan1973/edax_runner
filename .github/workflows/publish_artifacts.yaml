@@ -10,7 +10,7 @@ jobs:
     env: # See: https://docs.github.com/ja/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#jobsjob_idenv
       OUTPUT_DIR: edax_runner-bin
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 10
+    timeout-minutes: 5
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macOS-latest]

@@ -9,7 +9,7 @@ jobs:
     env:
       OUTPUT_DIR: edax_runner-bin
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 15
+    timeout-minutes: 5
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macOS-latest]
