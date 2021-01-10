@@ -4,6 +4,9 @@ on:
   push:
     branches: [ main ]
     paths: ['bin/**', 'lib/**', '.github/workflows/publish_artifacts.yaml', 'pubspec.*', 'resources/edax.ini', 'resources/learning_list.txt', 'scripts/build.sh']
+  pull_request:
+    types: [opened, synchronize]
+    paths: ['.github/workflows/publish_artifacts.yaml', 'scripts/build.sh']
 
 jobs:
   build:
