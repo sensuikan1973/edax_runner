@@ -35,7 +35,7 @@ There are only 3 rules.
 
 - NOTE
   - The default value of `book-randomness` is `0`
-  - [What's "book deviate" ?](https://github.com/abulmo/edax-reversi/blob/01899aecce8bc780517149c80f178fb478a17a0b/src/book.c#L934-L949)
+  - What's "book deviate" ?: See [document](https://sensuikan1973.github.io/edax-reversi/book_8c.html#ae9ee489a468274fd83808c53da0418c9)
   - Although `book fix` is ran internaly, you can run `book fix` expressly.
     If you want, write `fix` in `learning_list.txt`.
 
@@ -43,6 +43,7 @@ There are only 3 rules.
 - **[edax-reversi](https://github.com/abulmo/edax-reversi)**
   - [code/releases archive](https://code.google.com/archive/p/edax-reversi/downloads)
   - [website archive](https://archive.is/KshiN)
+  - [document](https://sensuikan1973.github.io/edax-reversi/)
 - [Edax_AutoLearning_Tool](https://github.com/sensuikan1973/Edax_AutoLearning_Tool): original tool. only Windows, low performance, low maintenability...
 - [Choirokoitia | Edax](https://choi.lavox.net/edax/start): great edax documents (Japanese)
 
@@ -56,6 +57,11 @@ There are only 3 rules.
 ### format
 ```sh
 dartfmt ./ -w -l 120
+```
+
+### document
+```sh
+dartdoc --include-external bin/**
 ```
 
 ### local build
