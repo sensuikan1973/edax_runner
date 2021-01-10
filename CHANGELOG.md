@@ -1,3 +1,6 @@
+# 0.3.0
+- fix: Windows edax bin is broken
+
 # 0.2.4
 - specify Dart SDK release channel "beta"
 
