@@ -16,6 +16,7 @@ Future<void> main(List<String> arguments) async {
   final learner = Learner(_bookFile);
 
   final line = await learner.getNextLearningCommand();
+  stdout.writeln(line);
   edax.stdin.writeln(line);
 
   edax.stdout.listen((event) async {
@@ -25,6 +26,7 @@ Future<void> main(List<String> arguments) async {
 
     await learner.removeLearnedText();
     final line = await learner.getNextLearningCommand();
+    stdout.writeln(line);
     edax.stdin.writeln(line);
   });
   edax.stderr.listen((event) async => stderr.writeln(utf8.decode(event)));
