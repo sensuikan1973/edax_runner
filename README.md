@@ -28,7 +28,7 @@ See: [`learning_list.txt`](https://github.com/sensuikan1973/edax_runner/blob/mai
 There are only 3 rules.
 
 | purpose | format | example |
-| :---: | :--- | :--- |
+| :--- | :--- | :--- |
 | learn one game of edax vs edax | `{book-randomness},{move}` | `2,F5F6F7F8` |
 | book deviate | `[arg1 arg2] {move}` | `[1 1] F5F6F7F8` |
 | comment | `// {your comment}` | `// I like Brightwell` |
