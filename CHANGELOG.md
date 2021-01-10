@@ -1,3 +1,6 @@
+# 0.2.4
+- specify Dart SDK release channel "beta"
+
 # 0.2.3
 - show commands on stdout
 
