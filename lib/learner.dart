@@ -33,5 +33,6 @@ class Learner {
     await srcFile.writeAsString(lines.join('\n'));
   }
 
-  String get eocText => 'Best Score Distribution:'; // See: edax-reversi "book_stats"
+  String get eocText =>
+      'Best Score Distribution:'; // See: https://github.com/abulmo/edax-reversi/blob/01899aecce8bc780517149c80f178fb478a17a0b/src/book.c#L2565
 }
