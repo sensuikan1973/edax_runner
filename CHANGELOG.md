@@ -11,3 +11,6 @@ first release
 
 # 0.2.2
 - minor improve command performance
+
+# 0.2.3
+- show commands on stdout
