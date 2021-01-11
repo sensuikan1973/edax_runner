@@ -35,6 +35,6 @@ Future<void> main(List<String> arguments) async {
 String get _edaxBinPath {
   if (Platform.isLinux) return 'bin/lEdax-x64-modern';
   if (Platform.isMacOS) return 'bin/mEdax';
-  if (Platform.isWindows) return 'bin/wEdax-x64-modern.exe';
+  if (Platform.isWindows) return 'bin/wEdax-x64.exe';
   throw Exception('${Platform.operatingSystem} is not supported');
 }
