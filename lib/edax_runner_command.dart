@@ -14,7 +14,7 @@ String playGameEdaxVsEdax(String bookFile, String move, [int bookRandomness = 0]
 ${edax.init()}
 ${edax.setBookRandomness(bookRandomness)}
 ${edax.playMove(move)}
-${List<String>.filled(60, edax.goEdax()).join('\n')}
+$_go60times
 ${edax.bookStore()}
 ${edax.bookSave(bookFile)}
 $eocCommand
@@ -26,6 +26,8 @@ $eocCommand
 ''';
 
 String exit() => edax.exit();
+
+final _go60times = List<String>.filled(60, edax.goEdax()).join('\n');
 
 // command list separation.
 @visibleForTesting
