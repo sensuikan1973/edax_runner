@@ -55,7 +55,7 @@ There are **only 3 rules**. Example is [here](https://github.com/sensuikan1973/e
   - [code/releases archive](https://code.google.com/archive/p/edax-reversi/downloads)
   - [website archive](https://archive.is/KshiN)
   - [document](https://sensuikan1973.github.io/edax-reversi/)
-- [Edax_AutoLearning_Tool](https://github.com/sensuikan1973/Edax_AutoLearning_Tool): See [Edax_AutoLearning_Tool/issues/1](https://github.com/sensuikan1973/Edax_AutoLearning_Tool/issues/1)
+- [Edax_AutoLearning_Tool](https://github.com/sensuikan1973/Edax_AutoLearning_Tool): original tool. See **[issues/1](https://github.com/sensuikan1973/Edax_AutoLearning_Tool/issues/1)**.
 - [Choirokoitia | Edax](https://choi.lavox.net/edax/start): great edax documents (Japanese)
 
 ## Development
