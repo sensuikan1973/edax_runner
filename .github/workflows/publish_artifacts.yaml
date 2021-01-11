@@ -42,6 +42,13 @@ jobs:
       - name: install dependencies
         run: pub get
 
+      - name: cache edax-reversi
+        id: cache-edax-reversi
+        uses: actions/cache@v2
+        with:
+          path: edax-reversi
+          key: ${{ runner.os }}-edax-reversi-${{ hashFiles('scripts/build_edax.sh') }}
+
       - name: build edax-runner
         env:
           dst: ${{ env.OUTPUT_DIR }}

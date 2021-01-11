@@ -5,6 +5,7 @@
 # dst: (e.g. build)
 
 git clone --depth 1 https://github.com/abulmo/edax-reversi.git
+git checkout eb519a7c1d7d085577448bcb1e9b38ba5c1fa970
 
 cd edax-reversi
 mkdir -p data
