@@ -28,7 +28,7 @@
 ## First, confirm you can launch edax
 start ./bin/wEdax-x64.exe
 ## Next, have a fun
-start ./edax_runner-windows
+start ./edax_runner-windows.exe
 ```
 
 ### important option
