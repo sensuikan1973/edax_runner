@@ -5,9 +5,10 @@
 
 **tiny tool for [edax-reversi](https://github.com/abulmo/edax-reversi) auto learning**.
 
-- support **Linux, Mac, Windows**.
 - **you can write learning list as simple format txt**.
   - you can also check the logs with `learned_log.txt`.
+- you can also obtain **executable edax built with Intel Compiler**.
+- support **Linux, Mac, Windows**.
 
 ![demo](https://github.com/sensuikan1973/edax_runner/blob/main/resources/demo.gif)
 
