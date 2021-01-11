@@ -70,7 +70,7 @@ jobs:
         id: cache-intel-components
         uses: actions/cache@v2
         with:
-          path: /opt/intel/oneapi
+          path: ${{ matrix.intel_cpp_components_cache_path }}
           key: install-${{ matrix.hrckit_url }}-${{ matrix.intel_cpp_components }}
       - name: install
         if: steps.cache-intel-components.outputs.cache-hit != 'true'
