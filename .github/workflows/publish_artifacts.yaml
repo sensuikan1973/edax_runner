@@ -13,13 +13,14 @@ jobs:
     env: # See: https://docs.github.com/ja/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#jobsjob_idenv
       OUTPUT_DIR: edax_runner-bin
     runs-on: ${{ matrix.os }}
+    # NOTE: Intel Components variables are based on https://github.com/oneapi-src/oneapi-ci/blob/master/.github/workflows/build_all.yml
+    # See: https://github.com/oneapi-src/oneapi-ci/issues/31
+    container: intel/oneapi-basekit
     timeout-minutes: 10
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macOS-latest]
         include: # See: https://docs.github.com/ja/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#using-environment-variables-in-a-matrix
-          # NOTE: Intel Components variables are based on https://github.com/oneapi-src/oneapi-ci/blob/master/.github/workflows/build_all.yml
-          # See: https://github.com/oneapi-src/oneapi-ci/issues/31
           - os: ubuntu-latest
             edax-runner_bin_name: edax_runner-linux
             edax_build_command: make build ARCH=x64-modern COMP=icc OS=linux
@@ -67,21 +68,21 @@ jobs:
           key: ${{ runner.os }}-edax-reversi-${{ hashFiles('scripts/build_edax.sh') }}
 
       # setup Intel Compiler icc
-      - uses: actions/checkout@v2
-        with:
-          repository: oneapi-src/oneapi-ci
-          path: oneapi-ci
-      - name: prepare for cache restore
-        run: ${{ matrix.prepare_command_for_cache_restore_of_cpp_components }}
-      - name: cache intel components
-        id: cache-intel-components
-        uses: actions/cache@v2
-        with:
-          path: /opt/intel/oneapi
-          key: install-${{ matrix.hrckit_url }}-${{ matrix.intel_cpp_components }}
-      - name: install
-        if: steps.cache-intel-components.outputs.cache-hit != 'true'
-        run: ${{ matrix.intel_components_install_script }} ${{ matrix.hrckit_url }} ${{ matrix.intel_cpp_components }}
+      # - uses: actions/checkout@v2
+      #   with:
+      #     repository: oneapi-src/oneapi-ci
+      #     path: oneapi-ci
+      # - name: prepare for cache restore
+      #   run: ${{ matrix.prepare_command_for_cache_restore_of_cpp_components }}
+      # - name: cache intel components
+      #   id: cache-intel-components
+      #   uses: actions/cache@v2
+      #   with:
+      #     path: /opt/intel/oneapi
+      #     key: install-${{ matrix.hrckit_url }}-${{ matrix.intel_cpp_components }}
+      # - name: install
+      #   if: steps.cache-intel-components.outputs.cache-hit != 'true'
+      #   run: ${{ matrix.intel_components_install_script }} ${{ matrix.hrckit_url }} ${{ matrix.intel_cpp_components }}
 
       - name: build edax-reversi
         env:
