@@ -1,3 +1,6 @@
+# 0.4.0
+- use Intel Compiler to compile edax-reversi
+
 # 0.3.0
 - fix: Windows edax bin is broken
 
