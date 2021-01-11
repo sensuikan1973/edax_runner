@@ -1,3 +1,6 @@
+# 0.4.1
+- mild fix build job
+
 # 0.4.0
 - use Intel Compiler to compile edax-reversi
 
