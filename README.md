@@ -40,7 +40,7 @@ There are only 3 rules.
     If you want, write `fix` in `learning_list.txt`.
 
 ## Reference
-- [sensuikan1973/edax-reversi](https://github.com/sensuikan1973/edax-reversi.git): fork **[edax-reversi](https://github.com/abulmo/edax-reversi)**
+- **[edax-reversi](https://github.com/abulmo/edax-reversi)**
   - [code/releases archive](https://code.google.com/archive/p/edax-reversi/downloads)
   - [website archive](https://archive.is/KshiN)
   - [document](https://sensuikan1973.github.io/edax-reversi/)
