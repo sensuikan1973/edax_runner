@@ -83,15 +83,17 @@ jobs:
         if: steps.cache-intel-components.outputs.cache-hit != 'true'
         run: ${{ matrix.intel_components_install_script }} ${{ matrix.hrckit_url }} ${{ matrix.intel_cpp_components }}
 
-      - name: build edax-runner
+      - name: build edax-reversi
+        if: steps.cache-edax-reversi.outputs.cache-hit != 'true'
         env:
           dst: ${{ env.OUTPUT_DIR }}
           bin_name: ${{ matrix.edax-runner_bin_name }}
           edax_build_command: ${{ matrix.edax_build_command }}
           edax_bin_name: ${{ matrix.edax_bin_name }}
-        run: |-
-          sh scripts/build_edax.sh
-          dart2native bin/edax_runner.dart -v -o ${{ env.dst }}/${{ env.bin_name }}
+        run: sh scripts/build_edax.sh
+
+      - name: build edax-runner
+        run: dart2native bin/edax_runner.dart -v -o ${{ env.OUTPUT_DIR }}/${{ matrix.edax-runner_bin_name }}
 
       # See: https://github.com/actions/upload-artifact/issues/38
       # Workaround: https://github.com/actions/upload-artifact#maintaining-file-permissions-and-case-sensitive-files
