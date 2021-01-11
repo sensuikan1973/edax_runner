@@ -32,7 +32,7 @@ jobs:
           - os: windows-latest
             edax-runner_bin_name: edax_runner-windows.exe
             edax_build_command: make build ARCH=x64 COMP=icc OS=windows
-            edax_bin_name: wEdax-x64-modern.exe
+            edax_bin_name: wEdax-x64.exe
             intel_components_install_script: oneapi-ci/scripts/install_windows.bat
             intel_cpp_components: intel.oneapi.win.cpp-compiler
             hrckit_url: https://registrationcenter-download.intel.com/akdlm/irc_nas/17392/w_HPCKit_p_2021.1.0.2682_offline.exe
