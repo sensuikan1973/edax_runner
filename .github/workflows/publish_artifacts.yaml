@@ -24,7 +24,7 @@ jobs:
             edax_bin_name: lEdax-x64-modern
           - os: windows-latest
             edax-runner_bin_name: edax_runner-windows.exe
-            edax_build_command: make build ARCH=x64-modern COMP=gcc OS=windows
+            edax_build_command: make build ARCH=x64 COMP=gcc OS=windows
             edax_bin_name: wEdax-x64-modern.exe
           - os: macOS-latest
             edax-runner_bin_name: edax_runner-mac
