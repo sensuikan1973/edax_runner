@@ -1,3 +1,6 @@
+# 0.4.2
+- upgrade Dart SDK min version
+
 # 0.4.1
 - mild fix build job
 
