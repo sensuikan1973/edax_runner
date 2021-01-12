@@ -30,6 +30,13 @@ start ./bin/wEdax-x64.exe
 ## Next, have a fun
 start ./edax_runner-windows.exe
 ```
+```sh
+# Linux
+## First, confirm you can launch edax
+./bin/lEdax-x64-modern
+## Next, have a fun
+./edax_runner-linux
+```
 
 ### important option
 - edit `edax.ini` depending on your machine.
