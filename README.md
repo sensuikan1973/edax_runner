@@ -20,21 +20,21 @@
 # Mac
 ## First, confirm you can launch edax
 ./bin/mEdax
-## Next, have a fun
+## Next, start learning!
 ./edax_runner-mac
 ```
 ```sh
 # Windows
 ## First, confirm you can launch edax
 start ./bin/wEdax-x64.exe
-## Next, have a fun
+## Next, start learning!
 start ./edax_runner-windows.exe
 ```
 ```sh
 # Linux
 ## First, confirm you can launch edax
 ./bin/lEdax-x64-modern
-## Next, have a fun
+## Next, start learning!
 ./edax_runner-linux
 ```
 
