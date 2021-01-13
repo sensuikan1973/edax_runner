@@ -5,9 +5,10 @@
 # dst: (e.g. build)
 
 git clone --depth 1 https://github.com/abulmo/edax-reversi.git
-git checkout c783ef998aca86a7ae9358a58645222df27ae5a0
 
 cd edax-reversi
+git checkout c783ef998aca86a7ae9358a58645222df27ae5a0
+
 mkdir -p data
 curl -OL https://github.com/abulmo/edax-reversi/releases/download/v4.4/eval.7z
 7z x eval.7z -y
