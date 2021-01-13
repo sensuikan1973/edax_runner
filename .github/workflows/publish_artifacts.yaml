@@ -41,8 +41,11 @@ jobs:
             intel_components_install_script: oneapi-ci/scripts/install_windows.bat
             intel_components_setup_script: |- # https://github.com/oneapi-src/oneapi-ci/blob/master/scripts/build_windows.bat
               dir /b "C:\Program Files (x86)\Intel\oneAPI\compiler\"
-              for /f "tokens=* usebackq" %f in (`dir /b "C:¥Program Files (x86)¥Intel¥oneAPI¥compiler¥" ^| findstr /V latest ^| sort`) do @set "LATEST_VERSION=%f"
               echo "aaa"
+              `dir /b "C:\Program Files (x86)\Intel\oneAPI\compiler\" ^| findstr /V latest ^| sort`
+              echo "bbb"
+              for /f "tokens=* usebackq" %f in (`dir /b "C:\Program Files (x86)\Intel\oneAPI\compiler\" ^| findstr /V latest ^| sort`) do @set "LATEST_VERSION=%f"
+              echo "ccc"
               @call "C:\Program Files (x86)\Intel\oneAPI\compiler\%LATEST_VERSION%\env\vars.bat"
             intel_cpp_components: intel.oneapi.win.cpp-compiler
             hrckit_url: https://registrationcenter-download.intel.com/akdlm/irc_nas/17392/w_HPCKit_p_2021.1.0.2682_offline.exe
