@@ -16,27 +16,36 @@
 1. download the Asset from [latest Release](https://github.com/sensuikan1973/edax_runner/releases/latest).
 2. edit `learning_list.txt` which you want to let edax learn.
 3. run edax_runner on your terminal.
+
+<details><summary>Mac</summary>
+
 ```sh
-# Mac
 ## First, confirm you can launch edax
 ./bin/mEdax
 ## Next, start learning!
 ./edax_runner-mac
 ```
+</details>
+
+<details><summary>Windows</summary>
+
 ```sh
-# Windows
 ## First, confirm you can launch edax
 start ./bin/wEdax-x64.exe
 ## Next, start learning!
 start ./edax_runner-windows.exe
 ```
+</details>
+
+<details><summary>Linux</summary>
+
 ```sh
-# Linux
 ## First, confirm you can launch edax
 ./bin/lEdax-x64-modern
 ## Next, start learning!
 ./edax_runner-linux
 ```
+</details>
 
 ### important option
 - edit `edax.ini` depending on your machine.
