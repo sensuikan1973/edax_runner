@@ -3,10 +3,10 @@ name: publish_artifacts
 on:
   push:
     branches: [ main ]
-    paths: ['bin/**', 'lib/**', '.github/workflows/publish_artifacts.yaml', 'pubspec.*', 'resources/edax.ini', 'resources/learning_list.txt', 'scripts/build.sh']
+    paths: ['bin/**', 'lib/**', '.github/workflows/publish_artifacts.yaml', 'pubspec.*', 'resources/edax.ini', 'resources/learning_list.txt', 'scripts/build_edax.sh']
   pull_request:
     types: [opened, synchronize]
-    paths: ['.github/workflows/publish_artifacts.yaml', 'scripts/build.sh']
+    paths: ['.github/workflows/publish_artifacts.yaml', 'scripts/build_edax.sh']
 
 jobs:
   build:
