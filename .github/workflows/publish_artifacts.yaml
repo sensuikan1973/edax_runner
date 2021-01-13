@@ -42,9 +42,7 @@ jobs:
             intel_components_setup_script: |- # https://github.com/oneapi-src/oneapi-ci/blob/master/scripts/build_windows.bat
               dir /b "C:\Program Files (x86)\Intel\oneAPI\compiler\"
               echo "aaa"
-              `dir /b "C:\Program Files (x86)\Intel\oneAPI\compiler\" ^| findstr /V latest ^| sort`
-              echo "bbb"
-              for /f "tokens=* usebackq" %f in (`dir /b "C:\Program Files (x86)\Intel\oneAPI\compiler\" ^| findstr /V latest ^| sort`) do @set "LATEST_VERSION=%f"
+              for /f "tokens=* usebackq" %f in (`dir /b "\Program Files (x86)\Intel\oneAPI\compiler\" ^| findstr /V latest ^| sort`) do @set "LATEST_VERSION=%f"
               echo "ccc"
               @call "C:\Program Files (x86)\Intel\oneAPI\compiler\%LATEST_VERSION%\env\vars.bat"
             intel_cpp_components: intel.oneapi.win.cpp-compiler
