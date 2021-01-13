@@ -17,11 +17,11 @@ jobs:
     timeout-minutes: 10
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macOS-latest]
+        os: [ubuntu-20.04, windows-latest, macOS-latest]
         include: # See: https://docs.github.com/ja/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#using-environment-variables-in-a-matrix
           # NOTE: Intel Components variables are based on https://github.com/oneapi-src/oneapi-ci/blob/master/.github/workflows/build_all.yml
           # See: https://github.com/oneapi-src/oneapi-ci/issues/31
-          - os: ubuntu-latest
+          - os: ubuntu-20.04
             edax-runner_bin_name: edax_runner-linux
             edax_build_command: make build ARCH=x64-modern COMP=icc OS=linux
             edax_bin_name: lEdax-x64-modern
