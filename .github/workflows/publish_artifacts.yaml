@@ -75,7 +75,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: edax-reversi
-          key: ${{ runner.os }}-edax-reversi-${{ hashFiles('scripts/build_edax.sh') }}
+          key: ${{ env.cache_version }}-${{ runner.os }}-edax-reversi-${{ hashFiles('scripts/build_edax.sh') }}
 
       # setup Intel Compiler icc
       - uses: actions/checkout@v2
@@ -89,7 +89,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ${{ matrix.intel_cpp_components_cache_path }}
-          key: ${{ env.cache_version }}-install-${{ matrix.hrckit_url }}-${{ matrix.intel_cpp_components }}
+          key: ${{ env.cache_version }}-${{ runner.os }}-install-${{ matrix.hrckit_url }}-${{ matrix.intel_cpp_components }}
       - name: install
         if: steps.cache-intel-components.outputs.cache-hit != 'true'
         run: ${{ matrix.intel_components_install_script }} ${{ matrix.hrckit_url }} ${{ matrix.intel_cpp_components }}
