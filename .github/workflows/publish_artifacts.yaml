@@ -57,7 +57,7 @@ jobs:
               cat /opt/intel/oneapi/setvars.sh
             intel_cpp_components: intel.oneapi.mac.cpp-compiler
             hrckit_url: https://registrationcenter-download.intel.com/akdlm/irc_nas/17398/m_HPCKit_p_2021.1.0.2681_offline.dmg
-            intel_cpp_components_cache_path: /opt/intel
+            intel_cpp_components_cache_path: /opt/intel/oneapi
             prepare_command_for_cache_restore_of_cpp_components: sudo mkdir -p /opt/intel && sudo chown $USER /opt/intel
 
     steps:
