@@ -53,6 +53,7 @@ jobs:
             intel_components_install_script: oneapi-ci/scripts/install_macos.sh
             intel_components_setup_script: |- # https://github.com/oneapi-src/oneapi-ci/blob/master/scripts/build_mac.sh
               source /opt/intel/oneapi/setvars.sh
+              cat /opt/intel/oneapi/setvars.sh
             intel_cpp_components: intel.oneapi.mac.cpp-compiler
             hrckit_url: https://registrationcenter-download.intel.com/akdlm/irc_nas/17398/m_HPCKit_p_2021.1.0.2681_offline.dmg
             intel_cpp_components_cache_path: /opt/intel/oneapi
