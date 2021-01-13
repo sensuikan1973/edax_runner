@@ -87,6 +87,12 @@ jobs:
       - name: build edax-runner
         run: dart2native bin/edax_runner.dart -v -o ${{ env.OUTPUT_DIR }}/${{ matrix.edax-runner_bin_name }}
 
+      - name: output build info
+        run: |-
+          touch env.txt
+          icc --dumpversion >> env.txt
+          cp env.txt ${{ env.OUTPUT_DIR }}/env.txt
+
       - name: zip files (Windows)
         if: runner.os == 'Windows'
         run: mkdir -p dst && powershell Compress-Archive -Path ${{ env.OUTPUT_DIR }} -DestinationPath dst/${{ runner.os }}.zip

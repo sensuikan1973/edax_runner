@@ -94,6 +94,12 @@ jobs:
       - name: build edax-runner
         run: dart2native bin/edax_runner.dart -v -o ${{ env.OUTPUT_DIR }}/${{ matrix.edax-runner_bin_name }}
 
+      - name: output build info
+        run: |-
+          touch env.txt
+          icc --dumpversion >> env.txt
+          cp env.txt ${{ env.OUTPUT_DIR }}/env.txt
+
       # See: https://github.com/actions/upload-artifact/issues/38
       # Workaround: https://github.com/actions/upload-artifact#maintaining-file-permissions-and-case-sensitive-files
       - name: tar files
