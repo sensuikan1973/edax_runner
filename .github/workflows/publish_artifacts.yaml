@@ -12,7 +12,7 @@ jobs:
   build:
     env: # See: https://docs.github.com/ja/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#jobsjob_idenv
       OUTPUT_DIR: edax_runner-bin
-      cache_version: -1
+      cache_version: -2
     runs-on: ${{ matrix.os }}
     timeout-minutes: 10
     strategy:
@@ -40,7 +40,7 @@ jobs:
             edax_bin_name: wEdax-x64.exe
             intel_components_install_script: oneapi-ci/scripts/install_windows.bat
             intel_components_setup_script: |- # https://github.com/oneapi-src/oneapi-ci/blob/master/scripts/build_windows.bat
-              for /f "tokens=* usebackq" %f in (`dir /b "C:\Program Files (x86)\Intel\oneAPI\compiler\" ^| findstr /V latest ^| sort`) do @set "LATEST_VERSION=%f"
+              for /f "tokens=* usebackq" %f in (`dir /b C:\Program Files (x86)\Intel\oneAPI\compiler\ ^| findstr /V latest ^| sort`) do @set "LATEST_VERSION=%f"
               echo "aaa"
               @call "C:\Program Files (x86)\Intel\oneAPI\compiler\%LATEST_VERSION%\env\vars.bat"
             intel_cpp_components: intel.oneapi.win.cpp-compiler
@@ -89,7 +89,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ${{ matrix.intel_cpp_components_cache_path }}
-          key: ${{ env.cache_version }}-${{ runner.os }}-install-${{ matrix.hrckit_url }}-${{ matrix.intel_cpp_components }}
+          key: ${{ env.cache_version }}-${{ matrix.os }}-install-${{ matrix.hrckit_url }}-${{ matrix.intel_cpp_components }}
       - name: install
         if: steps.cache-intel-components.outputs.cache-hit != 'true'
         run: ${{ matrix.intel_components_install_script }} ${{ matrix.hrckit_url }} ${{ matrix.intel_cpp_components }}
