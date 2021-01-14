@@ -48,7 +48,13 @@ jobs:
             intel_cpp_components: intel.oneapi.win.cpp-compiler
             hrckit_url: https://registrationcenter-download.intel.com/akdlm/irc_nas/17392/w_HPCKit_p_2021.1.0.2682_offline.exe
             intel_cpp_components_cache_path: C:\Program Files (x86)\Intel\oneAPI\compiler
-            prepare_command_for_cache_restore_of_cpp_components: ''
+            prepare_command_for_cache_restore_of_cpp_components: |-
+              # https://community.intel.com/t5/Intel-C-Compiler/Microsoft-Visual-C-not-found-in-path/td-p/1053875
+              # https://software.intel.com/content/www/us/en/develop/articles/cdiag10114.html
+              ls "C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/bin/"
+              "C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/bin/cl.exe" >> $GITHUB_PATH
+              ls "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/"
+              # "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Auxiliary/Build/vcvars64.bat"
           - os: macOS-latest
             edax-runner_bin_name: edax_runner-mac
             edax_build_command: make build ARCH=x64-modern COMP=icc OS=osx
@@ -69,17 +75,6 @@ jobs:
       # - name: Add msbuild to PATH
       #   if: runner.os == 'Windows'
       #   uses: microsoft/setup-msbuild@v1.0.2
-
-      - name: windows debug ls
-        if: runner.os == 'Windows'
-        run: |-
-          # https://community.intel.com/t5/Intel-C-Compiler/Microsoft-Visual-C-not-found-in-path/td-p/1053875
-          # https://software.intel.com/content/www/us/en/develop/articles/cdiag10114.html
-          ls "C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/bin/"
-          "C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/bin/cl.exe" >> $GITHUB_PATH
-          # ls "C:/Program Files (x86)/Microsoft Visual Studio/2019/"
-          # "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Auxiliary/Build/vcvars64.bat"
-        shell: bash
 
       # https://blog.dantup.com/2019/11/easily-compiling-dart-to-native-executables-for-windows-linux-macos-with-github-actions/
       - uses: cedx/setup-dart@v2
@@ -102,6 +97,7 @@ jobs:
           path: oneapi-ci
       - name: prepare for cache restore
         run: ${{ matrix.prepare_command_for_cache_restore_of_cpp_components }}
+        shell: bash
       - name: cache intel components
         id: cache-intel-components
         uses: actions/cache@v2
