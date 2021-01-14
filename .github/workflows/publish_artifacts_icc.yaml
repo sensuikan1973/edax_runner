@@ -12,7 +12,7 @@ jobs:
   build:
     env: # See: https://docs.github.com/ja/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#jobsjob_idenv
       OUTPUT_DIR: edax_runner-bin
-      PUBLISH_DIR: dst_icc
+      PUBLISH_DIR: dst
       cache_version: -5
     runs-on: ${{ matrix.os }}
     timeout-minutes: 10
@@ -66,6 +66,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
+      - name: windows test
+        run: |-
+          ls -1 "C:/Program Files (x86)/"
 
       # https://blog.dantup.com/2019/11/easily-compiling-dart-to-native-executables-for-windows-linux-macos-with-github-actions/
       - uses: cedx/setup-dart@v2
@@ -130,5 +134,5 @@ jobs:
 
       - uses: actions/upload-artifact@v2
         with:
-          name: edax_runner-releases
+          name: edax_runner-releases-with-gcc
           path: ${{ env.PUBLISH_DIR }}

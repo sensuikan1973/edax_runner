@@ -12,7 +12,7 @@ jobs:
   build:
     env: # See: https://docs.github.com/ja/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#jobsjob_idenv
       OUTPUT_DIR: edax_runner-bin
-      PUBLISH_DIR: dst_gcc
+      PUBLISH_DIR: dst
     runs-on: ${{ matrix.os }}
     timeout-minutes: 5
     strategy:
@@ -68,5 +68,5 @@ jobs:
 
       - uses: actions/upload-artifact@v2
         with:
-          name: edax_runner-releases
+          name: edax_runner-releases-with-icc
           path: ${{ env.PUBLISH_DIR }}
