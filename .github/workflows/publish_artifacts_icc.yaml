@@ -117,6 +117,15 @@ jobs:
           edax_build_command: ${{ matrix.edax_build_command }}
           edax_bin_name: ${{ matrix.edax_bin_name }}
         run: sh scripts/build_edax.sh
+      - name: build edax-reversi (Windows)
+        if: runner.os == 'Windows'
+        env:
+          dst: ${{ env.OUTPUT_DIR }}
+          bin_name: ${{ matrix.edax-runner_bin_name }}
+          edax_build_command: ${{ matrix.edax_build_command }}
+          edax_bin_name: ${{ matrix.edax_bin_name }}
+        run: scripts/build_edax.sh
+        shell: bash
 
       - name: build edax-runner
         run: dart2native bin/edax_runner.dart -v -o ${{ env.OUTPUT_DIR }}/${{ matrix.edax-runner_bin_name }}
