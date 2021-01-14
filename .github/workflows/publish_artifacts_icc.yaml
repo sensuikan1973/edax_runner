@@ -8,6 +8,10 @@ on:
     types: [opened, synchronize]
     paths: ['.github/workflows/publish_artifacts_icc.yaml', 'scripts/build_edax.sh']
 
+defaults:
+  run:
+    shell: bash
+
 jobs:
   build:
     env: # See: https://docs.github.com/ja/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#jobsjob_idenv
