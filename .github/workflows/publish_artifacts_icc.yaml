@@ -123,6 +123,9 @@ jobs:
         if: runner.os == 'macOS' || runner.os == 'Linux'
         run: ${{ matrix.intel_components_setup_script }}
 
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+
       - name: build edax-reversi
         env:
           dst: ${{ env.OUTPUT_DIR }}
