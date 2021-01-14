@@ -12,6 +12,7 @@ jobs:
   build:
     env: # See: https://docs.github.com/ja/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#jobsjob_idenv
       OUTPUT_DIR: edax_runner-bin
+      PUBLISH_DIR: dst_gcc
     runs-on: ${{ matrix.os }}
     timeout-minutes: 5
     strategy:
@@ -63,9 +64,9 @@ jobs:
       # See: https://github.com/actions/upload-artifact/issues/38
       # Workaround: https://github.com/actions/upload-artifact#maintaining-file-permissions-and-case-sensitive-files
       - name: tar files
-        run: mkdir -p dst && tar -cvf dst/${{ runner.os }}.tar ${{ env.OUTPUT_DIR }}
+        run: mkdir -p ${{ env.PUBLISH_DIR }} && tar -cvf ${{ env.PUBLISH_DIR }}/${{ runner.os }}.tar ${{ env.OUTPUT_DIR }}
 
       - uses: actions/upload-artifact@v2
         with:
           name: edax_runner-releases
-          path: dst
+          path: ${{ env.PUBLISH_DIR }}

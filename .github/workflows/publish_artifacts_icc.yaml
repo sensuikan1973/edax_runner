@@ -1,17 +1,18 @@
-name: publish_artifacts
+name: publish_artifacts_icc
 
 on:
   push:
     branches: [ main ]
-    paths: ['bin/**', 'lib/**', '.github/workflows/publish_artifacts.yaml', 'pubspec.*', 'resources/edax.ini', 'resources/learning_list.txt', 'scripts/build_edax.sh']
+    paths: ['bin/**', 'lib/**', '.github/workflows/publish_artifacts_icc.yaml', 'pubspec.*', 'resources/edax.ini', 'resources/learning_list.txt', 'scripts/build_edax.sh']
   pull_request:
     types: [opened, synchronize]
-    paths: ['.github/workflows/publish_artifacts.yaml', 'scripts/build_edax.sh']
+    paths: ['.github/workflows/publish_artifacts_icc.yaml', 'scripts/build_edax.sh']
 
 jobs:
   build:
     env: # See: https://docs.github.com/ja/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#jobsjob_idenv
       OUTPUT_DIR: edax_runner-bin
+      PUBLISH_DIR: dst_icc
       cache_version: -5
     runs-on: ${{ matrix.os }}
     timeout-minutes: 10
@@ -122,9 +123,9 @@ jobs:
       # See: https://github.com/actions/upload-artifact/issues/38
       # Workaround: https://github.com/actions/upload-artifact#maintaining-file-permissions-and-case-sensitive-files
       - name: tar files
-        run: mkdir -p dst && tar -cvf dst/${{ runner.os }}.tar ${{ env.OUTPUT_DIR }}
+        run: mkdir -p ${{ env.PUBLISH_DIR }} && tar -cvf ${{ env.PUBLISH_DIR }}/${{ runner.os }}.tar ${{ env.OUTPUT_DIR }}
 
       - uses: actions/upload-artifact@v2
         with:
           name: edax_runner-releases
-          path: dst
+          path: ${{ env.PUBLISH_DIR }}
