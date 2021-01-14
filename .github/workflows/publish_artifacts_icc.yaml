@@ -15,7 +15,7 @@ jobs:
       PUBLISH_DIR: dst
       cache_version: -5
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 10
+    timeout-minutes: 15
     strategy:
       fail-fast: false
       matrix:
@@ -67,9 +67,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Add msbuild to PATH
-        if: runner.os == 'Windows'
-        uses: microsoft/setup-msbuild@v1.0.2
+      # - name: Add msbuild to PATH
+      #   if: runner.os == 'Windows'
+      #   uses: microsoft/setup-msbuild@v1.0.2
 
       - name: windows debug ls
         if: runner.os == 'Windows'
