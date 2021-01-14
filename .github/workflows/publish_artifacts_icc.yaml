@@ -51,11 +51,17 @@ jobs:
             prepare_command_for_cache_restore_of_cpp_components: |-
               # https://community.intel.com/t5/Intel-C-Compiler/Microsoft-Visual-C-not-found-in-path/td-p/1053875
               # https://software.intel.com/content/www/us/en/develop/articles/cdiag10114.html
-              ls "C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/"
+              ls "C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/include/"
               ls "C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/bin/"
+              echo "C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/include/" >> $GITHUB_PATH
               echo "C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/bin" >> $GITHUB_PATH
+              echo "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/"
               ls "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/"
-              ls "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Auxiliary/"
+              echo "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Tools"
+              ls "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Tools"
+              echo "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Build"
+              ls "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Build"
+              echo "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Auxiliary/Build/"
               ls "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Auxiliary/Build/"
               # "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Auxiliary/Build/vcvars64.bat"
           - os: macOS-latest
