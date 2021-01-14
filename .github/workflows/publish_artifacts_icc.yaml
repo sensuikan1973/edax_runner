@@ -131,13 +131,21 @@ jobs:
       - name: build edax-runner
         run: dart2native bin/edax_runner.dart -v -o ${{ env.OUTPUT_DIR }}/${{ matrix.edax-runner_bin_name }}
 
-      - name: output build info
+      - name: output build info (Windows)
+        if: runner.os == 'Windows'
         env:
           build_info_txt: ${{ env.OUTPUT_DIR }}/env.txt
         run: |-
           touch ${{ env.build_info_txt }}
           which icl
           icl -dumpversion >> ${{ env.build_info_txt }}
+      - name: output build info (Mac,Linux)
+        if: runner.os == 'macOS' || runner.os == 'Linux'
+        env:
+          build_info_txt: ${{ env.OUTPUT_DIR }}/env.txt
+        run: |-
+          touch ${{ env.build_info_txt }}
+          icc -dumpversion >> ${{ env.build_info_txt }}
 
       # See: https://github.com/actions/upload-artifact/issues/38
       # Workaround: https://github.com/actions/upload-artifact#maintaining-file-permissions-and-case-sensitive-files
