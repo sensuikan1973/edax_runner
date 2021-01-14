@@ -72,10 +72,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      # - name: Add msbuild to PATH
-      #   if: runner.os == 'Windows'
-      #   uses: microsoft/setup-msbuild@v1.0.2
-
       # https://blog.dantup.com/2019/11/easily-compiling-dart-to-native-executables-for-windows-linux-macos-with-github-actions/
       - uses: cedx/setup-dart@v2
         with:
