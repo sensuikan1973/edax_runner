@@ -64,8 +64,7 @@ jobs:
               echo "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Auxiliary/Build/"
               ls "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Auxiliary/Build/"
               "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Auxiliary/Build/vcvars64.bat"
-              echo ${env:PATH}
-              echo ${env:PATH} >> $GITHUB_PATH
+              echo $GITHUB_PATH
               # cat "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Auxiliary/Build/vcvarsall.bat"
           - os: macOS-latest
             edax-runner_bin_name: edax_runner-mac
