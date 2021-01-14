@@ -79,6 +79,7 @@ jobs:
           # "C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/bin/vcvars32.bat"
           ls "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/"
           cat "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Auxiliary/Build/vcvars64.bat"
+          "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise" >> $GITHUB_PATH
           "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Auxiliary/Build/vcvars64.bat"
           # "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/VC/Auxiliary/Build/vcvars64.bat"
         shell: bash
