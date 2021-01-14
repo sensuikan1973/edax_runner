@@ -79,7 +79,12 @@ jobs:
       - name: windows test
         if: runner.os == 'Windows'
         run: |-
-          ls -1 "C:/Program Files (x86)/"
+          # ls "C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/bin/"
+          # https://community.intel.com/t5/Intel-C-Compiler/Microsoft-Visual-C-not-found-in-path/td-p/1053875
+          # "C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/bin/vcvars32.bat"
+          ls "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/"
+          "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Auxiliary/Build/vcvars64.bat"
+          # "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/VC/Auxiliary/Build/vcvars64.bat"
         shell: bash
 
       # https://blog.dantup.com/2019/11/easily-compiling-dart-to-native-executables-for-windows-linux-macos-with-github-actions/
