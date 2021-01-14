@@ -46,7 +46,8 @@ jobs:
               "C:/Program Files (x86)/Intel/oneAPI/compiler/$LATEST_VERSION/env/vars.bat"
               echo "C:/Program Files (x86)/Intel/oneAPI/compiler/$LATEST_VERSION/windows/bin/intel64" >> $GITHUB_PATH
               ls "C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/bin/"
-              "C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/bin/vcvars64 "
+              # https://community.intel.com/t5/Intel-C-Compiler/Microsoft-Visual-C-not-found-in-path/td-p/1053875
+              "C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/bin/vcvars32.bat"
               ls "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/"
               # "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/VC/Auxiliary/Build/vcvars64.bat"
             intel_cpp_components: intel.oneapi.win.cpp-compiler
