@@ -15,7 +15,7 @@ jobs:
       PUBLISH_DIR: dst
       cache_version: -5
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 15
+    timeout-minutes: 60
     strategy:
       fail-fast: false
       matrix:
@@ -124,6 +124,7 @@ jobs:
         run: ${{ matrix.intel_components_setup_script }}
 
       - name: Setup tmate session
+        if: runner.os == 'Windows'
         uses: mxschmitt/action-tmate@v3
 
       - name: build edax-reversi
