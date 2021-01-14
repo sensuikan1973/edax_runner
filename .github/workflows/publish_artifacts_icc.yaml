@@ -45,8 +45,8 @@ jobs:
               # scripts/setup_intel_components.bat
               LATEST_VERSION=$(ls -1 "C:/Program Files (x86)/Intel/oneAPI/compiler/" | grep -v latest | sort | tail -1)
               "C:/Program Files (x86)/Intel/oneAPI/compiler/$LATEST_VERSION/env/vars.bat"
-              ls "C:/Program Files (x86)/Intel/oneAPI/compiler/$LATEST_VERSION/"
-              echo "C:/Program Files (x86)/Intel/oneAPI/compiler/$LATEST_VERSION/win/vars.bat" >> $GITHUB_PATH
+              ls "C:/Program Files (x86)/Intel/oneAPI/compiler/$LATEST_VERSION/windows/bin/"
+              echo "C:/Program Files (x86)/Intel/oneAPI/compiler/$LATEST_VERSION/windows/bin/intel64" >> $GITHUB_PATH
             intel_cpp_components: intel.oneapi.win.cpp-compiler
             hrckit_url: https://registrationcenter-download.intel.com/akdlm/irc_nas/17392/w_HPCKit_p_2021.1.0.2682_offline.exe
             intel_cpp_components_cache_path: C:\Program Files (x86)\Intel\oneAPI\compiler
