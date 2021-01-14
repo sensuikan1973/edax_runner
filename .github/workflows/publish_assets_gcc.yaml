@@ -1,0 +1,77 @@
+name: publish_assets_gcc
+
+on:
+  push:
+    branches: [ main ]
+    paths: ['bin/**', 'lib/**', '.github/workflows/publish_assets_gcc.yaml', 'pubspec.*', 'resources/edax.ini', 'resources/learning_list.txt', 'scripts/build.sh']
+  pull_request:
+    types: [opened, synchronize]
+    paths: ['.github/workflows/publish_assets_gcc.yaml', 'scripts/build.sh']
+
+jobs:
+  build:
+    env:
+      OUTPUT_DIR: edax_runner-bin
+      PUBLISH_DIR: dst
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 5
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+        include:
+          - os: ubuntu-latest
+            edax-runner_bin_name: edax_runner-linux
+            edax_build_command: make build ARCH=x64-modern COMP=gcc OS=linux
+            edax_bin_name: lEdax-x64-modern
+          - os: windows-latest
+            edax-runner_bin_name: edax_runner-windows.exe
+            edax_build_command: make build ARCH=x64 COMP=gcc OS=windows
+            edax_bin_name: wEdax-x64.exe
+          - os: macOS-latest
+            edax-runner_bin_name: edax_runner-mac
+            edax_build_command: make build ARCH=x64-modern COMP=gcc OS=osx
+            edax_bin_name: mEdax
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: cedx/setup-dart@v2
+        with:
+            architecture: x64
+            release-channel: beta
+      - name: install dependencies
+        run: pub get
+
+      - name: cache edax-reversi
+        id: cache-edax-reversi
+        uses: actions/cache@v2
+        with:
+          path: edax-reversi
+          key: ${{ runner.os }}-edax-reversi-${{ hashFiles('scripts/build_edax.sh') }}
+
+      - name: build edax-reversi
+        env:
+          dst: ${{ env.OUTPUT_DIR }}
+          bin_name: ${{ matrix.edax-runner_bin_name }}
+          edax_build_command: ${{ matrix.edax_build_command }}
+          edax_bin_name: ${{ matrix.edax_bin_name }}
+        run: sh scripts/build_edax.sh
+
+      - name: build edax-runner
+        run: dart2native bin/edax_runner.dart -v -o ${{ env.OUTPUT_DIR }}/${{ matrix.edax-runner_bin_name }}
+
+      - name: zip files (Windows)
+        if: runner.os == 'Windows'
+        run: mkdir -p ${{ env.PUBLISH_DIR }} && powershell Compress-Archive -Path ${{ env.OUTPUT_DIR }} -DestinationPath ${{ env.PUBLISH_DIR }}/${{ runner.os }}.zip
+      - name: zip files (Linux, MacOS)
+        if: runner.os == 'macOS' || runner.os == 'Linux'
+        run: mkdir -p ${{ env.PUBLISH_DIR }} && zip -r ${{ env.PUBLISH_DIR }}/${{ runner.os }}.zip ${{ env.OUTPUT_DIR }}
+
+      - uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ${{ env.PUBLISH_DIR }}/${{ runner.os }}.zip
+          asset_name: edax_runner_${{ runner.os }}_gcc.zip
+          asset_content_type: application/zip

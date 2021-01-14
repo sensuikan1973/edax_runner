@@ -1,4 +1,4 @@
-name: publish_assets
+name: publish_assets_icc
 
 on:
   release:
@@ -8,6 +8,7 @@ jobs:
   build:
     env:
       OUTPUT_DIR: edax_runner-bin
+      PUBLISH_DIR: dst
     runs-on: ${{ matrix.os }}
     timeout-minutes: 10
     strategy:
@@ -95,16 +96,16 @@ jobs:
 
       - name: zip files (Windows)
         if: runner.os == 'Windows'
-        run: mkdir -p dst && powershell Compress-Archive -Path ${{ env.OUTPUT_DIR }} -DestinationPath dst/${{ runner.os }}.zip
+        run: mkdir -p ${{ env.PUBLISH_DIR }} && powershell Compress-Archive -Path ${{ env.OUTPUT_DIR }} -DestinationPath ${{ env.PUBLISH_DIR }}/${{ runner.os }}.zip
       - name: zip files (Linux, MacOS)
         if: runner.os == 'macOS' || runner.os == 'Linux'
-        run: mkdir -p dst && zip -r dst/${{ runner.os }}.zip ${{ env.OUTPUT_DIR }}
+        run: mkdir -p ${{ env.PUBLISH_DIR }} && zip -r ${{ env.PUBLISH_DIR }}/${{ runner.os }}.zip ${{ env.OUTPUT_DIR }}
 
       - uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: dst/${{ runner.os }}.zip
-          asset_name: edax_runner_${{ runner.os }}.zip
+          asset_path: ${{ env.PUBLISH_DIR }}/${{ runner.os }}.zip
+          asset_name: edax_runner_${{ runner.os }}_icc.zip
           asset_content_type: application/zip
