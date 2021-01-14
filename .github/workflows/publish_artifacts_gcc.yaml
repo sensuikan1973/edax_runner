@@ -68,5 +68,5 @@ jobs:
 
       - uses: actions/upload-artifact@v2
         with:
-          name: edax_runner-releases-with-icc
+          name: edax_runner-releases-with-gcc
           path: ${{ env.PUBLISH_DIR }}
