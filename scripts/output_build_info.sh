@@ -4,7 +4,6 @@
 dst_file="$1/env.txt"
 
 touch $dst_file
-chmod 777 $dst_file
 
 echo "=== os image ===" >> $dst_file
 echo $ImageOS >> $dst_file
