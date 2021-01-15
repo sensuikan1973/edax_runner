@@ -123,9 +123,10 @@ jobs:
           build_info_txt: ${{ env.OUTPUT_DIR }}/env.txt
         run: |-
           touch ${{ env.build_info_txt }}
+          echo "dart version: $(dart --version)" >> ${{ env.build_info_txt }}
           echo "icc version: $(icc --version)" >> ${{ env.build_info_txt }} # if windows, icl
           cd edax-reversi
-          echo "edax-reversi revision: $(git rev-parse HEAD)" >> ${{ env.build_info_txt }} # if windows, icl
+          echo "edax-reversi revision: $(git rev-parse HEAD)" >> ../${{ env.build_info_txt }}
 
       # See: https://github.com/actions/upload-artifact/issues/38
       # Workaround: https://github.com/actions/upload-artifact#maintaining-file-permissions-and-case-sensitive-files
