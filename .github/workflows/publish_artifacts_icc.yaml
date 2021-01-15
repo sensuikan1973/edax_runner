@@ -126,7 +126,7 @@ jobs:
           echo "=== github sha ==="
           echo $GITHUB_SHA >> ${{ env.build_info_txt }}
           echo "\n=== dart version ==="
-          dart --version &>> ${{ env.build_info_txt }}
+          dart --version >> ${{ env.build_info_txt }} 2>&1
           echo "\n=== icc version ==="
           icc --version >> ${{ env.build_info_txt }} # if windows, icl
           echo "\n=== edax-reversi sha ==="
