@@ -123,13 +123,15 @@ jobs:
           build_info_txt: ${{ env.OUTPUT_DIR }}/env.txt
         run: |-
           touch ${{ env.build_info_txt }}
-          echo "=== github sha ==="
+          echo "=== os image ===" >> ${{ env.build_info_txt }}
+          echo $ImageOS >> ${{ env.build_info_txt }}
+          echo "\n=== github sha ===" >> ${{ env.build_info_txt }}
           echo $GITHUB_SHA >> ${{ env.build_info_txt }}
-          echo "\n=== dart version ==="
+          echo "\n=== dart version ===" >> ${{ env.build_info_txt }}
           dart --version >> ${{ env.build_info_txt }} 2>&1
-          echo "\n=== icc version ==="
+          echo "\n=== icc version ===" >> ${{ env.build_info_txt }}
           icc --version >> ${{ env.build_info_txt }} # if windows, icl
-          echo "\n=== edax-reversi sha ==="
+          echo "\n=== edax-reversi sha ===" >> ${{ env.build_info_txt }}
           cd edax-reversi
           git rev-parse HEAD >> ../${{ env.build_info_txt }}
 
