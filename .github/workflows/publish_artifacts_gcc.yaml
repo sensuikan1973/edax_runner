@@ -62,7 +62,7 @@ jobs:
         run: dart2native bin/edax_runner.dart -v -o ${{ env.OUTPUT_DIR }}/${{ matrix.edax-runner_bin_name }}
 
       - name: output build info
-        run: scripts/output_build_info.sh ${{ env.OUTPUT_DIR }} gcc
+        run: sh scripts/output_build_info.sh ${{ env.OUTPUT_DIR }} gcc
 
       # See: https://github.com/actions/upload-artifact/issues/38
       # Workaround: https://github.com/actions/upload-artifact#maintaining-file-permissions-and-case-sensitive-files
