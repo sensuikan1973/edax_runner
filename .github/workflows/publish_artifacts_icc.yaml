@@ -126,12 +126,12 @@ jobs:
           echo "=== github sha ==="
           echo $GITHUB_SHA >> ${{ env.build_info_txt }}
           echo "\n=== dart version ==="
-          echo "$(dart --version)" >> ${{ env.build_info_txt }}
+          dart --version &>> ${{ env.build_info_txt }}
           echo "\n=== icc version ==="
-          echo "$(icc --version)" >> ${{ env.build_info_txt }} # if windows, icl
+          icc --version >> ${{ env.build_info_txt }} # if windows, icl
           echo "\n=== edax-reversi sha ==="
           cd edax-reversi
-          echo "$(git rev-parse HEAD)" >> ../${{ env.build_info_txt }}
+          git rev-parse HEAD >> ../${{ env.build_info_txt }}
 
       # See: https://github.com/actions/upload-artifact/issues/38
       # Workaround: https://github.com/actions/upload-artifact#maintaining-file-permissions-and-case-sensitive-files
