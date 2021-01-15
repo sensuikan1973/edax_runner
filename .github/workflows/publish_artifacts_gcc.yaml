@@ -13,7 +13,6 @@ jobs:
     env: # See: https://docs.github.com/ja/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#jobsjob_idenv
       OUTPUT_DIR: edax_runner-bin
       PUBLISH_DIR: dst
-      COMP: gcc
     runs-on: ${{ matrix.os }}
     timeout-minutes: 5
     strategy:
@@ -22,7 +21,7 @@ jobs:
         include: # See: https://docs.github.com/ja/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#using-environment-variables-in-a-matrix
           - os: ubuntu-latest
             edax-runner_bin_name: edax_runner-linux
-            edax_build_command: make build ARCH=x64-modern COMP=${{ env.COMP }} OS=linux
+            edax_build_command: make build ARCH=x64-modern COMP=gcc OS=linux
             edax_bin_name: lEdax-x64-modern
           - os: windows-latest
             edax-runner_bin_name: edax_runner-windows.exe
