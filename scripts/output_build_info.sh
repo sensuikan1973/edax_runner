@@ -17,10 +17,9 @@ echo "=== dart version ===" >> $dst_file
 dart --version >> $dst_file 2>&1
 echo ""
 
+echo "=== $2 version ===" >> $dst_file
+$2 --version >> $dst_file
+
 echo "=== edax-reversi sha ===" >> $dst_file
 cd edax-reversi
 git rev-parse HEAD >> ../$dst_file
-echo ""
-
-echo "=== $2 version ===" >> $dst_file
-$2 --version >> $dst_file
