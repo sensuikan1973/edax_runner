@@ -61,6 +61,23 @@ jobs:
       - name: build edax-runner
         run: dart2native bin/edax_runner.dart -v -o ${{ env.OUTPUT_DIR }}/${{ matrix.edax-runner_bin_name }}
 
+      - name: output build info
+        env:
+          build_info_txt: ${{ env.OUTPUT_DIR }}/env.txt
+        run: |-
+          touch ${{ env.build_info_txt }}
+          echo "=== os image ===" >> ${{ env.build_info_txt }}
+          echo $ImageOS >> ${{ env.build_info_txt }}
+          echo "\n=== github sha ===" >> ${{ env.build_info_txt }}
+          echo $GITHUB_SHA >> ${{ env.build_info_txt }}
+          echo "\n=== dart version ===" >> ${{ env.build_info_txt }}
+          dart --version >> ${{ env.build_info_txt }} 2>&1
+          echo "\n=== gcc version ===" >> ${{ env.build_info_txt }}
+          gcc --version >> ${{ env.build_info_txt }}
+          echo "\n=== edax-reversi sha ===" >> ${{ env.build_info_txt }}
+          cd edax-reversi
+          git rev-parse HEAD >> ../${{ env.build_info_txt }}
+
       # See: https://github.com/actions/upload-artifact/issues/38
       # Workaround: https://github.com/actions/upload-artifact#maintaining-file-permissions-and-case-sensitive-files
       - name: tar files
