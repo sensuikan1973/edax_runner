@@ -123,7 +123,7 @@ jobs:
           build_info_txt: ${{ env.OUTPUT_DIR }}/env.txt
         run: |-
           touch ${{ env.build_info_txt }}
-          echo "icc version: $(icc -version)" >> ${{ env.build_info_txt }} # if windows, icl
+          echo "icc version: $(icc --version)" >> ${{ env.build_info_txt }} # if windows, icl
           cd edax-reversi
           echo "edax-reversi revision: $(git rev-parse HEAD)" >> ${{ env.build_info_txt }} # if windows, icl
 
