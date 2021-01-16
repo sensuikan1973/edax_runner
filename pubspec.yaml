@@ -1,5 +1,5 @@
 name: edax_runner
-version: 0.4.2
+version: 0.5.0
 description: tiny tool for edax-reversi auto learning
 author: Naoki Shimizu
 homepage: https://github.com/sensuikan1973/edax_runner

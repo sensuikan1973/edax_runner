@@ -1,3 +1,10 @@
+# 0.5.0
+- fix icc compile error
+- publish assets with multiple compiler
+  - Mac, Linux: gcc and icc.
+  - Windows: gcc only.
+- package build info assets
+
 # 0.4.2
 - upgrade Dart SDK min version
 
