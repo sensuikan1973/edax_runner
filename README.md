@@ -12,7 +12,7 @@
 ![demo](https://github.com/sensuikan1973/edax_runner/blob/main/resources/demo.gif)
 
 ## Usage
-1. download the Asset from [latest Release](https://github.com/sensuikan1973/edax_runner/releases/latest).
+1. download the Asset from the [latest Release](https://github.com/sensuikan1973/edax_runner/releases/latest).
 2. edit `learning_list.txt` which you want to let edax learn.
 3. run edax_runner on your terminal.
 
