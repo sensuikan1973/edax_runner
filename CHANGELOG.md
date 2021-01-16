@@ -1,3 +1,7 @@
+# 0.5.1
+- upgrade dependencies
+- mild fix build info output format
+
 # 0.5.0
 - fix icc compile error
 - publish assets with multiple compiler
