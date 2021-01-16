@@ -76,8 +76,7 @@ There are **only 3 rules**. Example is [here](https://github.com/sensuikan1973/e
 ## Development
 ![dartfmt](https://github.com/sensuikan1973/edax_runner/workflows/dartfmt/badge.svg?event=push)
 ![dartanalyzer](https://github.com/sensuikan1973/edax_runner/workflows/dartanalyzer/badge.svg?event=push)
-![unit_test](https://github.com/sensuikan1973/edax_runner/workflows/unit_test/badge.svg?event=push)
-
+![unit_test](https://github.com/sensuikan1973/edax_runner/workflows/unit_test/badge.svg?event=push)  
 ![publish_artifacts_gcc](https://github.com/sensuikan1973/edax_runner/workflows/publish_artifacts_gcc/badge.svg)
 ![publish_artifacts_icc](https://github.com/sensuikan1973/edax_runner/workflows/publish_artifacts_icc/badge.svg)
 ![publish_assets_gcc](https://github.com/sensuikan1973/edax_runner/workflows/publish_assets_gcc/badge.svg)
