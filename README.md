@@ -7,7 +7,7 @@
 
 - **you can write learning list as simple format txt**.
   - you can also check the logs with `learned_log.txt`.
-- support **Linux, Mac, Windows**.
+- support **Mac, Windows, Linux**.
 
 ![demo](https://github.com/sensuikan1973/edax_runner/blob/main/resources/demo.gif)
 
