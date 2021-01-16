@@ -8,7 +8,7 @@ touch $dst_file
 echo "=== os image ===" >> $dst_file
 echo $ImageOS >> $dst_file
 
-echo "=== github sha ===" >> $dst_file
+echo "=== edax-runner sha ===" >> $dst_file
 echo $GITHUB_SHA >> $dst_file
 
 echo "=== dart version ===" >> $dst_file
