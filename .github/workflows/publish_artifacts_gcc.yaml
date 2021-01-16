@@ -1,0 +1,75 @@
+name: publish_artifacts_gcc
+
+on:
+  push:
+    branches: [ main ]
+    paths: ['bin/**', 'lib/**', '.github/workflows/publish_artifacts_gcc.yaml', 'pubspec.*', 'resources/edax.ini', 'resources/learning_list.txt', 'scripts/build.sh']
+  pull_request:
+    types: [opened, synchronize]
+    paths: ['.github/workflows/publish_artifacts_gcc.yaml', 'scripts/build.sh']
+
+jobs:
+  build:
+    env: # See: https://docs.github.com/ja/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#jobsjob_idenv
+      OUTPUT_DIR: edax_runner-bin
+      PUBLISH_DIR: dst
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 5
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+        include: # See: https://docs.github.com/ja/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#using-environment-variables-in-a-matrix
+          - os: ubuntu-latest
+            edax-runner_bin_name: edax_runner-linux
+            edax_build_command: make build ARCH=x64-modern COMP=gcc OS=linux
+            edax_bin_name: lEdax-x64-modern
+          - os: windows-latest
+            edax-runner_bin_name: edax_runner-windows.exe
+            edax_build_command: make build ARCH=x64 COMP=gcc OS=windows
+            edax_bin_name: wEdax-x64.exe
+          - os: macOS-latest
+            edax-runner_bin_name: edax_runner-mac
+            edax_build_command: make build ARCH=x64-modern COMP=gcc OS=osx
+            edax_bin_name: mEdax
+
+    steps:
+      - uses: actions/checkout@v2
+
+      # https://blog.dantup.com/2019/11/easily-compiling-dart-to-native-executables-for-windows-linux-macos-with-github-actions/
+      - uses: cedx/setup-dart@v2
+        with:
+            architecture: x64
+            release-channel: beta
+      - name: install dependencies
+        run: pub get
+
+      - name: cache edax-reversi
+        id: cache-edax-reversi
+        uses: actions/cache@v2
+        with:
+          path: edax-reversi
+          key: ${{ runner.os }}-edax-reversi-${{ hashFiles('scripts/build_edax.sh') }}
+
+      - name: build edax-reversi
+        env:
+          dst: ${{ env.OUTPUT_DIR }}
+          bin_name: ${{ matrix.edax-runner_bin_name }}
+          edax_build_command: ${{ matrix.edax_build_command }}
+          edax_bin_name: ${{ matrix.edax_bin_name }}
+        run: sh scripts/build_edax.sh
+
+      - name: build edax-runner
+        run: dart2native bin/edax_runner.dart -v -o ${{ env.OUTPUT_DIR }}/${{ matrix.edax-runner_bin_name }}
+
+      - name: output build info
+        run: sh scripts/output_build_info.sh ${{ env.OUTPUT_DIR }} gcc
+
+      # See: https://github.com/actions/upload-artifact/issues/38
+      # Workaround: https://github.com/actions/upload-artifact#maintaining-file-permissions-and-case-sensitive-files
+      - name: tar files
+        run: mkdir -p ${{ env.PUBLISH_DIR }} && tar -cvf ${{ env.PUBLISH_DIR }}/${{ runner.os }}.tar ${{ env.OUTPUT_DIR }}
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: edax_runner-releases-with-gcc
+          path: ${{ env.PUBLISH_DIR }}
