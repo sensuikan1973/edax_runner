@@ -3,10 +3,10 @@ name: publish_artifacts_icc
 on:
   push:
     branches: [ main ]
-    paths: ['bin/**', 'lib/**', '.github/workflows/publish_artifacts_icc.yaml', 'pubspec.*', 'resources/edax.ini', 'resources/learning_list.txt', 'scripts/build_edax.sh']
+    paths: ['bin/**', 'lib/**', '.github/workflows/publish_artifacts_icc.yaml', 'pubspec.*', 'resources/edax.ini', 'resources/learning_list.txt', 'scripts/build_edax.sh', 'scripts/output_build_info.sh']
   pull_request:
     types: [opened, synchronize]
-    paths: ['.github/workflows/publish_artifacts_icc.yaml', 'scripts/build_edax.sh']
+    paths: ['.github/workflows/publish_artifacts_icc.yaml', 'scripts/build_edax.sh', 'scripts/output_build_info.sh']
 
 jobs:
   build:
