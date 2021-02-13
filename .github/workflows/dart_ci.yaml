@@ -1,0 +1,46 @@
+
+name: Dart CI
+
+on:
+  pull_request:
+    paths: ['**.dart', 'pubspec.*', 'analysis_options.yaml', '.github/workflows/dart_ci.yaml']
+  push:
+    branches: [ main ]
+    paths: ['**.dart', 'pubspec.*', 'analysis_options.yaml', '.github/workflows/dart_ci.yaml']
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    container:
+      image: google/dart:beta
+    steps:
+    - uses: actions/checkout@v2
+    - name: dart format
+      run: dart format ./ -l 120 --set-exit-if-changed
+
+  analyze:
+    runs-on: ubuntu-latest
+    container:
+      image: google/dart:beta
+    steps:
+    - uses: actions/checkout@v2
+    - name: install dependencies
+      run: pub get
+    - name: analyzer
+      run: dart analyze --fatal-infos --fatal-warnings .
+
+  test:
+    runs-on: ubuntu-latest
+    container:
+      image: google/dart:beta
+    steps:
+    - uses: actions/checkout@v2
+    - name: install dependencies
+      run: pub get
+    - name: run test
+      run: pub run test . --coverage=coverage
+    - name: coverage
+      run: pub run coverage:format_coverage --lcov --packages=.packages --in coverage --out lcov.info
+    - uses: codecov/codecov-action@v1
+      with:
+        file: lcov.info
