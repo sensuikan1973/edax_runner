@@ -74,13 +74,11 @@ There are **only 3 rules**. Example is [here](https://github.com/sensuikan1973/e
 - [Choirokoitia | Edax](https://choi.lavox.net/edax/start): great edax documents (Japanese)
 
 ## Development
-![dartfmt](https://github.com/sensuikan1973/edax_runner/workflows/dartfmt/badge.svg?event=push)
-![dartanalyzer](https://github.com/sensuikan1973/edax_runner/workflows/dartanalyzer/badge.svg?event=push)
-![unit_test](https://github.com/sensuikan1973/edax_runner/workflows/unit_test/badge.svg?event=push)  
+[![dart-channel](https://img.shields.io/badge/Dart-beta-64B5F6.svg?logo=dart)](https://dart.dev/get-dart#release-channels)  
+![Dart CI](https://github.com/sensuikan1973/edax_runner/workflows/Dart%20CI/badge.svg)
+[![codecov](https://codecov.io/gh/sensuikan1973/edax_runner/branch/main/graph/badge.svg?token=7ZF8NAY1NS)](https://codecov.io/gh/sensuikan1973/edax_runner)
 ![publish_artifacts_gcc](https://github.com/sensuikan1973/edax_runner/workflows/publish_artifacts_gcc/badge.svg)
 ![publish_artifacts_icc](https://github.com/sensuikan1973/edax_runner/workflows/publish_artifacts_icc/badge.svg)
-![publish_assets_gcc](https://github.com/sensuikan1973/edax_runner/workflows/publish_assets_gcc/badge.svg)
-![publish_assets_icc](https://github.com/sensuikan1973/edax_runner/workflows/publish_assets_icc/badge.svg)
 
 ### format
 ```sh
