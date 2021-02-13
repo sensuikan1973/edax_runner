@@ -1,3 +1,6 @@
+# 0.5.2
+- upgrade dependencies
+
 # 0.5.1
 - upgrade dependencies
 - mild fix build info output format
