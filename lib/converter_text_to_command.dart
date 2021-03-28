@@ -23,7 +23,8 @@ String convertTextToCommand(String line, String bookFile) {
   }
   if (_bookDeviateRegexp.hasMatch(str)) {
     final match = _bookDeviateRegexp.firstMatch(str);
-    return bookDeviate(bookFile, match!.group(7) ?? '' , int.parse(match.group(2) ?? ''), int.parse(match.group(4) ?? ''));
+    return bookDeviate(
+        bookFile, match!.group(7) ?? '', int.parse(match.group(2) ?? ''), int.parse(match.group(4) ?? ''));
   }
 
   throw Exception('$str is not supported format');
