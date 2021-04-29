@@ -1,3 +1,6 @@
+# 0.6.2
+- upgrade dependencies
+
 # 0.6.1
 - upgrade dependencies
 
