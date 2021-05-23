@@ -1,3 +1,7 @@
+# 0.7.0
+- upgrade compilers
+- upgrade dependencies
+
 # 0.6.3
 - upgrade dependencies
 
