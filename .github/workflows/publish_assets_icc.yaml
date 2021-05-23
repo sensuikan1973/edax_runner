@@ -66,10 +66,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: cedx/setup-dart@v2
+      - uses: dart-lang/setup-dart@v1
         with:
-            architecture: x64
-            release-channel: beta
+          sdk: beta
+          architecture: x64
       - name: install dependencies
         run: pub get
 
