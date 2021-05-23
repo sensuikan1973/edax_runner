@@ -35,20 +35,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      # https://blog.dantup.com/2019/11/easily-compiling-dart-to-native-executables-for-windows-linux-macos-with-github-actions/
-      - uses: cedx/setup-dart@v2
+      - uses: dart-lang/setup-dart@v1
         with:
-            architecture: x64
-            release-channel: beta
+          sdk: beta
+          architecture: x64
       - name: install dependencies
         run: pub get
-
-      - name: cache edax-reversi
-        id: cache-edax-reversi
-        uses: actions/cache@v2
-        with:
-          path: edax-reversi
-          key: ${{ runner.os }}-edax-reversi-${{ hashFiles('scripts/build_edax.sh') }}
 
       - name: build edax-reversi
         env:
