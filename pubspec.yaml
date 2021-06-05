@@ -8,7 +8,7 @@ environment:
   sdk: '>=2.13.0 <3.0.0'
 
 dev_dependencies:
-  analyzer: ^1.5.0
-  coverage: ^1.0.2 # See: https://github.com/dart-lang/test/issues/1265
+  analyzer: ^1.7.1
+  coverage: ^1.0.3 # See: https://github.com/dart-lang/test/issues/1265
   pedantic_sensuikan1973: any
-  test: ^1.17.4
+  test: ^1.17.5
