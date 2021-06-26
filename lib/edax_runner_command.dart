@@ -1,7 +1,7 @@
 import 'package:meta/meta.dart';
 import 'edax_command.dart' as edax;
 
-String bookDeviate(String bookFile, String move, int errLowerBound, int errUpperBound) => '''
+String bookDeviate(final String bookFile, final String move, final int errLowerBound, final int errUpperBound) => '''
 ${edax.init()}
 ${edax.playMove(move)}
 ${edax.bookDeviate(errLowerBound, errUpperBound)}
@@ -10,7 +10,7 @@ ${edax.bookSave(bookFile)}
 $eocCommand
 ''';
 
-String playGameEdaxVsEdax(String bookFile, String move, [int bookRandomness = 0]) => '''
+String playGameEdaxVsEdax(final String bookFile, final String move, [int bookRandomness = 0]) => '''
 ${edax.init()}
 ${edax.setBookRandomness(bookRandomness)}
 ${edax.playMove(move)}

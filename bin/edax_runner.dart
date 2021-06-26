@@ -6,7 +6,7 @@ import 'package:edax_runner/learner.dart';
 const int _waitEdaxLoadingData = 20;
 const String _bookFile = 'data/book.dat';
 
-Future<void> main(List<String> arguments) async {
+Future<void> main(final List<String> arguments) async {
   stdout.writeln('edax binary path: $_edaxBinPath');
 
   final edax = await Process.start('./$_edaxBinPath', []);
@@ -19,7 +19,7 @@ Future<void> main(List<String> arguments) async {
   stdout.writeln(line);
   edax.stdin.writeln(line);
 
-  edax.stdout.listen((event) async {
+  edax.stdout.listen((final event) async {
     final output = utf8.decode(event);
     stdout.writeln(output);
     if (!output.contains(learner.eocText)) return;
@@ -29,7 +29,7 @@ Future<void> main(List<String> arguments) async {
     stdout.writeln(line);
     edax.stdin.writeln(line);
   });
-  edax.stderr.listen((event) async => stderr.writeln(utf8.decode(event)));
+  edax.stderr.listen((final event) async => stderr.writeln(utf8.decode(event)));
 }
 
 String get _edaxBinPath {

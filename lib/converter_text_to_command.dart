@@ -11,7 +11,7 @@ final _edaxVsEdaxRegexp = RegExp(r'^([a-hA-H]{1}[1-8]{1})+$');
 
 const commentHead = '//';
 
-String convertTextToCommand(String line, String bookFile) {
+String convertTextToCommand(final String line, final String bookFile) {
   final str = line.trim();
   if (str.contains(commentHead)) throw Exception('$str is comment');
   if (str == 'exit' || str.isEmpty) return 'exit';
@@ -24,7 +24,11 @@ String convertTextToCommand(String line, String bookFile) {
   if (_bookDeviateRegexp.hasMatch(str)) {
     final match = _bookDeviateRegexp.firstMatch(str);
     return bookDeviate(
-        bookFile, match!.group(7) ?? '', int.parse(match.group(2) ?? ''), int.parse(match.group(4) ?? ''));
+      bookFile,
+      match!.group(7) ?? '',
+      int.parse(match.group(2) ?? ''),
+      int.parse(match.group(4) ?? ''),
+    );
   }
 
   throw Exception('$str is not supported format');

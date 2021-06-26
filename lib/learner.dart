@@ -15,7 +15,7 @@ class Learner {
   Future<String> getNextLearningCommand() async {
     final file = File(_learningListFile);
     final lines = await file.readAsLines();
-    final nextLearningText = lines.firstWhere((line) => !line.contains(commentHead), orElse: () => '');
+    final nextLearningText = lines.firstWhere((final line) => !line.contains(commentHead), orElse: () => '');
     return convertTextToCommand(nextLearningText, _bookFile);
   }
 

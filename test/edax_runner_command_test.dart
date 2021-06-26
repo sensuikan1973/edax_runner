@@ -8,21 +8,26 @@ void main() {
     const errLowerBound = 1;
     const errUpperBound = 2;
     final output = bookDeviate(bookFile, move, errLowerBound, errUpperBound);
-    expect(output, '''
+    expect(
+      output,
+      '''
 init
 play $move
 book deviate $errLowerBound $errUpperBound
 book fix
 book save $bookFile
 $eocCommand
-''');
+''',
+    );
   });
 
   test('playGameEdaxVsEdax', () {
     const bookFile = 'foo/book.dat';
     const move = 'f5F6F7g7';
     final output = playGameEdaxVsEdax(bookFile, move);
-    expect(output, '''
+    expect(
+      output,
+      '''
 init
 set book-randomness 0
 play $move
@@ -30,6 +35,7 @@ ${List<String>.filled(60, 'go').join('\n')}
 book store
 book save $bookFile
 $eocCommand
-''');
+''',
+    );
   });
 }
