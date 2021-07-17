@@ -1,4 +1,7 @@
 # 0.7.1
+- release stable version
+
+# 0.7.1
 - upgrade dependencies
 
 # 0.7.0
