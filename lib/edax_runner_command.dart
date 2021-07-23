@@ -10,7 +10,7 @@ ${edax.bookSave(bookFile)}
 $eocCommand
 ''';
 
-String playGameEdaxVsEdax(final String bookFile, final String move, [int bookRandomness = 0]) => '''
+String playGameEdaxVsEdax(final String bookFile, final String move, [final int bookRandomness = 0]) => '''
 ${edax.init()}
 ${edax.setBookRandomness(bookRandomness)}
 ${edax.playMove(move)}

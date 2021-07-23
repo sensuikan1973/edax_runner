@@ -1,14 +1,13 @@
 name: edax_runner
 version: 1.0.0
 description: tiny tool for edax-reversi auto learning
-author: Naoki Shimizu
 homepage: https://github.com/sensuikan1973/edax_runner
 
 environment:
   sdk: '>=2.13.0 <3.0.0'
 
 dependencies:
-  meta: ^1.6.0
+  meta: ^1.7.0
 
 dev_dependencies:
   analyzer: ^2.0.0
