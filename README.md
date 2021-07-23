@@ -82,7 +82,7 @@ There are **only 3 rules**. Example is [here](https://github.com/sensuikan1973/e
 
 ### format
 ```sh
-dartfmt ./ -w -l 120
+dart format . -l 120
 ```
 
 ### document

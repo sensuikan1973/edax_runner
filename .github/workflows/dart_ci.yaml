@@ -17,7 +17,7 @@ jobs:
       with:
         sdk: beta
     - name: dart format
-      run: dart format ./ -l 120 --set-exit-if-changed
+      run: dart format . -l 120 --set-exit-if-changed
 
   analyze:
     runs-on: ubuntu-latest

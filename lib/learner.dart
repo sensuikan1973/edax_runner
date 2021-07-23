@@ -4,7 +4,8 @@ import 'dart:math';
 import 'converter_text_to_command.dart';
 
 class Learner {
-  Learner(this._bookFile, [final String learningListFile = 'learning_list.txt', final String learnedLogFile = 'learned_log.txt'])
+  Learner(this._bookFile,
+      [final String learningListFile = 'learning_list.txt', final String learnedLogFile = 'learned_log.txt'])
       : _learningListFile = learningListFile,
         _learnedLogFile = learnedLogFile;
 
