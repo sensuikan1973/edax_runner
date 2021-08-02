@@ -31,7 +31,7 @@ jobs:
               LATEST_VERSION=$(ls -1 /opt/intel/oneapi/compiler/ | grep -v latest | sort | tail -1)
               source /opt/intel/oneapi/compiler/"$LATEST_VERSION"/env/vars.sh
               echo /opt/intel/oneapi/compiler/"$LATEST_VERSION"/linux/bin/intel64 >> $GITHUB_PATH
-            hrckit_url: https://registrationcenter-download.intel.com/akdlm/irc_nas/17764/l_HPCKit_p_2021.2.0.2997_offline.sh
+            hrckit_url: https://registrationcenter-download.intel.com/akdlm/irc_nas/17912/l_HPCKit_p_2021.3.0.3230_offline.sh
             intel_cpp_components: intel.oneapi.lin.dpcpp-cpp-compiler-pro
             intel_cpp_components_cache_path: /opt/intel/oneapi/compiler
             prepare_command_for_cache_restore_of_cpp_components: ''
@@ -45,7 +45,7 @@ jobs:
               LATEST_VERSION=$(ls -1 /opt/intel/oneapi/compiler/ | grep -v latest | sort | tail -1)
               echo /opt/intel/oneapi/compiler/$LATEST_VERSION/mac/bin/intel64 >> $GITHUB_PATH
             intel_cpp_components: intel.oneapi.mac.cpp-compiler
-            hrckit_url: https://registrationcenter-download.intel.com/akdlm/irc_nas/17643/m_HPCKit_p_2021.2.0.2903_offline.dmg
+            hrckit_url: https://registrationcenter-download.intel.com/akdlm/irc_nas/17890/m_HPCKit_p_2021.3.0.3226_offline.dmg
             intel_cpp_components_cache_path: /opt/intel/oneapi
             prepare_command_for_cache_restore_of_cpp_components: sudo mkdir -p /opt/intel && sudo chown $USER /opt/intel
           # - os: windows-latest
