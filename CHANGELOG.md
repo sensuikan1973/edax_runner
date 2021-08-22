@@ -1,3 +1,7 @@
+# 1.2.0
+- upgrade compilers
+- upgrade dependencies
+
 # 1.1.0
 - upgrade dependencies
 
