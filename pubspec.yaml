@@ -4,7 +4,7 @@ description: tiny tool for edax-reversi auto learning
 homepage: https://github.com/sensuikan1973/edax_runner
 
 environment:
-  sdk: '>=2.14.0-0 <3.0.0'
+  sdk: '>=2.14.0 <3.0.0'
 
 dependencies:
   meta: ^1.7.0
