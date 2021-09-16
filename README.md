@@ -99,7 +99,7 @@ export edax_build_command="make build ARCH=x64-modern COMP=gcc OS=osx"
 export edax_bin_name="mEdax"
 
 ./scripts/build_edax.sh
-dart2native bin/edax_runner.dart -v -o $dst/$bin_name
+dart compile exe bin/edax_runner.dart -v -o $dst/$bin_name
 
 cd $dst
 ./$bin_name

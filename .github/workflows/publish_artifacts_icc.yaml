@@ -110,7 +110,7 @@ jobs:
         run: sh scripts/build_edax.sh
 
       - name: build edax-runner
-        run: dart2native bin/edax_runner.dart -v -o ${{ env.OUTPUT_DIR }}/${{ matrix.edax-runner_bin_name }}
+        run: dart compile exe bin/edax_runner.dart -v -o ${{ env.OUTPUT_DIR }}/${{ matrix.edax-runner_bin_name }}
 
       - name: output build info
         run: sh scripts/output_build_info.sh ${{ env.OUTPUT_DIR }} icc
