@@ -27,7 +27,7 @@ jobs:
       with:
         sdk: beta
     - name: install dependencies
-      run: pub get
+      run: dart pub get
     - name: analyzer
       run: dart analyze --fatal-infos --fatal-warnings .
 
@@ -39,7 +39,7 @@ jobs:
       with:
         sdk: beta
     - name: install dependencies
-      run: pub get
+      run: dart pub get
     - name: run test
       run: pub run test . --coverage=coverage
     - name: coverage
