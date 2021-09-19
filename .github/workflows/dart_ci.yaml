@@ -41,9 +41,9 @@ jobs:
     - name: install dependencies
       run: dart pub get
     - name: run test
-      run: pub run test . --coverage=coverage
+      run: dart pub run test . --coverage=coverage
     - name: coverage
-      run: pub run coverage:format_coverage --lcov --packages=.packages --in coverage --out lcov.info
+      run: dart pub run coverage:format_coverage --lcov --packages=.packages --in coverage --out lcov.info
     - uses: codecov/codecov-action@v2.0.3
       with:
         file: lcov.info
