@@ -71,7 +71,7 @@ jobs:
           sdk: beta
           architecture: x64
       - name: install dependencies
-        run: pub get
+        run: dart pub get
 
       # setup Intel Compiler icc
       - uses: actions/checkout@v2

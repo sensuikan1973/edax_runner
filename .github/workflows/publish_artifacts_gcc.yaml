@@ -40,7 +40,7 @@ jobs:
           sdk: beta
           architecture: x64
       - name: install dependencies
-        run: pub get
+        run: dart pub get
 
       - name: build edax-reversi
         env:
