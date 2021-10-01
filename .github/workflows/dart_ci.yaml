@@ -44,6 +44,6 @@ jobs:
       run: dart run test . --coverage=coverage
     - name: coverage
       run: dart run coverage:format_coverage --lcov --packages=.packages --in coverage --out lcov.info
-    - uses: codecov/codecov-action@v2.0.3
+    - uses: codecov/codecov-action@v2.1.0
       with:
         file: lcov.info
