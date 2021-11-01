@@ -12,4 +12,4 @@ updates:
       interval: "monthly"
       timezone: "Asia/Tokyo"
       time: "10:00"
-    # labels: ["GitHub Actions"]
+      labels: ["GitHub Actions", "dependencies"]
