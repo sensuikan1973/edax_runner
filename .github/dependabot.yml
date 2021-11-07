@@ -9,7 +9,7 @@ updates:
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "monthly"
+      interval: "daily"
       timezone: "Asia/Tokyo"
       time: "10:00"
     labels: ["GitHub Actions", "dependencies"]
