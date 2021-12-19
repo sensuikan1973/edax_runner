@@ -14,8 +14,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: dart-lang/setup-dart@v1
-        with:
-          sdk: beta
       - run: dart pub upgrade --null-safety # See: https://dart.dev/tools/pub/cmd/pub-upgrade#--null-safety
 
       # See: https://github.com/peter-evans/create-pull-request/tree/master#reference-example
