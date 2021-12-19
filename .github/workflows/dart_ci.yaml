@@ -24,8 +24,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: dart-lang/setup-dart@v1
-      with:
-        sdk: beta
     - name: dart format
       run: dart format . -l 120 --set-exit-if-changed
 
@@ -34,20 +32,17 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: dart-lang/setup-dart@v1
-      with:
-        sdk: beta
     - name: install dependencies
       run: dart pub get
     - name: analyzer
       run: dart analyze --fatal-infos --fatal-warnings .
 
   test:
+    needs: [format, analyze]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: dart-lang/setup-dart@v1
-      with:
-        sdk: beta
     - name: install dependencies
       run: dart pub get
     - name: run test
