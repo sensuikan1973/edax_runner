@@ -1,3 +1,6 @@
+# 1.8.0
+- upgrade dependencies
+
 # 1.6.0
 - upgrade dependencies
 
