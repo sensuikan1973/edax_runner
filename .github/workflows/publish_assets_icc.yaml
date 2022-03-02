@@ -64,7 +64,7 @@ jobs:
           #     # https://www.xlsoft.com/jp/products/intel/compilers/manual/cpp_all_os/GUID-2738DAA6-469E-43BE-9CD6-F3C8E0A6B4C3.htm
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - uses: dart-lang/setup-dart@v1
         with:
@@ -73,7 +73,7 @@ jobs:
         run: dart pub get
 
       # setup Intel Compiler icc
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           repository: oneapi-src/oneapi-ci
           path: oneapi-ci
