@@ -81,7 +81,7 @@ jobs:
         run: ${{ matrix.prepare_command_for_cache_restore_of_cpp_components }}
       - name: cache intel components
         id: cache-intel-components
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ${{ matrix.intel_cpp_components_cache_path }}
           key: ${{ env.cache_version }}-${{ matrix.os }}-install-${{ matrix.hrckit_url }}-${{ matrix.intel_cpp_components }}
