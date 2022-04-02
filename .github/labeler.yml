@@ -1,0 +1,4 @@
+GitHub Actions:
+  - .github/workflows/**/*
+  - .github/dependabot.yml
+  - .github/labeler.yml
