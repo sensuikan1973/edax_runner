@@ -1,3 +1,5 @@
+# shellcheck disable=SC2154
+
 # NOTE: require some environment variables.
 # bin_name (e.g. edax_runner-mac)
 # edax_build_command (e.g. make build ARCH=x64-modern COMP=gcc OS=osx)
