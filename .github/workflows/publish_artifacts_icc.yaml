@@ -122,7 +122,7 @@ jobs:
 
       - name: output build info
         shell: bash
-        run: ./scripts/output_build_info.sh ${{ env.OUTPUT_DIR }} icc
+        run: .github/scripts/output_build_info.sh ${{ env.OUTPUT_DIR }} icc
 
       # See: https://github.com/actions/upload-artifact/issues/38
       # Workaround: https://github.com/actions/upload-artifact#maintaining-file-permissions-and-case-sensitive-files
