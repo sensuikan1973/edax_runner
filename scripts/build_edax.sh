@@ -6,7 +6,7 @@
 
 git clone --depth 1 https://github.com/abulmo/edax-reversi.git
 
-cd edax-reversi
+cd edax-reversi || exit
 git checkout c783ef998aca86a7ae9358a58645222df27ae5a0
 
 mkdir -p data
@@ -14,11 +14,11 @@ curl -OL https://github.com/abulmo/edax-reversi/releases/download/v4.4/eval.7z
 7z x eval.7z -y
 
 mkdir -p bin
-cd src
+cd src || exit
 $edax_build_command
 # doxygen # big document. too heavy.
 
-cd ../bin
+cd ../bin || exit
 chmod +x $edax_bin_name
 
 cd ../../

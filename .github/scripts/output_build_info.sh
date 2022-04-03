@@ -10,7 +10,7 @@ echo "=== edax-runner sha ===" >> "$dst_file"
 echo "$GITHUB_SHA" >> "$dst_file"
 
 echo "=== edax-reversi sha ===" >> "$dst_file"
-cd edax-reversi
+cd edax-reversi || exit
 git rev-parse HEAD >> "../$dst_file"
 cd ..
 
