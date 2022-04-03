@@ -19,14 +19,14 @@ $edax_build_command
 # doxygen # big document. too heavy.
 
 cd ../bin || exit
-chmod +x $edax_bin_name
+chmod +x "$edax_bin_name"
 
 cd ../../
-rm -rf $dst
-mkdir -p $dst
+rm -rf "$dst"
+mkdir -p "$dst"
 
-cp resources/edax.ini $dst/edax.ini
-cp resources/learning_list.txt $dst/learning_list.txt
-cp -r edax-reversi/bin $dst/bin
-cp -r edax-reversi/data $dst/data
-# cp -r edax-reversi/doc/html $dst/doc/html
+cp resources/edax.ini "$dst/edax.ini"
+cp resources/learning_list.txt "$dst/learning_list.txt"
+cp -r edax-reversi/bin "$dst/bin"
+cp -r edax-reversi/data "$dst/data"
+# cp -r edax-reversi/doc/html "$dst/doc/html"
