@@ -1,0 +1,7 @@
+# See: https://github.com/crate-ci/typos#false-positives
+
+[files]
+# extend-exclude = ["foo/**/*"]
+
+[default.extend-words]
+# foo = "foo"
