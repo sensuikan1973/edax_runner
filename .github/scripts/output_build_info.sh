@@ -15,6 +15,7 @@ git rev-parse HEAD >> "../$dst_file"
 cd ..
 
 echo "=== os image ===" >> "$dst_file"
+# shellcheck disable=SC2154
 echo "$ImageOS" >> "$dst_file"
 
 echo "=== dart version ===" >> "$dst_file"
