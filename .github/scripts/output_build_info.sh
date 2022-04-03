@@ -6,20 +6,22 @@ compiler="$2"
 
 touch "$dst_file"
 
-echo "=== edax-runner sha ===" >> "$dst_file"
-echo "$GITHUB_SHA" >> "$dst_file"
-
 echo "=== edax-reversi sha ===" >> "$dst_file"
 cd edax-reversi || exit
 git rev-parse HEAD >> "../$dst_file"
 cd ..
 
-echo "=== os image ===" >> "$dst_file"
-# shellcheck disable=SC2154
-echo "$ImageOS" >> "$dst_file"
+{
+  echo "=== edax-runner sha ==="
+  echo "$GITHUB_SHA"
 
-echo "=== dart version ===" >> "$dst_file"
-dart --version >> "$dst_file" 2>&1
+  echo "=== os image ==="
+  # shellcheck disable=SC2154
+  echo "$ImageOS"
 
-echo "=== $compiler version ===" >> "$dst_file"
-$compiler --version >> "$dst_file"
+  echo "=== dart version ==="
+  dart --version 2>&1
+
+  echo "=== $compiler version ==="
+  $compiler --version
+} >> "$dst_file"
