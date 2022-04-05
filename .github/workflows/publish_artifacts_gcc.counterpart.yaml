@@ -1,0 +1,28 @@
+name: publish_artifacts_gcc
+
+on:
+  push:
+    branches: [ main ]
+    paths-ignore:
+      - '**.dart'
+      - 'pubspec.*'
+      - '.github/workflows/publish_artifacts_gcc.yaml'
+      - 'resources/edax.ini'
+      - 'resources/learning_list.txt'
+      - 'scripts/**'
+  pull_request:
+    types: [opened, synchronize]
+    paths-ignore:
+      - '.github/workflows/publish_artifacts_gcc.yaml'
+      - 'scripts/**'
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+
+    steps:
+      - uses: actions/checkout@v3
+      - run: .github/scripts/do_nothing_on_counterpart_workflow.sh

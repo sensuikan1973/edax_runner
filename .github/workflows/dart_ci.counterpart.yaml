@@ -1,0 +1,39 @@
+
+name: Dart CI
+
+on:
+  pull_request:
+    paths-ignore:
+      - '**.dart'
+      - 'pubspec.*'
+      - 'analysis_options.yaml'
+      - '.github/workflows/dart_ci.yaml'
+      - '.codecov.yml'
+  push:
+    branches: [ main ]
+    paths-ignore:
+      - '**.dart'
+      - 'pubspec.*'
+      - 'analysis_options.yaml'
+      - '.github/workflows/dart_ci.yaml'
+      - '.codecov.yml'
+
+jobs:
+  dart_format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: .github/scripts/do_nothing_on_counterpart_workflow.sh
+
+  dart_analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: .github/scripts/do_nothing_on_counterpart_workflow.sh
+
+  dart_test:
+    needs: [dart_format, dart_analyze]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: .github/scripts/do_nothing_on_counterpart_workflow.sh
