@@ -17,7 +17,7 @@ on:
       - 'scripts/**'
 
 jobs:
-  build:
+  icc_build:
     env:
       OUTPUT_DIR: edax_runner-bin
       PUBLISH_DIR: dst

@@ -1,0 +1,28 @@
+name: publish_artifacts_icc
+
+on:
+  push:
+    branches: [ main ]
+    paths-ignore:
+      - '**.dart'
+      - 'pubspec.*'
+      - '.github/workflows/publish_artifacts_icc.yaml'
+      - 'resources/edax.ini'
+      - 'resources/learning_list.txt'
+      - 'scripts/**'
+  pull_request:
+    types: [opened, synchronize]
+    paths-ignore:
+      - '.github/workflows/publish_artifacts_icc.yaml'
+      - 'scripts/**'
+
+jobs:
+  icc_build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macOS-latest] # ,windows-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - run: .github/scripts/do_nothing_on_counterpart_workflow.sh
