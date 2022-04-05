@@ -17,7 +17,7 @@ on:
       - 'scripts/**'
 
 jobs:
-  build:
+  gcc_build:
     env: # See: https://docs.github.com/ja/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#jobsjob_idenv
       OUTPUT_DIR: edax_runner-bin
       PUBLISH_DIR: dst
