@@ -11,7 +11,6 @@ on:
       - 'resources/learning_list.txt'
       - 'scripts/**'
   pull_request:
-    types: [opened, synchronize]
     paths-ignore:
       - '.github/workflows/publish_artifacts_icc.yaml'
       - 'scripts/**'
