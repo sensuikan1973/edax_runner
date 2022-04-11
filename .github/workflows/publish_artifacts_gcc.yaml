@@ -69,7 +69,7 @@ jobs:
       - name: tar files
         run: mkdir -p ${{ env.PUBLISH_DIR }} && tar -cvf ${{ env.PUBLISH_DIR }}/${{ runner.os }}.tar ${{ env.OUTPUT_DIR }}
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: edax_runner-releases-with-gcc
           path: ${{ env.PUBLISH_DIR }}
