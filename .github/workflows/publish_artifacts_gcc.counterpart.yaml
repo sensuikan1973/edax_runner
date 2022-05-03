@@ -1,8 +1,10 @@
+---
 name: publish_artifacts_gcc
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
     paths-ignore:
       - '**.dart'
       - 'pubspec.*'

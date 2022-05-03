@@ -1,3 +1,4 @@
+---
 name: edax_runner
 version: 1.9.0
 description: tiny tool for edax-reversi auto learning

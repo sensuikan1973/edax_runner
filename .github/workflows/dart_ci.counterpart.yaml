@@ -1,4 +1,4 @@
-
+---
 name: Dart CI
 
 on:
@@ -10,7 +10,8 @@ on:
       - '.github/workflows/dart_ci.yaml'
       - '.codecov.yml'
   push:
-    branches: [ main ]
+    branches:
+      - main
     paths-ignore:
       - '**.dart'
       - 'pubspec.*'
