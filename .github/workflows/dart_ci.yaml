@@ -23,33 +23,33 @@ jobs:
   dart_format:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - uses: dart-lang/setup-dart@v1
-    - name: dart format
-      run: dart format . -l 120 --set-exit-if-changed
+      - uses: actions/checkout@v3
+      - uses: dart-lang/setup-dart@v1
+      - name: dart format
+        run: dart format . -l 120 --set-exit-if-changed
 
   dart_analyze:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - uses: dart-lang/setup-dart@v1
-    - name: install dependencies
-      run: dart pub get
-    - name: analyzer
-      run: dart analyze --fatal-infos --fatal-warnings .
+      - uses: actions/checkout@v3
+      - uses: dart-lang/setup-dart@v1
+      - name: install dependencies
+        run: dart pub get
+      - name: analyzer
+        run: dart analyze --fatal-infos --fatal-warnings .
 
   dart_test:
     needs: [dart_format, dart_analyze]
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - uses: dart-lang/setup-dart@v1
-    - name: install dependencies
-      run: dart pub get
-    - name: run test
-      run: dart run test . --coverage=coverage
-    - name: coverage
-      run: dart run coverage:format_coverage --lcov --packages=.packages --in coverage --out lcov.info
-    - uses: codecov/codecov-action@v3
-      with:
-        file: lcov.info
+      - uses: actions/checkout@v3
+      - uses: dart-lang/setup-dart@v1
+      - name: install dependencies
+        run: dart pub get
+      - name: run test
+        run: dart run test . --coverage=coverage
+      - name: coverage
+        run: dart run coverage:format_coverage --lcov --packages=.packages --in coverage --out lcov.info
+      - uses: codecov/codecov-action@v3
+        with:
+          file: lcov.info
