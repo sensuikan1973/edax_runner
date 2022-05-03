@@ -10,7 +10,8 @@ on:
       - '.github/workflows/dart_ci.yaml'
       - '.codecov.yml'
   push:
-    branches: [ main ]
+    branches:
+      - main
     paths:
       - '**.dart'
       - 'pubspec.*'
