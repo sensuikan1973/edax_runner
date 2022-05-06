@@ -66,5 +66,5 @@ jobs:
         with:
           upload_url: ${{ github.event.release.upload_url }}
           asset_path: ${{ env.PUBLISH_DIR }}/${{ runner.os }}.zip
-          asset_name: edax_runner_${{ runner.os }}_gcc.zip
+          asset_name: edax_runner_${{ runner.os }}.zip
           asset_content_type: application/zip
