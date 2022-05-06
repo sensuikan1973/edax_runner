@@ -53,7 +53,6 @@ jobs:
       - name: build edax-reversi
         env:
           dst: ${{ env.OUTPUT_DIR }}
-          bin_name: ${{ matrix.edax-runner_bin_name }}
           edax_build_command: ${{ matrix.edax_build_command }}
           edax_bin_name: ${{ matrix.edax_bin_name }}
         shell: bash
