@@ -3,21 +3,10 @@ name: Dart CI
 
 on:
   pull_request:
-    paths:
-      - '**.dart'
-      - 'pubspec.*'
-      - 'analysis_options.yaml'
-      - '.github/workflows/dart_ci.yaml'
-      - '.codecov.yml'
   push:
     branches:
       - main
-    paths:
-      - '**.dart'
-      - 'pubspec.*'
-      - 'analysis_options.yaml'
-      - '.github/workflows/dart_ci.yaml'
-      - '.codecov.yml'
+  workflow_dispatch:
 
 jobs:
   dart_format:
