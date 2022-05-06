@@ -1,4 +1,6 @@
+#!/bin/bash
 # shellcheck disable=SC2154
+set -euxo pipefail
 
 # NOTE: require some environment variables.
 # bin_name (e.g. edax_runner-mac)
