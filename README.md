@@ -76,8 +76,6 @@ There are **only 3 rules**. Example is [here](https://github.com/sensuikan1973/e
 ## Development
 ![Dart CI](https://github.com/sensuikan1973/edax_runner/workflows/Dart%20CI/badge.svg)
 [![codecov](https://codecov.io/gh/sensuikan1973/edax_runner/branch/main/graph/badge.svg?token=7ZF8NAY1NS)](https://codecov.io/gh/sensuikan1973/edax_runner)
-![publish_artifacts_gcc](https://github.com/sensuikan1973/edax_runner/workflows/publish_artifacts_gcc/badge.svg)
-![publish_artifacts_icc](https://github.com/sensuikan1973/edax_runner/workflows/publish_artifacts_icc/badge.svg)
 
 ### format
 ```sh
