@@ -15,7 +15,7 @@
 
 # 1.3.0
 - fix deprecated compile method.
-  - `dart2native` -> `dart compile exec`
+  - `dart2native` -> `dart compile exe`
 - upgrade dependencies
 
 # 1.2.0
