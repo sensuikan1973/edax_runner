@@ -8,10 +8,10 @@ set -euxo pipefail
 # edax_bin_name (e.g. mEdax)
 # dst: (e.g. build)
 
-git clone --depth 1 https://github.com/abulmo/edax-reversi.git
+git clone https://github.com/sensuikan1973/edax-reversi.git
 
 cd edax-reversi || exit
-git checkout c783ef998aca86a7ae9358a58645222df27ae5a0
+git switch master
 
 mkdir -p data
 curl -OL https://github.com/abulmo/edax-reversi/releases/download/v4.4/eval.7z
