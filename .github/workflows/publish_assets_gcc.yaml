@@ -14,7 +14,7 @@ jobs:
     timeout-minutes: 5
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macOS-latest]
+        os: [ubuntu-latest, windows-latest, macos-latest]
         include:
           - os: ubuntu-latest
             edax-runner_bin_name: edax_runner-linux
@@ -24,7 +24,7 @@ jobs:
             edax-runner_bin_name: edax_runner-windows.exe
             edax_build_command: make build ARCH=x64 COMP=gcc OS=windows
             edax_bin_name: wEdax-x64.exe
-          - os: macOS-latest
+          - os: macos-latest
             edax-runner_bin_name: edax_runner-mac
             edax_build_command: make build ARCH=x64-modern COMP=gcc OS=osx
             edax_bin_name: mEdax
