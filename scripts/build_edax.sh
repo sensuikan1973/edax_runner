@@ -19,7 +19,6 @@ curl -OL https://github.com/abulmo/edax-reversi/releases/download/v4.4/eval.7z
 mkdir -p bin
 cd src || exit
 $edax_build_command
-# doxygen # big document. too heavy.
 
 cd ../bin || exit
 chmod +x "$edax_bin_name"
@@ -32,4 +31,3 @@ cp resources/edax.ini "$dst/edax.ini"
 cp resources/learning_list.txt "$dst/learning_list.txt"
 cp -r edax-reversi/bin "$dst/bin"
 cp -r edax-reversi/data "$dst/data"
-# cp -r edax-reversi/doc/html "$dst/doc/html"
