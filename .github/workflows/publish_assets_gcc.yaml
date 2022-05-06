@@ -51,7 +51,7 @@ jobs:
 
       - name: output build info
         shell: bash
-        run: .github/scripts/output_build_info.sh ${{ env.OUTPUT_DIR }} gcc
+        run: .github/scripts/output_build_info.sh ${{ env.OUTPUT_DIR }}
 
       - name: zip files (Windows)
         if: runner.os == 'Windows'
