@@ -1,3 +1,6 @@
+# 2.0.0
+- [Big Internal Migration] use not raw executable bin but libedax4dart for performance, maintability and extensibility.
+
 # 1.9.0
 - upgrade dependencies
 
