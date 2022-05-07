@@ -21,10 +21,7 @@
 <details><summary>Mac</summary>
 
 ```sh
-## First, confirm you can launch edax
-./bin/mEdax
-## Next, start learning!
-./edax_runner-mac
+./edax_runner
 ```
 
 </details>
@@ -32,10 +29,7 @@
 <details><summary>Windows</summary>
 
 ```sh
-## First, confirm you can launch edax
-start ./bin/wEdax-x64.exe
-## Next, start learning!
-start ./edax_runner-windows.exe
+start ./edax_runner.exe
 ```
 
 </details>
@@ -43,10 +37,7 @@ start ./edax_runner-windows.exe
 <details><summary>Linux</summary>
 
 ```sh
-## First, confirm you can launch edax
-./bin/lEdax-x64-modern
-## Next, start learning!
-./edax_runner-linux
+./edax_runner
 ```
 
 </details>
