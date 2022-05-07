@@ -55,6 +55,7 @@ jobs:
       - name: install dependencies
         run: dart pub get
       - name: build edax_runner
+        shell: bash
         run: ./scripts/build_edax_runner.sh ${{ matrix.edax_runner_bin_name }} ${{ matrix.libedax_shared_library_name }}
       - name: run edax_runner with sample assets
         run: cd build && ${{ matrix.edax_runner_bin_name }}
