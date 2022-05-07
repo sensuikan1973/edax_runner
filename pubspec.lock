@@ -128,7 +128,7 @@ packages:
     source: hosted
     version: "0.6.4"
   libedax4dart:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: libedax4dart
       url: "https://pub.dartlang.org"
