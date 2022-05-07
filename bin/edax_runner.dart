@@ -114,7 +114,7 @@ void _doEdaxBookDeviate(final LibEdax edax, final String moves, final int relati
     ..edaxPlay(moves)
     ..edaxPlayPrint();
   stdout.writeln();
-  _log('game over. will book deviate and save.');
+  _log('will book deviate and save.');
   edax
     ..edaxBookDeviate(relativeError, absoluteError)
     ..edaxBookFix()
