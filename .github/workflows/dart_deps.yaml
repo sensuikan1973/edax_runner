@@ -17,6 +17,10 @@ jobs:
       - uses: dart-lang/setup-dart@v1
       - run: dart pub upgrade --null-safety # See: https://dart.dev/tools/pub/cmd/pub-upgrade#--null-safety
 
+      - name: upgrade external binary
+        shell: zsh {0}
+        run: ./scripts/fetch_libedax_assets.sh
+
       # See: https://github.com/peter-evans/create-pull-request/tree/master#reference-example
       - name: create PR
         id: create_pull_request
