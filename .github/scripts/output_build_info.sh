@@ -5,11 +5,6 @@ dst_file="$1/env.txt"
 
 touch "$dst_file"
 
-echo "=== edax-reversi sha ===" >> "$dst_file"
-cd edax-reversi || exit
-git rev-parse HEAD >> "../$dst_file"
-cd ..
-
 {
   echo "=== edax-runner sha ==="
   echo "$GITHUB_SHA"
