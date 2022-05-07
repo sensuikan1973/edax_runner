@@ -1,5 +1,5 @@
 ---
-name: Dart CI
+name: Upload Artifacts
 
 on:
   pull_request:
@@ -9,30 +9,9 @@ on:
   workflow_dispatch:
 
 jobs:
-  dart_format:
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    steps:
-      - uses: actions/checkout@v3
-      - uses: dart-lang/setup-dart@v1
-      - name: dart format
-        run: dart format . -l 120 --set-exit-if-changed
-
-  dart_analyze:
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    steps:
-      - uses: actions/checkout@v3
-      - uses: dart-lang/setup-dart@v1
-      - name: install dependencies
-        run: dart pub get
-      - name: analyzer
-        run: dart analyze --fatal-infos --fatal-warnings .
-
-  run_sample:
-    needs: [dart_format, dart_analyze]
-    timeout-minutes: 15
+  upload_artifacts:
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
@@ -54,7 +33,20 @@ jobs:
           architecture: x64
       - name: install dependencies
         run: dart pub get
+
       - name: build edax_runner
         run: ./scripts/build_edax_runner.sh ${{ matrix.edax_runner_bin_name }} ${{ matrix.libedax_shared_library_name }}
-      - name: run edax_runner with sample assets
-        run: cd build && ${{ matrix.edax_runner_bin_name }}
+
+      - name: output build info
+        shell: bash
+        run: .github/scripts/output_build_info.sh build
+
+      # See: https://github.com/actions/upload-artifact/issues/38
+      # Workaround: https://github.com/actions/upload-artifact#maintaining-file-permissions-and-case-sensitive-files
+      - name: tar files
+        run: tar -cvf ${{ runner.os }}.tar build
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: edax_runner-artifacts
+          path: ${{ env.ARTIFACTS_DIR }}

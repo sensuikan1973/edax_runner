@@ -85,7 +85,6 @@ There are **only 3 rules**. Example is [here](https://github.com/sensuikan1973/e
 ## Development
 
 ![Dart CI](https://github.com/sensuikan1973/edax_runner/workflows/Dart%20CI/badge.svg)
-[![codecov](https://codecov.io/gh/sensuikan1973/edax_runner/branch/main/graph/badge.svg?token=7ZF8NAY1NS)](https://codecov.io/gh/sensuikan1973/edax_runner)
 
 ### format
 
@@ -96,7 +95,14 @@ dart format . -l 120
 ## compile
 
 ```sh
-dart compile exe bin/edax_runner.dart -v -o build/edax_runner-mac
+# mac
+./scripts/build_edax_runner.sh edax_runner libedax.universal.dylib
+
+# linux
+./scripts/build_edax_runner.sh edax_runner libedax.so
+
+# windows
+./scripts/build_edax_runner.sh edax_runner.exe libedax-x64.dll
 ```
 
 ### fetch libedax assets as pedax assets

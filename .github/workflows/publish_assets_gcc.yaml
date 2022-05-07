@@ -38,14 +38,6 @@ jobs:
       - name: install dependencies
         run: dart pub get
 
-      - name: build edax-reversi
-        env:
-          dst: ${{ env.OUTPUT_DIR }}
-          edax_build_command: ${{ matrix.edax_build_command }}
-          edax_bin_name: ${{ matrix.edax_bin_name }}
-        shell: bash
-        run: ./scripts/build_edax.sh
-
       - name: build edax-runner
         run: dart compile exe bin/edax_runner.dart -v -o ${{ env.OUTPUT_DIR }}/${{ matrix.edax-runner_bin_name }}
 
