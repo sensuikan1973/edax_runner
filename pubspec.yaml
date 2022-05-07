@@ -14,4 +14,3 @@ dependencies:
 dev_dependencies:
   analyzer: ^4.0.0
   pedantic_sensuikan1973: ^3.1.0
-  test: ^1.21.1

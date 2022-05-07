@@ -1,7 +1,5 @@
 *.log
 *.7z
-edax-reversi/
-test/*.txt
 
 # Files and directories created by pub
 .dart_tool/
