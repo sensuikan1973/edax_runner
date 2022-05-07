@@ -1,4 +1,3 @@
-
 #!/usr/bin/env zsh
 
 # See: https://github.com/koalaman/shellcheck/issues/809
