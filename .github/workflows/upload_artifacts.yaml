@@ -49,5 +49,5 @@ jobs:
 
       - uses: actions/upload-artifact@v3
         with:
-          name: edax_runner-artifacts
+          name: edax_runner-artifacts ${{ matrix.os }}
           path: build
