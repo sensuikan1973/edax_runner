@@ -38,21 +38,12 @@ jobs:
       - name: install dependencies
         run: dart pub get
 
-      - name: build edax-reversi
-        env:
-          dst: ${{ env.OUTPUT_DIR }}
-          bin_name: ${{ matrix.edax-runner_bin_name }}
-          edax_build_command: ${{ matrix.edax_build_command }}
-          edax_bin_name: ${{ matrix.edax_bin_name }}
-        shell: bash
-        run: ./scripts/build_edax.sh
-
       - name: build edax-runner
         run: dart compile exe bin/edax_runner.dart -v -o ${{ env.OUTPUT_DIR }}/${{ matrix.edax-runner_bin_name }}
 
       - name: output build info
         shell: bash
-        run: .github/scripts/output_build_info.sh ${{ env.OUTPUT_DIR }} gcc
+        run: .github/scripts/output_build_info.sh ${{ env.OUTPUT_DIR }}
 
       - name: zip files (Windows)
         if: runner.os == 'Windows'
@@ -67,5 +58,5 @@ jobs:
         with:
           upload_url: ${{ github.event.release.upload_url }}
           asset_path: ${{ env.PUBLISH_DIR }}/${{ runner.os }}.zip
-          asset_name: edax_runner_${{ runner.os }}_gcc.zip
+          asset_name: edax_runner_${{ runner.os }}.zip
           asset_content_type: application/zip

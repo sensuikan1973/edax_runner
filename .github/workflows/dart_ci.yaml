@@ -11,6 +11,7 @@ on:
 jobs:
   dart_format:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v3
       - uses: dart-lang/setup-dart@v1
@@ -19,6 +20,7 @@ jobs:
 
   dart_analyze:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v3
       - uses: dart-lang/setup-dart@v1
@@ -27,18 +29,33 @@ jobs:
       - name: analyzer
         run: dart analyze --fatal-infos --fatal-warnings .
 
-  dart_test:
+  run_sample:
     needs: [dart_format, dart_analyze]
-    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        include: # See: https://docs.github.com/ja/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#using-environment-variables-in-a-matrix
+          - os: ubuntu-latest
+            edax_runner_bin_name: edax_runner
+            libedax_shared_library_name: libedax.so
+          - os: windows-latest
+            edax_runner_bin_name: edax_runner.exe
+            libedax_shared_library_name: libedax-x64.dll
+          - os: macos-latest
+            edax_runner_bin_name: edax_runner
+            libedax_shared_library_name: libedax.universal.dylib
+
     steps:
       - uses: actions/checkout@v3
       - uses: dart-lang/setup-dart@v1
+        with:
+          architecture: x64
       - name: install dependencies
         run: dart pub get
-      - name: run test
-        run: dart run test . --coverage=coverage
-      - name: coverage
-        run: dart run coverage:format_coverage --lcov --packages=.packages --in coverage --out lcov.info
-      - uses: codecov/codecov-action@v3
-        with:
-          file: lcov.info
+      - name: build edax_runner
+        shell: bash
+        run: ./scripts/build_edax_runner.sh ${{ matrix.edax_runner_bin_name }} ${{ matrix.libedax_shared_library_name }}
+      - name: run edax_runner with sample assets
+        run: cd build && ./${{ matrix.edax_runner_bin_name }}

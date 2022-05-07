@@ -1,15 +1,8 @@
 # $1: dst
-# $2: compiler
 
-dst_file="$1/env.txt"
-compiler="$2"
+dst_file="$1/.env.txt"
 
 touch "$dst_file"
-
-echo "=== edax-reversi sha ===" >> "$dst_file"
-cd edax-reversi || exit
-git rev-parse HEAD >> "../$dst_file"
-cd ..
 
 {
   echo "=== edax-runner sha ==="
@@ -22,6 +15,6 @@ cd ..
   echo "=== dart version ==="
   dart --version 2>&1
 
-  echo "=== $compiler version ==="
-  $compiler --version
+  echo "=== gcc version ==="
+  gcc --version
 } >> "$dst_file"

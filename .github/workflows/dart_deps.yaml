@@ -10,12 +10,16 @@ on:
 
 jobs:
   update_dependencies:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v3
       - uses: dart-lang/setup-dart@v1
       - run: dart pub upgrade --null-safety # See: https://dart.dev/tools/pub/cmd/pub-upgrade#--null-safety
+
+      - name: upgrade external binary
+        shell: zsh {0}
+        run: ./scripts/fetch_libedax_assets.sh
 
       # See: https://github.com/peter-evans/create-pull-request/tree/master#reference-example
       - name: create PR
