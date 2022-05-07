@@ -9,6 +9,7 @@ rm -rf "$dst"
 mkdir -p "$dst/data"
 
 dart compile exe bin/edax_runner.dart -o "$dst/$edax_runner_bin_name"
+chmod +x "$dst/$edax_runner_bin_name"
 
 cp -r "resources/dll/$libedax_shared_library_name" "$dst/$libedax_shared_library_name"
 cp resources/data/*.dat "$dst/data"
