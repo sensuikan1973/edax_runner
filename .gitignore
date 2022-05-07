@@ -14,8 +14,5 @@ build/
 # Directory created by dartdoc
 doc/api/
 
-# Editor
-.vscode/
-
 # Mac
 .DS_Store
