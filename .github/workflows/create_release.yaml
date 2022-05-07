@@ -1,0 +1,58 @@
+---
+name: Create Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'tag'
+        required: true
+
+jobs:
+  create_release:
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        include: # See: https://docs.github.com/ja/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#using-environment-variables-in-a-matrix
+          - os: ubuntu-latest
+            edax_runner_bin_name: edax_runner
+            libedax_shared_library_name: libedax.so
+          - os: windows-latest
+            edax_runner_bin_name: edax_runner.exe
+            libedax_shared_library_name: libedax-x64.dll
+          - os: macos-latest
+            edax_runner_bin_name: edax_runner
+            libedax_shared_library_name: libedax.universal.dylib
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dart-lang/setup-dart@v1
+        with:
+          architecture: x64
+      - name: install dependencies
+        run: dart pub get
+
+      - name: build edax_runner
+        shell: bash
+        run: ./scripts/build_edax_runner.sh ${{ matrix.edax_runner_bin_name }} ${{ matrix.libedax_shared_library_name }}
+
+      - name: output build info
+        shell: bash
+        run: .github/scripts/output_build_info.sh build
+
+      - name: compress files (Windows)
+        if: runner.os == 'Windows'
+        run: powershell Compress-Archive -Path build -DestinationPath edax_runner-${{ runner.os }}.zip
+      - name: compress files (Linux, MacOS)
+        if: runner.os == 'macOS' || runner.os == 'Linux'
+        run: zip -r edax_runner-${{ runner.os }}.zip build
+
+      - uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.event.inputs.tag }}
+          files: edax_runner-${{ runner.os }}.zip
+          generate_release_notes: true
