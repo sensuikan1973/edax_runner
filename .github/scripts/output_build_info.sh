@@ -1,5 +1,4 @@
 # $1: dst
-# $2: compiler
 
 dst_file="$1/env.txt"
 
