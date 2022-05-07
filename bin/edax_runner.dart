@@ -4,7 +4,6 @@ import 'dart:math';
 import 'package:libedax4dart/libedax4dart.dart';
 
 const String _bookFile = 'data/book.dat';
-const int _waitEdaxLoadingData = 20;
 const String _learningListFile = 'learning_list.txt';
 const String _learnedLogFile = 'learned_log.txt';
 const String _commentHead = '//';
@@ -19,9 +18,6 @@ Future<void> main(final List<String> arguments) async {
     ..edaxInit()
     ..edaxEnableBookVerbose()
     ..edaxPlayPrint();
-
-  _log('wait edax loading data: $_waitEdaxLoadingData sec.');
-  await Future<void>.delayed(const Duration(seconds: _waitEdaxLoadingData));
 
   while (true) {
     final text = await _getNextLearningText();
