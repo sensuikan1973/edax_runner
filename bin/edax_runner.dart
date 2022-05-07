@@ -30,7 +30,7 @@ Future<void> main(final List<String> arguments) async {
       _log('edax has terminated.');
       break;
     }
-    _log('will learn "$text".');
+    _log('start to learn "$text".');
 
     if (text == 'fix') _doEdaxBookFix(edax);
     if (_edaxVsEdaxRegexp.hasMatch(text)) _doEdaxVsEdaxWithRandomness(edax, text, 0);
@@ -48,8 +48,9 @@ Future<void> main(final List<String> arguments) async {
       _doEdaxBookDeviate(edax, moves, relativeError, absoluteError);
     }
 
-    _log('will remove "$text".');
+    _log('has finished learning, and will remove "$text".');
     await _removeLearnedText();
+    _log('has removed "$text".');
   }
 }
 
@@ -104,6 +105,7 @@ void _doEdaxVsEdaxWithRandomness(final LibEdax edax, final String moves, final i
     ..edaxMode(3)
     ..edaxBookStore()
     ..edaxBookSave(_bookFile);
+  _log('has finished book store and save.');
 }
 
 void _doEdaxBookDeviate(final LibEdax edax, final String moves, final int relativeError, final int absoluteError) {
@@ -112,8 +114,10 @@ void _doEdaxBookDeviate(final LibEdax edax, final String moves, final int relati
     ..edaxPlay(moves)
     ..edaxPlayPrint();
   stdout.writeln();
+  _log('game over. will book deviate and save.');
   edax
     ..edaxBookDeviate(relativeError, absoluteError)
     ..edaxBookFix()
     ..edaxBookSave(_bookFile);
+  _log('has finished book deviate and save.');
 }
