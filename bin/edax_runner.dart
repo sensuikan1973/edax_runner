@@ -49,7 +49,7 @@ Future<void> main(final List<String> arguments) async {
     }
 
     _log('will remove "$text".');
-    await removeLearnedText();
+    await _removeLearnedText();
   }
 }
 
@@ -66,7 +66,7 @@ Future<String> _getNextLearningText() async {
   return lines.firstWhere((final line) => !line.contains(_commentHead), orElse: () => '').trim();
 }
 
-Future<void> removeLearnedText() async {
+Future<void> _removeLearnedText() async {
   final srcFile = File(_learningListFile);
   final logFile = File(_learnedLogFile);
   final lines = await srcFile.readAsLines();
