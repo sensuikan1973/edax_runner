@@ -77,7 +77,7 @@ packages:
       name: libedax4dart
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.5.0"
+    version: "3.6.0"
   meta:
     dependency: "direct main"
     description:
