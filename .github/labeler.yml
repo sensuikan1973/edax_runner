@@ -9,3 +9,12 @@ libedax:
   - scripts/build_edax_runner.sh
   - scripts/fetch_libedax_assets.sh
   - resources/dll/**/*
+
+linux:
+  - resources/dll/libedax.so
+
+mac:
+  - resources/dll/libedax.universal.dylib
+
+windows:
+  - resources/dll/libedax-x64.dll
