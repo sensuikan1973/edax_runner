@@ -4,3 +4,8 @@ GitHub Actions:
   - .github/dependabot.yml
   - .github/labeler.yml
   - .github/.typos_config.toml
+
+libedax:
+  - scripts/build_edax_runner.sh
+  - scripts/fetch_libedax_assets.sh
+  - resources/dll/**/*
