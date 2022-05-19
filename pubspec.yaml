@@ -11,7 +11,7 @@ environment:
 
 dependencies:
   libedax4dart: ^4.0.1
-  meta: ^1.7.0
+  meta: ^1.8.0
 
 dev_dependencies:
   analyzer: ^4.1.0
