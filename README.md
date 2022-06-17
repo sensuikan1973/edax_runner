@@ -51,7 +51,7 @@ There are **only 3 rules**. Example is [here](https://github.com/sensuikan1973/e
 | purpose                        | format                     | example                |
 | :----------------------------- | :------------------------- | :--------------------- |
 | learn one game of edax vs edax | `{book-randomness},{move}` | `2,F5F6F7F8`           |
-| book deviate                   | `[arg1 arg2] {move}`       | `[1 1] F5F6F7F8`       |
+| book deviate                   | `[relativeError absoluteError] {move}`       | `[1 1] F5F6F7F8`       |
 | comment                        | `// {your comment}`        | `// I like Brightwell` |
 
 - NOTE
