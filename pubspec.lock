@@ -49,7 +49,7 @@ packages:
       name: ffi
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.2.1"
+    version: "2.0.1"
   file:
     dependency: transitive
     description:
@@ -70,7 +70,7 @@ packages:
       name: libedax4dart
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.0.3"
+    version: "5.0.0"
   meta:
     dependency: "direct main"
     description:
