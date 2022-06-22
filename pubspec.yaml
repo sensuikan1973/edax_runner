@@ -10,7 +10,7 @@ environment:
   sdk: '>=2.17.3 <3.0.0'
 
 dependencies:
-  libedax4dart: ^5.1.0
+  libedax4dart: ^5.2.0
   meta: ^1.8.0
 
 dev_dependencies:
