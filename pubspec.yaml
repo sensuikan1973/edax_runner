@@ -10,9 +10,9 @@ environment:
   sdk: ">=2.18.0 <3.0.0"
 
 dependencies:
-  libedax4dart: ^5.4.1
+  libedax4dart: ^5.5.0
   meta: ^1.8.0
 
 dev_dependencies:
   analyzer: ^4.6.0
-  pedantic_sensuikan1973: ^3.4.0
+  pedantic_sensuikan1973: ^3.5.0
