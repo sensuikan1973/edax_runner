@@ -11,6 +11,5 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-      timezone: "Asia/Tokyo"
-      time: "10:00"
+      time: "18:00"
     labels: ["GitHub Actions", "dependencies"]
