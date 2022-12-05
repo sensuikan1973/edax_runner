@@ -15,4 +15,4 @@ dependencies:
 
 dev_dependencies:
   analyzer: ^5.2.0
-  pedantic_sensuikan1973: ^3.6.0
+  pedantic_sensuikan1973: ^4.0.1
