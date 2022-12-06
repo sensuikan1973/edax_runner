@@ -105,7 +105,7 @@ packages:
       name: path
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.8.2"
+    version: "1.8.3"
   pedantic_sensuikan1973:
     dependency: "direct dev"
     description:
