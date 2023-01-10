@@ -3,13 +3,14 @@ name: Create Release
 
 on:
   workflow_dispatch:
-    inputs:
-      tag:
-        description: 'tag'
-        required: true
+  pull_request:
+    branches: [main]
+    types: [closed]
 
 jobs:
   create_release:
+    # See: .github/workflows/create_release_pr.yaml
+    if: ${{ github.head_ref == 'prepare_for_release' && github.event.pull_request.merged == true }}
     runs-on: ${{ matrix.os }}
     timeout-minutes: 10
     strategy:
@@ -40,6 +41,10 @@ jobs:
         shell: bash
         run: .github/scripts/output_build_info.sh build
 
+      - name: inject current version
+        shell: bash
+        run: echo "CURRENT_VERSION=$(dart pub run cider version)" >> $GITHUB_ENV
+
       - name: compress files (Windows)
         if: runner.os == 'Windows'
         run: powershell Compress-Archive -Path build -DestinationPath edax_runner-${{ runner.os }}.zip
@@ -51,6 +56,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.event.inputs.tag }}
+          tag_name: ${{ env.CURRENT_VERSION }}
           files: edax_runner-${{ runner.os }}.zip
           generate_release_notes: true
