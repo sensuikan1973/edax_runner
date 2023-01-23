@@ -133,7 +133,7 @@ packages:
       name: libedax4dart
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.10.0"
+    version: "5.11.2"
   lints:
     dependency: transitive
     description:
@@ -182,7 +182,7 @@ packages:
       name: pedantic_sensuikan1973
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.0.1"
+    version: "4.1.2"
   pub_semver:
     dependency: transitive
     description:
