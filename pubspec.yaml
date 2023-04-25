@@ -14,6 +14,6 @@ dependencies:
   meta: ^1.9.1
 
 dev_dependencies:
-  analyzer: ^5.10.0
+  analyzer: ^5.11.1
   cider: ^0.1.5
   pedantic_sensuikan1973: ^4.4.0
