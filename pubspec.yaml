@@ -15,5 +15,5 @@ dependencies:
 
 dev_dependencies:
   analyzer: ^5.13.0
-  cider: ^0.1.6
+  cider: ^0.2.1
   pedantic_sensuikan1973: ^5.2.0
