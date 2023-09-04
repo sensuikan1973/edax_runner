@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: dart-lang/setup-dart@v1
       - name: dart format
         run: dart format . -l 120 --set-exit-if-changed
@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: dart-lang/setup-dart@v1
       - name: install dependencies
         run: dart pub get
@@ -48,7 +48,7 @@ jobs:
             libedax_shared_library_name: libedax.universal.dylib
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: dart-lang/setup-dart@v1
       - name: install dependencies
         run: dart pub get
