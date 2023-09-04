@@ -28,7 +28,7 @@ jobs:
             libedax_shared_library_name: libedax.universal.dylib
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: dart-lang/setup-dart@v1
       - name: install dependencies
         run: dart pub get
