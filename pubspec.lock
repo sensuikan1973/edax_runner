@@ -261,10 +261,10 @@ packages:
     dependency: transitive
     description:
       name: version_manipulation
-      sha256: "2fcb0597589e894082ebde9140b5c018c0858215eef39539d87c200e3da82ec0"
+      sha256: "9ef166939794d5bd80309cc6dbfe33c9f81674ba1c73ac117a866fd2dc746846"
       url: "https://pub.dev"
     source: hosted
-    version: "0.1.1"
+    version: "0.1.2"
   watcher:
     dependency: transitive
     description:
