@@ -7,7 +7,7 @@ homepage: https://github.com/sensuikan1973/edax_runner
 issue_tracker: https://github.com/sensuikan1973/edax_runner/issues
 
 environment:
-  sdk: ">=3.0.3 <4.0.0"
+  sdk: ">=3.1.0 <4.0.0"
 
 dependencies:
   libedax4dart: ^7.0.0
