@@ -1,20 +1,25 @@
 ---
 GitHub Actions:
-  - .github/workflows/**/*
-  - .github/dependabot.yml
-  - .github/labeler.yml
-  - .github/.typos_config.toml
+  - changed-files:
+      - any-glob-to-any-file: .github/workflows/**/*
+      - any-glob-to-any-file: .github/dependabot.yml
+      - any-glob-to-any-file: .github/labeler.yml
+      - any-glob-to-any-file: .github/.typos_config.toml
 
 libedax:
-  - scripts/build_edax_runner.sh
-  - scripts/fetch_libedax_assets.sh
-  - resources/dll/**/*
+  - changed-files:
+      - any-glob-to-any-file: scripts/build_edax_runner.sh
+      - any-glob-to-any-file: scripts/fetch_libedax_assets.sh
+      - any-glob-to-any-file: resources/dll/**/*
 
 linux:
-  - resources/dll/libedax.so
+  - changed-files:
+      - any-glob-to-any-file: resources/dll/libedax.so
 
 mac:
-  - resources/dll/libedax.universal.dylib
+  - changed-files:
+      - any-glob-to-any-file: resources/dll/libedax.universal.dylib
 
 windows:
-  - resources/dll/libedax-x64.dll
+  - changed-files:
+      - any-glob-to-any-file: resources/dll/libedax-x64.dll
