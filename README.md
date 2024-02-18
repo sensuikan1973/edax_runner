@@ -1,5 +1,7 @@
 # edax_runner
 
+![Dart CI](https://github.com/sensuikan1973/edax_runner/workflows/Dart%20CI/badge.svg)
+
 <p align="center">
 <img src="https://github.com/sensuikan1973/edax_runner/blob/main/resources/logo.png?raw=true" alt="edax-runner" />
 </p>
@@ -48,11 +50,11 @@ start ./edax_runner.exe
 
 There are **only 3 rules**. Example is [here](https://github.com/sensuikan1973/edax_runner/blob/main/resources/learning_list.txt).
 
-| purpose                        | format                     | example                |
-| :----------------------------- | :------------------------- | :--------------------- |
-| learn one game of edax vs edax | `{book-randomness},{move}` | `2,F5F6F7F8`           |
-| book deviate                   | `[relativeError absoluteError] {move}`       | `[1 1] F5F6F7F8`       |
-| comment                        | `// {your comment}`        | `// I like Brightwell` |
+| purpose                        | format                                 | example                |
+| :----------------------------- | :------------------------------------- | :--------------------- |
+| learn one game of edax vs edax | `{book-randomness},{move}`             | `2,F5F6F7F8`           |
+| book deviate                   | `[relativeError absoluteError] {move}` | `[1 1] F5F6F7F8`       |
+| comment                        | `// {your comment}`                    | `// I like Brightwell` |
 
 - NOTE
   - The default value of `book-randomness` is `0`
@@ -60,7 +62,7 @@ There are **only 3 rules**. Example is [here](https://github.com/sensuikan1973/e
   - Although `book fix` is ran internally, you can run `book fix` expressly.  
     If you want, write `fix` in `learning_list.txt`.
 
-## Reference
+## References
 
 - **[edax-reversi](https://github.com/abulmo/edax-reversi)**
   - [code/releases archive](https://code.google.com/archive/p/edax-reversi/downloads)
