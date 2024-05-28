@@ -1,3 +1,7 @@
+# 3.0.1
+
+[macos] fix release artifact.
+
 # 3.0.0
 
 support intel silicon mac, once again
