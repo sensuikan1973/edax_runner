@@ -1,3 +1,7 @@
+# 3.0.0
+
+support intel silicon mac, once again
+
 # 2.34.0
 
 upgrade dependencies.
