@@ -59,7 +59,7 @@ jobs:
         run: powershell Compress-Archive -Path build -DestinationPath edax_runner-${{ runner.os }}.zip
       - name: compress files (Linux, MacOS)
         if: runner.os == 'macOS' || runner.os == 'Linux'
-        run: zip -r edax_runner-${{ runner.os }}.zip build
+        run: zip -r edax_runner-${{ matrix.os }}.zip build
 
       - uses: softprops/action-gh-release@v2
         env:
