@@ -1,3 +1,7 @@
+# 3.0.2
+
+fix release workflow.
+
 # 3.0.1
 
 [macos] fix release artifact.
