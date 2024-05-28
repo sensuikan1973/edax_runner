@@ -66,5 +66,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ env.CURRENT_VERSION }}
-          files: edax_runner-${{ runner.os }}.zip
+          files: edax_runner-${{ matrix.os }}.zip
           generate_release_notes: true
