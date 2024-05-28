@@ -1,6 +1,6 @@
 ---
 name: edax_runner
-version: 2.33.0
+version: 2.34.0
 description: tiny tool for edax-reversi auto learning with learning_list.txt
 publish_to: none
 homepage: https://github.com/sensuikan1973/edax_runner
