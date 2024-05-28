@@ -11,19 +11,28 @@ jobs:
   create_release:
     # See: .github/workflows/create_release_pr.yaml
     if: ${{ github.head_ref == 'prepare_for_release' && github.event.pull_request.merged == true }}
-    runs-on: ${{ matrix.os }}
+    runs-on: ${{ matrix.runner_machine }}
     timeout-minutes: 10
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [ubuntu-latest, windows-latest, macos-intel-silicon, macos-latest]
         include: # See: https://docs.github.com/ja/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#using-environment-variables-in-a-matrix
           - os: ubuntu-latest
+            runner_machine: ubuntu-latest
             edax_runner_bin_name: edax_runner
             libedax_shared_library_name: libedax.so
           - os: windows-latest
+            runner_machine: windows-latest
             edax_runner_bin_name: edax_runner.exe
             libedax_shared_library_name: libedax-x64.dll
-          - os: macos-latest
+          - os: macos-intel-silicon
+            # https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners#standard-github-hosted-runners-for-public-repositories
+            runner_machine: macos-13
+            edax_runner_bin_name: edax_runner
+            libedax_shared_library_name: libedax.universal.dylib
+          - os: macos-latest # apple silicon
+            # https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners#standard-github-hosted-runners-for-public-repositories
+            runner_machine: macos-latest
             edax_runner_bin_name: edax_runner
             libedax_shared_library_name: libedax.universal.dylib
 
