@@ -56,7 +56,7 @@ jobs:
 
       - name: compress files (Windows)
         if: runner.os == 'Windows'
-        run: powershell Compress-Archive -Path build -DestinationPath edax_runner-${{ runner.os }}.zip
+        run: powershell Compress-Archive -Path build -DestinationPath edax_runner-${{ matrix.os }}.zip
       - name: compress files (Linux, MacOS)
         if: runner.os == 'macOS' || runner.os == 'Linux'
         run: zip -r edax_runner-${{ matrix.os }}.zip build
