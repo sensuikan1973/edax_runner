@@ -42,10 +42,10 @@ packages:
     dependency: transitive
     description:
       name: change
-      sha256: c92878d5d4f4960bda62201b5cae63f5d0aaaefc0377e856251920418070b96f
+      sha256: "65db7f966dc7e786687f49900a94c5f08b0eb9ca8c4a3e7eed3a55e980b455e2"
       url: "https://pub.dev"
     source: hosted
-    version: "0.7.3"
+    version: "0.7.4"
   checked_yaml:
     dependency: transitive
     description:
