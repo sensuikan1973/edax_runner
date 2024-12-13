@@ -52,7 +52,7 @@ jobs:
 
       - name: inject current version
         shell: bash
-        run: echo "CURRENT_VERSION=$(dart pub run cider version)" >> $GITHUB_ENV
+        run: echo "CURRENT_VERSION=$(dart pub deps --style compact | grep "edax_runner" | cut -c 13-)" >> $GITHUB_ENV
 
       - name: compress files (Windows)
         if: runner.os == 'Windows'
