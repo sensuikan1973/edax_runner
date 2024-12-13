@@ -12,8 +12,9 @@ on:
           - patch
           - minor
           - major
+          - breaking
         required: true
-      # Although I can use https://github.com/f3ath/cider#changelog, I don't describe edax_runner CHANGELOG with large text and I decided to implement simple workflow.
+      # I don't describe edax_runner CHANGELOG with large text and I decided to implement simple workflow.
       changelog_description:
         type: string
         description: 'description for CHANGELOG'
@@ -31,10 +32,10 @@ jobs:
       - uses: dart-lang/setup-dart@v1
 
       - name: bump version
-        run: dart run cider bump ${{ github.event.inputs.version_bump_part }}
+        run: dart pub bump ${{ github.event.inputs.version_bump_part }}
 
       - name: inject current version
-        run: echo "CURRENT_VERSION=$(dart run cider version)" >> $GITHUB_ENV
+        run: echo "CURRENT_VERSION=$(dart pub deps --style compact | grep "edax_runner" | cut -c 13-)" >> $GITHUB_ENV
 
       - name: update CHANGELOG
         run: |
