@@ -1,3 +1,7 @@
+# 3.1.2
+
+update release workflow.
+
 # 3.1.1
 
 fix windows release workflow.
