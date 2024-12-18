@@ -48,7 +48,7 @@ jobs:
 
       - name: create directory for publish
         shell: bash
-        run: cp build edax_runner
+        run: cp -R build edax_runner
 
       - name: output build info
         shell: bash
