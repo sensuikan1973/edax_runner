@@ -1,3 +1,7 @@
+# 3.2.0
+
+update release workflow.
+
 # 3.1.3
 
 upgrade dependencies.
