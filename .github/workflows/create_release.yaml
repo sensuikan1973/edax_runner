@@ -46,6 +46,9 @@ jobs:
         shell: bash
         run: ./scripts/build_edax_runner.sh ${{ matrix.edax_runner_bin_name }} ${{ matrix.libedax_shared_library_name }}
 
+      - name: create directory for publish
+      -
+
       - name: output build info
         shell: bash
         run: .github/scripts/output_build_info.sh build
