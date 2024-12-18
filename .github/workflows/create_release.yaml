@@ -46,9 +46,13 @@ jobs:
         shell: bash
         run: ./scripts/build_edax_runner.sh ${{ matrix.edax_runner_bin_name }} ${{ matrix.libedax_shared_library_name }}
 
+      - name: create directory for publish
+        shell: bash
+        run: cp build edax_runner
+
       - name: output build info
         shell: bash
-        run: .github/scripts/output_build_info.sh build
+        run: .github/scripts/output_build_info.sh edax_runner
 
       - name: inject current version
         shell: bash
@@ -56,10 +60,10 @@ jobs:
 
       - name: compress files (Windows)
         if: runner.os == 'Windows'
-        run: powershell Compress-Archive -Path build -DestinationPath edax_runner-${{ matrix.os }}.zip
+        run: powershell Compress-Archive -Path edax_runner -DestinationPath edax_runner-${{ matrix.os }}.zip
       - name: compress files (Linux, MacOS)
         if: runner.os == 'macOS' || runner.os == 'Linux'
-        run: zip -r edax_runner-${{ matrix.os }}.zip build
+        run: zip -r edax_runner-${{ matrix.os }}.zip edax_runner
 
       - uses: softprops/action-gh-release@v2
         env:
