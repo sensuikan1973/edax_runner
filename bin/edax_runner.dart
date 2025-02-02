@@ -20,7 +20,7 @@ Future<void> main(final List<String> arguments) async {
     ..edaxPlayPrint();
 
   while (true) {
-    final text = await _getNextLearningText();
+    final text = await _retriveNextLearningText();
     if (text == 'exit' || text.isEmpty) {
       edax.libedaxTerminate();
       _log('edax has terminated.');
@@ -57,7 +57,7 @@ String get _edaxSharedLibraryPath {
   throw Exception('${Platform.operatingSystem} is not supported');
 }
 
-Future<String> _getNextLearningText() async {
+Future<String> _retriveNextLearningText() async {
   final file = File(_learningListFile);
   final lines = await file.readAsLines();
   return lines.firstWhere((final line) => !line.contains(_commentHead), orElse: () => '').trim();
