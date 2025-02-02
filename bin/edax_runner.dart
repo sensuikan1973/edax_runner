@@ -97,7 +97,10 @@ void _doEdaxVsEdaxWithRandomness(final LibEdax edax, final String moves, final i
     stdout.writeln();
     edax.edaxPlayPrint();
   }
-  _log('game over. will book store and save.');
+  _log(
+    'has finished edax vs edax.'
+    'moves: $moves, randomness: $randomness',
+  );
   edax
     ..edaxMode(3)
     ..edaxBookStore();
