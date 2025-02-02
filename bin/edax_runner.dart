@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'dart:math';
 
-import 'package:cli_util/cli_logging.dart';
 import 'package:libedax4dart/libedax4dart.dart';
 
 const String _bookFile = 'data/book.dat';
@@ -21,7 +20,7 @@ Future<void> main(final List<String> arguments) async {
     ..edaxPlayPrint();
 
   while (true) {
-    final text = await _retriveNextLearningText();
+    final text = await _retrieveNextLearningText();
     if (text == 'exit' || text.isEmpty) {
       edax.libedaxTerminate();
       _log('edax has terminated.');
@@ -58,7 +57,7 @@ String get _edaxSharedLibraryPath {
   throw Exception('${Platform.operatingSystem} is not supported');
 }
 
-Future<String> _retriveNextLearningText() async {
+Future<String> _retrieveNextLearningText() async {
   final file = File(_learningListFile);
   final lines = await file.readAsLines();
   return lines.firstWhere((final line) => !line.contains(_commentHead), orElse: () => '').trim();
@@ -80,15 +79,11 @@ Future<void> _removeLearnedText() async {
 
 void _log(final String msg) => stdout.writeln('\n[edax_runner] $msg\n');
 
-Progress _buildLoggerProgress(final String msg) => Logger.verbose().progress(msg);
-
 void _doEdaxBookFix(final LibEdax edax) {
-  final progress = _buildLoggerProgress('book fix.');
-  sleep(Duration(seconds: 1));
   edax
     ..edaxBookFix()
     ..edaxPlayPrint();
-  progress.finish(message: "tesss", showTiming: true);
+  _log('has finished book fix.');
 }
 
 void _doEdaxVsEdaxWithRandomness(final LibEdax edax, final String moves, final int randomness) {
