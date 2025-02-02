@@ -99,7 +99,7 @@ void _doEdaxVsEdaxWithRandomness(final LibEdax edax, final String moves, final i
   }
   _log(
     'has finished edax vs edax.'
-    'moves: $moves, randomness: $randomness.',
+    ' moves: $moves, randomness: $randomness.',
   );
   edax
     ..edaxMode(3)
@@ -118,7 +118,7 @@ void _doEdaxBookDeviate(final LibEdax edax, final String moves, final int relati
   edax.edaxBookDeviate(relativeError, absoluteError);
   _log(
     'has finished book deviate.'
-    'moves: $moves, relativeError: $relativeError, absoluteError: $absoluteError.',
+    ' moves: $moves, relativeError: $relativeError, absoluteError: $absoluteError.',
   );
   edax.edaxBookFix();
   _log('has finished book fix.');
