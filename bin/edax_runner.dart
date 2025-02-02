@@ -115,7 +115,7 @@ void _doEdaxBookDeviate(final LibEdax edax, final String moves, final int relati
   edax.edaxBookDeviate(relativeError, absoluteError);
   _log(
     'has finished book deviate.'
-    'move: $moves, relative error: $relativeError, absolute error: $absoluteError.',
+    'moves: $moves, relativeError: $relativeError, absoluteError: $absoluteError.',
   );
   edax.edaxBookFix();
   _log('has finished book fix.');
