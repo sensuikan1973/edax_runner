@@ -99,7 +99,7 @@ void _doEdaxVsEdaxWithRandomness(final LibEdax edax, final String moves, final i
   }
   _log(
     'has finished edax vs edax.'
-    'moves: $moves, randomness: $randomness',
+    'moves: $moves, randomness: $randomness.',
   );
   edax
     ..edaxMode(3)
