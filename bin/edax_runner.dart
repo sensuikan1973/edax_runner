@@ -88,7 +88,7 @@ void _doEdaxBookFix(final LibEdax edax) {
   edax
     ..edaxBookFix()
     ..edaxPlayPrint();
-  progress.finish(showTiming: true);
+  progress.finish(message: "tesss", showTiming: true);
 }
 
 void _doEdaxVsEdaxWithRandomness(final LibEdax edax, final String moves, final int randomness) {
