@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'dart:math';
 
+import 'package:cli_util/cli_logging.dart';
 import 'package:libedax4dart/libedax4dart.dart';
 
 const String _bookFile = 'data/book.dat';
@@ -79,11 +80,14 @@ Future<void> _removeLearnedText() async {
 
 void _log(final String msg) => stdout.writeln('\n[edax_runner] $msg\n');
 
+Progress _buildLoggerProgress(final String msg) => Logger.verbose().progress(msg);
+
 void _doEdaxBookFix(final LibEdax edax) {
+  final progress = _buildLoggerProgress('book fix.');
   edax
     ..edaxBookFix()
     ..edaxPlayPrint();
-  _log('has finished book fix.');
+  progress.finish(showTiming: true);
 }
 
 void _doEdaxVsEdaxWithRandomness(final LibEdax edax, final String moves, final int randomness) {
