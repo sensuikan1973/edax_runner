@@ -20,7 +20,7 @@ Future<void> main(final List<String> arguments) async {
     ..edaxPlayPrint();
 
   while (true) {
-    final text = await _getNextLearningText();
+    final text = await _retrieveNextLearningText();
     if (text == 'exit' || text.isEmpty) {
       edax.libedaxTerminate();
       _log('edax has terminated.');
@@ -57,7 +57,7 @@ String get _edaxSharedLibraryPath {
   throw Exception('${Platform.operatingSystem} is not supported');
 }
 
-Future<String> _getNextLearningText() async {
+Future<String> _retrieveNextLearningText() async {
   final file = File(_learningListFile);
   final lines = await file.readAsLines();
   return lines.firstWhere((final line) => !line.contains(_commentHead), orElse: () => '').trim();
@@ -101,10 +101,12 @@ void _doEdaxVsEdaxWithRandomness(final LibEdax edax, final String moves, final i
     'has finished edax vs edax.'
     ' moves: $moves, randomness: $randomness.',
   );
+  _log('next, book store...');
   edax
     ..edaxMode(3)
     ..edaxBookStore();
   _log('has finished book store.');
+  _log('next, book store...');
   edax.edaxBookSave(_bookFile);
   _log('has finished book save.');
 }
@@ -120,8 +122,10 @@ void _doEdaxBookDeviate(final LibEdax edax, final String moves, final int relati
     'has finished book deviate.'
     ' moves: $moves, relativeError: $relativeError, absoluteError: $absoluteError.',
   );
+  _log('next, book fix...');
   edax.edaxBookFix();
   _log('has finished book fix.');
+  _log('next, book save...');
   edax.edaxBookSave(_bookFile);
   _log('has finished book save.');
 }
