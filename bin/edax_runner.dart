@@ -84,6 +84,7 @@ Progress _buildLoggerProgress(final String msg) => Logger.verbose().progress(msg
 
 void _doEdaxBookFix(final LibEdax edax) {
   final progress = _buildLoggerProgress('book fix.');
+  sleep(Duration(seconds: 1));
   edax
     ..edaxBookFix()
     ..edaxPlayPrint();
