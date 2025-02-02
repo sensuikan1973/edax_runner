@@ -44,7 +44,7 @@ Future<void> main(final List<String> arguments) async {
       _doEdaxBookDeviate(edax, moves, relativeError, absoluteError);
     }
 
-    _log('has finished learning, and will remove "$text".');
+    _log('has finished learning "$text".');
     await _removeLearnedText();
     _log('has removed "$text".');
   }
@@ -83,6 +83,7 @@ void _doEdaxBookFix(final LibEdax edax) {
   edax
     ..edaxBookFix()
     ..edaxPlayPrint();
+  _log('has finished book fix.');
 }
 
 void _doEdaxVsEdaxWithRandomness(final LibEdax edax, final String moves, final int randomness) {
@@ -99,9 +100,10 @@ void _doEdaxVsEdaxWithRandomness(final LibEdax edax, final String moves, final i
   _log('game over. will book store and save.');
   edax
     ..edaxMode(3)
-    ..edaxBookStore()
-    ..edaxBookSave(_bookFile);
-  _log('has finished book store and save.');
+    ..edaxBookStore();
+  _log('has finished book store.');
+  edax.edaxBookSave(_bookFile);
+  _log('has finished book save.');
 }
 
 void _doEdaxBookDeviate(final LibEdax edax, final String moves, final int relativeError, final int absoluteError) {
@@ -111,9 +113,10 @@ void _doEdaxBookDeviate(final LibEdax edax, final String moves, final int relati
     ..edaxPlayPrint();
   stdout.writeln();
   _log('will book deviate and save.');
-  edax
-    ..edaxBookDeviate(relativeError, absoluteError)
-    ..edaxBookFix()
-    ..edaxBookSave(_bookFile);
-  _log('has finished book deviate and save.');
+  edax.edaxBookDeviate(relativeError, absoluteError);
+  _log('has finished book deviate.');
+  edax.edaxBookFix();
+  _log('has finished book fix.');
+  edax.edaxBookSave(_bookFile);
+  _log('has finished book save.');
 }
