@@ -1,3 +1,7 @@
+# 3.6.0
+
+update logging message.
+
 # 3.5.0
 
 upgrade dependencies.
