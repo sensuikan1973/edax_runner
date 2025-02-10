@@ -122,10 +122,10 @@ void _doEdaxBookDeviate(final LibEdax edax, final String moves, final int relati
     'has finished book deviate.'
     ' moves: $moves, relativeError: $relativeError, absoluteError: $absoluteError.',
   );
-  _log('next, book fix...');
-  edax.edaxBookFix();
-  _log('has finished book fix.');
   _log('next, book save...');
   edax.edaxBookSave(_bookFile);
   _log('has finished book save.');
+  _log('next, book fix...');
+  edax.edaxBookFix();
+  _log('has finished book fix.');
 }
