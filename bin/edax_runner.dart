@@ -8,16 +8,25 @@ const String _learningListFile = 'learning_list.txt';
 const String _learnedLogFile = 'learned_log.txt';
 const String _commentHead = '//';
 final _edaxVsEdaxRegexp = RegExp(r'^([a-hA-H]{1}[1-8]{1})+$'); // e.g. "f5f6f7"
-final _edaxVsEdaxWithRandomnessRegexp = RegExp(r'^(\d+)(,)(([a-hA-H]{1}[1-8]{1})+)$'); // e.g. "3,f5f6f7"
-final _bookDeviateRegexp = RegExp(r'^(\[)(\d+)(\s+)(\d+)(\])(\s+)(([a-hA-H]{1}[1-8]{1})+)$'); // e.g. "[1 3] f5f6f7"
+final _edaxVsEdaxWithRandomnessRegexp = RegExp(
+  r'^(\d+)(,)(([a-hA-H]{1}[1-8]{1})+)$',
+); // e.g. "3,f5f6f7"
+final _bookDeviateRegexp = RegExp(
+  r'^(\[)(\d+)(\s+)(\d+)(\])(\s+)(([a-hA-H]{1}[1-8]{1})+)$',
+); // e.g. "[1 3] f5f6f7"
 
 Future<void> main(final List<String> arguments) async {
   _log('edax shared library: $_edaxSharedLibraryPath.');
-  final edax = LibEdax(_edaxSharedLibraryPath)
-    ..libedaxInitialize(['', '-book-file', _bookFile]) // NOTE: prioritize `edax.ini`.
-    ..edaxInit()
-    ..edaxEnableBookVerbose()
-    ..edaxPlayPrint();
+  final edax =
+      LibEdax(_edaxSharedLibraryPath)
+        ..libedaxInitialize([
+          '',
+          '-book-file',
+          _bookFile,
+        ]) // NOTE: prioritize `edax.ini`.
+        ..edaxInit()
+        ..edaxEnableBookVerbose()
+        ..edaxPlayPrint();
 
   while (true) {
     final text = await _retrieveNextLearningText();
@@ -29,7 +38,9 @@ Future<void> main(final List<String> arguments) async {
     _log('start to learn "$text".');
 
     if (text == 'fix') _doEdaxBookFix(edax);
-    if (_edaxVsEdaxRegexp.hasMatch(text)) _doEdaxVsEdaxWithRandomness(edax, text, 0);
+    if (_edaxVsEdaxRegexp.hasMatch(text)) {
+      _doEdaxVsEdaxWithRandomness(edax, text, 0);
+    }
     if (_edaxVsEdaxWithRandomnessRegexp.hasMatch(text)) {
       final match = _edaxVsEdaxWithRandomnessRegexp.firstMatch(text);
       final moves = match!.group(3) ?? '';
@@ -60,7 +71,12 @@ String get _edaxSharedLibraryPath {
 Future<String> _retrieveNextLearningText() async {
   final file = File(_learningListFile);
   final lines = await file.readAsLines();
-  return lines.firstWhere((final line) => !line.contains(_commentHead), orElse: () => '').trim();
+  return lines
+      .firstWhere(
+        (final line) => !line.contains(_commentHead),
+        orElse: () => '',
+      )
+      .trim();
 }
 
 Future<void> _removeLearnedText() async {
@@ -86,7 +102,11 @@ void _doEdaxBookFix(final LibEdax edax) {
   _log('has finished book fix.');
 }
 
-void _doEdaxVsEdaxWithRandomness(final LibEdax edax, final String moves, final int randomness) {
+void _doEdaxVsEdaxWithRandomness(
+  final LibEdax edax,
+  final String moves,
+  final int randomness,
+) {
   edax
     ..edaxInit()
     ..edaxSetOption('book-randomness', randomness.toString())
@@ -111,7 +131,12 @@ void _doEdaxVsEdaxWithRandomness(final LibEdax edax, final String moves, final i
   _log('has finished book save.');
 }
 
-void _doEdaxBookDeviate(final LibEdax edax, final String moves, final int relativeError, final int absoluteError) {
+void _doEdaxBookDeviate(
+  final LibEdax edax,
+  final String moves,
+  final int relativeError,
+  final int absoluteError,
+) {
   edax
     ..edaxInit()
     ..edaxPlay(moves)
