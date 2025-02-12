@@ -3,7 +3,7 @@
 ## format
 
 ```sh
-dart format . -l 120
+dart format
 ```
 
 ## compile
