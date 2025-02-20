@@ -19,7 +19,7 @@ dart format
 ./scripts/build_edax_runner.sh edax_runner.exe libedax-x64.dll
 ```
 
-## fetch libedax assets
+## upgrade libedax assets
 
 ```sh
 ./scripts/fetch_libedax_assets.sh
