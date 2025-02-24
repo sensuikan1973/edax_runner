@@ -1,3 +1,5 @@
 {
-  "editor.formatOnSave": true
+  "[dart]": {
+    "editor.formatOnSave": true
+  },
 }
