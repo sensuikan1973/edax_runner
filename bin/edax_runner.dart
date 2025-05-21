@@ -17,16 +17,15 @@ final _bookDeviateRegexp = RegExp(
 
 Future<void> main(final List<String> arguments) async {
   _log('edax shared library: $_edaxSharedLibraryPath.');
-  final edax =
-      LibEdax(_edaxSharedLibraryPath)
-        ..libedaxInitialize([
-          '',
-          '-book-file',
-          _bookFile,
-        ]) // NOTE: prioritize `edax.ini`.
-        ..edaxInit()
-        ..edaxEnableBookVerbose()
-        ..edaxPlayPrint();
+  final edax = LibEdax(_edaxSharedLibraryPath)
+    ..libedaxInitialize([
+      '',
+      '-book-file',
+      _bookFile,
+    ]) // NOTE: prioritize `edax.ini`.
+    ..edaxInit()
+    ..edaxEnableBookVerbose()
+    ..edaxPlayPrint();
 
   while (true) {
     final text = await _retrieveNextLearningText();
