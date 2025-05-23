@@ -85,10 +85,10 @@ packages:
     dependency: "direct main"
     description:
       name: libedax4dart
-      sha256: "750061ba853130f4d2b04674cb45bbff5a8ad224c2773d98267288027ca15426"
+      sha256: b5be1409b36169f99fb19c6076bd7d7be5f20def976671822a2307f61e8defe6
       url: "https://pub.dev"
     source: hosted
-    version: "7.44.0"
+    version: "7.45.0"
   lints:
     dependency: transitive
     description:
@@ -125,10 +125,10 @@ packages:
     dependency: "direct dev"
     description:
       name: pedantic_sensuikan1973
-      sha256: bba678bc9c3409c2e26811ad12064dc96817f4b5acfc5c2d2cb01353f2502bd0
+      sha256: e3ac40a3c25f687bb1fa0e6ebeadd4b96a48b940873856fc7fb7ba9729ffd293
       url: "https://pub.dev"
     source: hosted
-    version: "5.12.0"
+    version: "5.13.0"
   pub_semver:
     dependency: transitive
     description:
