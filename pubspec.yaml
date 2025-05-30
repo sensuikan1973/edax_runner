@@ -16,4 +16,4 @@ dependencies:
 
 dev_dependencies:
   analyzer: ^7.4.5
-  pedantic_sensuikan1973: ^5.14.0
+  pedantic_sensuikan1973: ^5.15.0
