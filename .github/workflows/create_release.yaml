@@ -14,8 +14,7 @@ jobs:
     runs-on: ${{ matrix.runner_machine }}
     timeout-minutes: 10
     strategy:
-      # workaround for https://github.com/softprops/action-gh-release/issues/445
-      max-parallel: 1
+      max-parallel: 1 # workaround for https://github.com/softprops/action-gh-release/issues/445
       matrix:
         os: [ubuntu-latest, windows-latest, macos-intel-silicon, macos-latest]
         include: # See: https://docs.github.com/ja/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#using-environment-variables-in-a-matrix
