@@ -16,7 +16,7 @@ final _bookDeviateRegexp = RegExp(
 ); // e.g. "[1 3] f5f6f7"
 
 Future<void> main(final List<String> arguments) async {
-  _log('edax shared library: $_edaxSharedLibraryPath.');
+  _print('edax shared library: $_edaxSharedLibraryPath.');
   final edax = LibEdax(_edaxSharedLibraryPath)
     ..libedaxInitialize([
       '',
@@ -31,10 +31,10 @@ Future<void> main(final List<String> arguments) async {
     final text = await _retrieveNextLearningText();
     if (text == 'exit' || text.isEmpty) {
       edax.libedaxTerminate();
-      _log('edax has terminated.');
+      _print('edax has terminated.');
       break;
     }
-    _log('start to learn "$text".');
+    _print('start to learn "$text".');
 
     if (text == 'fix') _doEdaxBookFix(edax);
     if (_edaxVsEdaxRegexp.hasMatch(text)) {
@@ -54,9 +54,9 @@ Future<void> main(final List<String> arguments) async {
       _doEdaxBookDeviate(edax, moves, relativeError, absoluteError);
     }
 
-    _log('has finished learning "$text".');
+    _print('has finished learning "$text".');
     await _removeLearnedText();
-    _log('has removed "$text".');
+    _print('has removed "$text".');
   }
 }
 
@@ -92,13 +92,13 @@ Future<void> _removeLearnedText() async {
   await srcFile.writeAsString(lines.join('\n'));
 }
 
-void _log(final String msg) => stdout.writeln('\n[edax_runner] $msg\n');
+void _print(final String msg) => stdout.writeln('\n[edax_runner] $msg\n');
 
 void _doEdaxBookFix(final LibEdax edax) {
   edax
     ..edaxBookFix()
     ..edaxPlayPrint();
-  _log('has finished book fix.');
+  _print('has finished book fix.');
 }
 
 void _doEdaxVsEdaxWithRandomness(
@@ -116,18 +116,18 @@ void _doEdaxVsEdaxWithRandomness(
     stdout.writeln();
     edax.edaxPlayPrint();
   }
-  _log(
+  _print(
     'has finished edax vs edax.'
     ' moves: $moves, randomness: $randomness.',
   );
-  _log('next, book store...');
+  _print('book store...');
   edax
     ..edaxMode(3)
     ..edaxBookStore();
-  _log('has finished book store.');
-  _log('next, book store...');
+  _print('has finished book store.');
+  _print('book save...');
   edax.edaxBookSave(_bookFile);
-  _log('has finished book save.');
+  _print('has finished book save.');
 }
 
 void _doEdaxBookDeviate(
@@ -142,14 +142,14 @@ void _doEdaxBookDeviate(
     ..edaxPlayPrint();
   stdout.writeln();
   edax.edaxBookDeviate(relativeError, absoluteError);
-  _log(
+  _print(
     'has finished book deviate.'
     ' moves: $moves, relativeError: $relativeError, absoluteError: $absoluteError.',
   );
-  _log('next, book save...');
+  _print('book save...');
   edax.edaxBookSave(_bookFile);
-  _log('has finished book save.');
-  _log('next, book fix...');
+  _print('has finished book save.');
+  _print('book fix...');
   edax.edaxBookFix();
-  _log('has finished book fix.');
+  _print('has finished book fix.');
 }
