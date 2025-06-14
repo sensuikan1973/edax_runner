@@ -25,7 +25,7 @@ Future<void> main(final List<String> arguments) async {
     ]) // NOTE: prioritize `edax.ini`.
     ..edaxInit();
 
-  _print('the current edax options are displayed below');
+  _print('the current edax options are displayed below.');
   edax.edaxOptionsDump();
 
   edax
