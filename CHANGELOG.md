@@ -1,7 +1,7 @@
 # 4.0.0
 
-Up until now "[x y] moves" also executes book-fix command implicitly, but from now on "[x y] moves" doesn't.
-When you want to execute book-fix command, you have to write text "fix" on learning_list.txt.
+Up until now "[x y] moves" executes book-fix command implicitly, but from now on "[x y] moves" doesn't.
+When you want to execute book-fix command, you have to write text "fix" on learning_list.txt　explicitly.
 
 # 3.14.0
 
