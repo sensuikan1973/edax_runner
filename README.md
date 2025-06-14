@@ -60,7 +60,6 @@ There are **only 3 rules**. Example is [here](https://github.com/sensuikan1973/e
 - NOTE
   - The default value of `book-randomness` is `0`
   - What's `book deviate` ?: See [edax document](https://sensuikan1973.github.io/edax-reversi/book_8c.html#ae9ee489a468274fd83808c53da0418c9), [Choirokoitia document](https://choi.lavox.net/edax/start)
-  - Although `book fix` is auto-ran internally, you can run `book fix` expressly.  If you want, write `fix` in `learning_list.txt`.
 
 ## References
 

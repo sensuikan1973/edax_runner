@@ -149,7 +149,4 @@ void _doEdaxBookDeviate(
   _print('book save...');
   edax.edaxBookSave(_bookFile);
   _print('has finished book save.');
-  _print('book fix...');
-  edax.edaxBookFix();
-  _print('has finished book fix.');
 }
