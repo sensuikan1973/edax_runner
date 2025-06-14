@@ -1,3 +1,7 @@
+# 4.0.0
+
+up until now [x y] moves also executes book-fix command implicitly, but from now on [x y] moves doesn't.
+
 # 3.14.0
 
 improve print messages.
