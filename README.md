@@ -50,7 +50,7 @@ start ./edax_runner.exe
 
 There are **only 3 rules**. Example is [here](https://github.com/sensuikan1973/edax_runner/blob/main/resources/learning_list.txt).
 
-| purpose                        | format                                 | example                |
+| edax command                   | format                                 | example                |
 | :----------------------------- | :------------------------------------- | :--------------------- |
 | learn one game of edax vs edax | `{book-randomness},{move}`             | `2,F5F6F7F8`           |
 | book deviate                   | `[relativeError absoluteError] {move}` | `[1 1] F5F6F7F8`       |
