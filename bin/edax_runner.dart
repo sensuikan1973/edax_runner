@@ -24,6 +24,7 @@ Future<void> main(final List<String> arguments) async {
       _bookFile,
     ]) // NOTE: prioritize `edax.ini`.
     ..edaxInit()
+    ..edaxOptionsDump()
     ..edaxEnableBookVerbose()
     ..edaxPlayPrint();
 
