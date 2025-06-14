@@ -50,12 +50,12 @@ start ./edax_runner.exe
 
 There are **only 3 rules**. Example is [here](https://github.com/sensuikan1973/edax_runner/blob/main/resources/learning_list.txt).
 
-| edax command                   | format                                 | example                |
+| purpose                        | format                                 | example                |
 | :----------------------------- | :------------------------------------- | :--------------------- |
 | learn one game of edax vs edax | `{book-randomness},{move}`             | `2,F5F6F7F8`           |
-| book deviate                   | `[relativeError absoluteError] {move}` | `[1 1] F5F6F7F8`       |
+| `book deviate` command         | `[relativeError absoluteError] {move}` | `[1 1] F5F6F7F8`       |
 | comment                        | `// {your comment}`                    | `// I like Brightwell` |
-| book fix                       | `fix`                                  | `fix`                  |
+| `book fix` command             | `fix`                                  | `fix`                  |
 
 - NOTE
   - The default value of `book-randomness` is `0`
