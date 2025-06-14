@@ -23,8 +23,12 @@ Future<void> main(final List<String> arguments) async {
       '-book-file',
       _bookFile,
     ]) // NOTE: prioritize `edax.ini`.
-    ..edaxInit()
-    ..edaxOptionsDump()
+    ..edaxInit();
+
+  _print('the current edax options are displayed below');
+  edax.edaxOptionsDump();
+
+  edax
     ..edaxEnableBookVerbose()
     ..edaxPlayPrint();
 
@@ -144,8 +148,7 @@ void _doEdaxBookDeviate(
   stdout.writeln();
   edax.edaxBookDeviate(relativeError, absoluteError);
   _print(
-    'has finished book deviate.'
-    ' moves: $moves, relativeError: $relativeError, absoluteError: $absoluteError.',
+    'has finished book deviate. moves: $moves, relativeError: $relativeError, absoluteError: $absoluteError.',
   );
   _print('book save...');
   edax.edaxBookSave(_bookFile);
