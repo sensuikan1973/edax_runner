@@ -1,3 +1,7 @@
+# 4.1.0
+
+upgrade dependencies.
+
 # 4.0.0
 
 Up until now "[x y] moves" executes `book-fix` command implicitly, but from now on "[x y] moves" doesn't.  
