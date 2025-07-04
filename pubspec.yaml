@@ -11,9 +11,9 @@ environment:
 
 dependencies:
   # cli_util: ^0.4.2 # https://pub.dev/packages/cli_util#displaying-output-and-progress
-  libedax4dart: ^7.48.0
+  libedax4dart: ^7.49.0
   meta: ^1.17.0
 
 dev_dependencies:
-  analyzer: ^7.5.2
+  analyzer: ^7.5.4
   pedantic_sensuikan1973: ^5.15.0
