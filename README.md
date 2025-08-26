@@ -59,12 +59,12 @@ There are **only 3 rules**. Example is [here](https://github.com/sensuikan1973/e
 | `book fix` command             | `fix`                                  | `fix`                  |
 
 - NOTE
-  - The default value of `book-randomness` is `0`
+  - The default value of `book-randomness` is `0`. So, you can also write `F5F6F7` which is equal to `0,F5F6F7`.
   - What's `book deviate` ?: See [edax document](https://sensuikan1973.github.io/edax-reversi/book_8c.html#ae9ee489a468274fd83808c53da0418c9), [Choirokoitia document](https://choi.lavox.net/edax/start)
 
 ## References
 
-- **[edax-reversi](https://github.com/abulmo/edax-reversi)**
+- [edax-reversi](https://github.com/abulmo/edax-reversi)
   - [code/releases archive](https://code.google.com/archive/p/edax-reversi/downloads)
   - [website archive](https://archive.is/KshiN)
   - [document](https://sensuikan1973.github.io/edax-reversi/)
