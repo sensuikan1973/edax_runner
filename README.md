@@ -6,7 +6,7 @@
 <img src="https://github.com/sensuikan1973/edax_runner/blob/main/resources/logo.png?raw=true" alt="edax-runner" />
 </p>
 
-**tiny tool for [edax-reversi](https://github.com/sensuikan1973/edax-reversi) auto learning**.
+tiny tool for [edax-reversi](https://github.com/sensuikan1973/edax-reversi) **auto** learning.
 
 - **you can write learning list as simple format txt**.
   - you can also check the logs.
