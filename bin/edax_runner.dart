@@ -16,7 +16,7 @@ final _bookDeviateRegexp = RegExp(
 ); // e.g. "[1 3] f5f6f7"
 
 Future<void> main(final List<String> arguments) async {
-  _print('edax shared library: $_edaxSharedLibraryPath.');
+  _print('launching edax_runner...');
   final edax = LibEdax(_edaxSharedLibraryPath)
     ..libedaxInitialize([
       '',
