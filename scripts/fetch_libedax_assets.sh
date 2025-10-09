@@ -17,7 +17,7 @@ tag=$(dart pub deps | grep "libedax4dart" | awk -F 'libedax4dart ' '{print $2}')
 asset_url_prefix=https://github.com/sensuikan1973/libedax4dart/releases/download/$tag
 # See: https://github.com/sensuikan1973/libedax4dart/releases/latest
 
-function unpack_dyamic_library() {
+function unpack_dynamic_library() {
   platform=$1
   asset_url=$2
   lib_name=$3
@@ -28,11 +28,11 @@ function unpack_dyamic_library() {
 }
 
 # Linux dynamic library
-unpack_dyamic_library linux "$asset_url_prefix/Linux.zip" libedax.so resources/dll
+unpack_dynamic_library linux "$asset_url_prefix/Linux.zip" libedax.so resources/dll
 # Windows dynamic library
-unpack_dyamic_library windows "$asset_url_prefix/Windows.zip" libedax-x64.dll resources/dll
+unpack_dynamic_library windows "$asset_url_prefix/Windows.zip" libedax-x64.dll resources/dll
 # MacOS dynamic library
-unpack_dyamic_library macos "$asset_url_prefix/macOS.zip" libedax.universal.dylib resources/dll
+unpack_dynamic_library macos "$asset_url_prefix/macOS.zip" libedax.universal.dylib resources/dll
 
 # data
 mv "$tmp_dst/linux/libedax_output/data/eval.dat" "$data_dst"
