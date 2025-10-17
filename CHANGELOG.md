@@ -1,3 +1,7 @@
+# 4.6.0
+
+upgrade dependencies.
+
 # 4.5.0
 
 improve the message on launching.
