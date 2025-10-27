@@ -54,7 +54,7 @@ jobs:
       - name: tar files
         run: tar -cvf ${{ runner.os }}.tar build
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         with:
           name: edax_runner-artifacts ${{ matrix.os }}
           path: build
