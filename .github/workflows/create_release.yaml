@@ -8,13 +8,14 @@ on:
     types: [closed]
 
 jobs:
-  create_release:
+  build:
     # See: .github/workflows/create_release_pr.yaml
     if: ${{ github.head_ref == 'prepare_for_release' && github.event.pull_request.merged == true }}
     runs-on: ${{ matrix.runner_machine }}
     timeout-minutes: 10
+    outputs:
+      version: ${{ steps.get_version.outputs.version }}
     strategy:
-      max-parallel: 1 # workaround for https://github.com/softprops/action-gh-release/issues/445
       matrix:
         os: [ubuntu-latest, windows-latest, macos-intel-silicon, macos-latest]
         include: # See: https://docs.github.com/ja/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#using-environment-variables-in-a-matrix
@@ -55,9 +56,12 @@ jobs:
         shell: bash
         run: .github/scripts/output_build_info.sh edax_runner
 
-      - name: inject current version
+      - name: get current version
+        id: get_version
         shell: bash
-        run: echo "CURRENT_VERSION=$(dart pub deps --style compact | grep "edax_runner" | cut -c 13-)" >> $GITHUB_ENV
+        run: |
+          VERSION=$(dart pub deps --style compact | grep "edax_runner" | cut -c 13-)
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
 
       - name: compress files (Windows)
         if: runner.os == 'Windows'
@@ -66,10 +70,26 @@ jobs:
         if: runner.os == 'macOS' || runner.os == 'Linux'
         run: zip -r edax_runner-${{ matrix.os }}.zip edax_runner
 
+      - name: upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: edax_runner-${{ matrix.os }}
+          path: edax_runner-${{ matrix.os }}.zip
+
+  create_release:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+
       - uses: softprops/action-gh-release@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ env.CURRENT_VERSION }}
-          files: edax_runner-${{ matrix.os }}.zip
+          tag_name: ${{ needs.build.outputs.version }}
+          files: artifacts/edax_runner-*/*.zip
           generate_release_notes: true
