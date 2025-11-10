@@ -71,7 +71,7 @@ jobs:
         run: zip -r edax_runner-${{ matrix.os }}.zip edax_runner
 
       - name: upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: edax_runner-${{ matrix.os }}
           path: edax_runner-${{ matrix.os }}.zip
