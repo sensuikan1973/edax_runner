@@ -47,11 +47,6 @@ jobs:
             runner_machine: windows-latest
             edax_runner_bin_name: edax_runner.exe
             libedax_shared_library_name: libedax-x64.dll
-          - os: macos-intel-silicon
-            # https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners#standard-github-hosted-runners-for-public-repositories
-            runner_machine: macos-13
-            edax_runner_bin_name: edax_runner
-            libedax_shared_library_name: libedax.universal.dylib
           - os: macos-latest # apple silicon
             # https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners#standard-github-hosted-runners-for-public-repositories
             runner_machine: macos-latest
