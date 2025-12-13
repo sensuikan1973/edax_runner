@@ -1,6 +1,6 @@
 # 5.0.0
 
-drop macos with intel silicon
+drop the support for macos with intel silicon.
 
 # 4.7.1
 
