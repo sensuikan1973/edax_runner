@@ -15,5 +15,5 @@ dependencies:
   meta: ^1.18.1
 
 dev_dependencies:
-  analyzer: ^10.0.1
+  analyzer: ^10.0.2
   pedantic_sensuikan1973: ^5.16.0
