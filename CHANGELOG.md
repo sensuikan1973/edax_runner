@@ -1,3 +1,7 @@
+# 5.0.1
+
+upgrade dependencies.
+
 # 5.0.0
 
 drop the support for macos with intel silicon.
