@@ -5,18 +5,18 @@ packages:
     dependency: transitive
     description:
       name: _fe_analyzer_shared
-      sha256: "796d97d925add7ffcdf5595f33a2066a6e3cee97971e6dbef09b76b7880fd760"
+      sha256: "0e4db51a88671b676adc09e923ffebd765a1f0c2b04dc19b08b35a335de2972c"
       url: "https://pub.dev"
     source: hosted
-    version: "94.0.0"
+    version: "95.0.0"
   analyzer:
     dependency: "direct dev"
     description:
       name: analyzer
-      sha256: "9c8ebb304d72c0a0c8764344627529d9503fc83d7d73e43ed727dc532f822e4b"
+      sha256: "3d577a36cde804a46bd1d89e673c3d87c3538c49a39c35d4d336f7760b48c319"
       url: "https://pub.dev"
     source: hosted
-    version: "10.0.2"
+    version: "10.1.0"
   async:
     dependency: transitive
     description:
@@ -85,10 +85,10 @@ packages:
     dependency: "direct main"
     description:
       name: libedax4dart
-      sha256: b99fa8ac8eccd54bc121459f8e0043c89e7401ef95d763b0d58e57a039b6e87e
+      sha256: c2f884768b7c5d68286e6078a9fd98ccb6d869b017a51b51c0d94729e579070a
       url: "https://pub.dev"
     source: hosted
-    version: "7.63.0"
+    version: "7.64.0"
   lints:
     dependency: transitive
     description:
