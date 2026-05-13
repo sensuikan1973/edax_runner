@@ -1,3 +1,7 @@
+# 5.2.0
+
+upgrade dependencies.
+
 # 5.1.0
 
 upgrade dependencies.
