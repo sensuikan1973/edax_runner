@@ -32,7 +32,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v7
-      - uses: dart-lang/setup-dart@v1.7.2
+      - uses: dart-lang/setup-dart@v1.8.0
       - name: install dependencies
         run: dart pub get
 
